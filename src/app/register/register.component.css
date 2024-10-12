@@ -1,0 +1,44 @@
+body {
+    background-color:#111 !important;
+} 
+
+.form {
+    padding: 20px 70px;
+    background: linear-gradient(120deg, #3A3A3A, #111);
+}
+
+.card {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card-video-left {
+    width: 50%;
+    object-fit: cover;
+}
+
+.form-card {
+    padding: 30px;
+    background-color: #333;
+    color: white;
+}
+
+.form-control {
+    background-color: #444;
+    border: none;
+    border-radius:10px;
+    color: white;
+}
+
+.form-control:focus {
+    background-color: #555;
+    color: white;
+    border-color: #ffa500;
+    box-shadow: none;
+}
+
+.btn-submit {
+    background-color: #ffa500;
+    border: none;
+    color: black;
+}

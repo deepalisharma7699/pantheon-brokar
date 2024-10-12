@@ -1,0 +1,39 @@
+@font-face {
+    font-family: 'CustomFont';
+    src: url('../../assets/fonts/ExemplarPro-Regular.otf') format('otf');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  /* Apply the custom font globally or to specific elements */
+  body {
+    font-family: "ExemplarPro", Sans-serif;
+  }
+.container{
+    padding:20px;
+    background-color: #000000;
+}
+.card .card-body{
+    background-color: #3A3A3A;
+}
+.form-section {
+    padding: 20px;
+    color:white;
+    background-color: black;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .nav-tabs .nav-link {
+    border: none;
+    border-radius: 0;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .nav-tabs .nav-link.active {
+    background-color: #000000;
+    color: #ffffff;
+    font-weight: bold;
+  }
+  
