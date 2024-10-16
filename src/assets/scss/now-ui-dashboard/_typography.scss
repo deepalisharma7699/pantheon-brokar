@@ -1,3 +1,7 @@
+.exemplarPro-family{
+    font-family: $exemplarPro-family;
+}
+
 button,
 input,
 optgroup,
@@ -17,7 +21,8 @@ a{
     }
 }
 h1, .h1 {
-    font-size: $font-size-h1;
+    // font-size: $font-size-h1;
+    font-size: 45px;
     line-height: 1.15;
     margin-bottom: $margin-base-vertical * 2;
 
@@ -96,8 +101,9 @@ p{
 .card-category{
     text-transform: capitalize;
     font-weight: $font-weight-normal;
-    color: $dark-gray;
+    color: $white-color;
     font-size: $font-size-mini;
+    font-family: "ExemplarPro",Sans-serif;
 }
 
 .card-category{

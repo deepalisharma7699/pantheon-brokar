@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as Chartist from 'chartist';
+import { ApiService } from '../api.service';
+import { LocalStorageService } from '../local-storage.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,6 +9,23 @@ import * as Chartist from 'chartist';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+
+  showPopup: boolean = false;
+  selectedPurpose: string = '';
+
+  requestCallback() {
+    console.log('Callback requested for purpose:', this.selectedPurpose);
+    alert(`Callback requested for purpose: ${this.selectedPurpose}`);
+    this.closePopup();  // Close popup after requesting callback
+  }
+
+  // Function to close the popup
+  closePopup() {
+    this.showPopup = false;
+  }
+
+  userdata: any;
+
   public lineBigDashboardChartType;
   public gradientStroke;
   public chartColor;
@@ -57,9 +76,16 @@ export class DashboardComponent implements OnInit {
       return "rgb(" + r + ", " + g + ", " + b + ")";
     }
   }
-  constructor() { }
+  constructor(
+    private apiService: ApiService,
+    private localStorageService: LocalStorageService
+  ) {
+    this.userdata = this.localStorageService.getUserData();
+    console.log('userdata', this.userdata);
+   }
 
   ngOnInit() {
+
     this.chartColor = "#FFFFFF";
     this.canvas = document.getElementById("bigDashboardChart");
     this.ctx = this.canvas.getContext("2d");

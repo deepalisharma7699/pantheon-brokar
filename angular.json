@@ -25,10 +25,12 @@
               "node_modules/perfect-scrollbar/css/perfect-scrollbar.css",
               "node_modules/bootstrap/dist/css/bootstrap.css",
               "node_modules/ngx-toastr/toastr.css",
+              "node_modules/intl-tel-input/build/css/intlTelInput.css",
               "src/assets/scss/now-ui-dashboard.scss",
               "src/assets/demo/demo.css"
             ],
             "scripts": [
+              "node_modules/intl-tel-input/build/js/intlTelInput.min.js",
               "node_modules/chart.js/dist/Chart.min.js"
             ]
           },
@@ -140,8 +142,8 @@
   "defaultProject": "now-ui-dashboard-angular",
   "schematics": {
     "@schematics/angular:component": {
-      "prefix": "app",
-      "styleext": "scss"
+      "prefix": "app"
+      // "styleext": "scss"
     },
     "@schematics/angular:directive": {
       "prefix": "app"

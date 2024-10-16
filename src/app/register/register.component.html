@@ -5,27 +5,35 @@
             <!-- Right Form Section -->
             <div class="form-card w-50">
                 <h3 class="text-warning mb-4">Pantheon Broker Registration</h3>
-                <form>
-                 
+                <form [formGroup]="registrationForm" (ngSubmit)="onSubmit($event)" >
                     <div class="form-group">
                         <label for="companyType">Company/Agency Type *</label>
-                        <select class="form-control" id="companyType">
+                        <select  class="form-control" id="companyType" formControlName="broker_type">
                             <option value="">--Select--</option>
                             <option value="agency">Agency</option>
                             <option value="broker">Broker</option>
                         </select>
+                        <div *ngIf="registrationFormSubmitted && registrationForm.controls.broker_type?.errors?.required" class="error">
+                              Company Type is required.
+                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="companyName">Company/Agency Name *</label>
-                                <input type="text" class="form-control" id="companyName" placeholder="Enter Company/Agency Name">
+                                <input type="text" class="form-control" id="companyName" formControlName="company_name" placeholder="Enter Company/Agency Name">
+                                <div *ngIf="registrationFormSubmitted && registrationForm.controls.company_name?.errors?.required" class="error">
+                                    Company Name is required.
+                               </div>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="reraNumber">RERA/ORN Number *</label>
-                                <input type="text" class="form-control" id="reraNumber" placeholder="Enter RERA/ORN Number">
+                                <input type="text" class="form-control" id="reraNumber" formControlName="orn_number" placeholder="Enter RERA/ORN Number">
+                                <div *ngIf="registrationFormSubmitted && registrationForm.controls.orn_number?.errors?.required" class="error">
+                                    Rera Number is required.
+                               </div>
                             </div>
                         </div>
                     </div>
@@ -33,13 +41,19 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="licenseNumber">Trade License Number *</label>
-                                <input type="text" class="form-control" id="licenseNumber" placeholder="Enter Trade License Number">
+                                <input type="number" class="form-control" id="licenseNumber" formControlName="company_license_number" placeholder="Enter Trade License Number">
+                                <div *ngIf="registrationFormSubmitted && registrationForm.controls.company_license_number?.errors?.required" class="error">
+                                    License Number is required.
+                               </div>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="licenseExpiry">Trade License Expiry Date *</label>
-                                <input type="text" class="form-control" id="licenseExpiry" placeholder="dd-mm-yyyy">
+                                <input type="date" class="form-control" id="licenseExpiry" formControlName="company_license_expiry" placeholder="dd-mm-yyyy">
+                                <div *ngIf="registrationFormSubmitted && registrationForm.controls.company_license_expiry?.errors?.required" class="error">
+                                    License Expiry is required.
+                               </div>
                             </div>
                         </div>
                     </div>
@@ -47,13 +61,19 @@
                         <div class="col-lg-6">                                  
                             <div class="form-group">
                                 <label for="email">Email *</label>
-                                <input type="email" class="form-control" id="email" placeholder="Enter Email Address">
+                                <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter Email Address">
+                                <div *ngIf="registrationFormSubmitted && registrationForm.controls.email?.errors?.required" class="error">
+                                    Email is required.
+                               </div>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="mobile">Mobile Number *</label>                                                              
-                                <input type="text" class="form-control" id="mobile" placeholder="Enter Mobile Number">
+                                <input type="tel" class="form-control" id="mobile" formControlName="mobile_number" appPhoneNumber placeholder="Enter Mobile Number">
+                                <div *ngIf="registrationFormSubmitted && registrationForm.controls.mobile_number?.errors?.required" class="error">
+                                    Mobile is required.
+                               </div>
                                
                             </div>
                         </div>
@@ -62,13 +82,19 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="agentName">Agent Name</label>
-                                <input type="text" class="form-control" id="agentName" placeholder="Enter Agent Name">
+                                <input type="text" class="form-control" id="agentName" formControlName="name" placeholder="Enter Agent Name">
+                                <div *ngIf="registrationFormSubmitted && registrationForm.controls.name?.errors?.required" class="error">
+                                    Agent Name is required.
+                               </div>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="consultantName">Pantheon Sales Consultant Name</label>
-                                <input type="text" class="form-control" id="consultantName" placeholder="Enter Consultant Name">
+                                <input type="text" class="form-control" id="consultantName" formControlName="consultantName" placeholder="Enter Consultant Name">
+                                <div *ngIf="registrationFormSubmitted && registrationForm.controls.consultantName.errors?.required" class="error">
+                                    Consultant Name is required.
+                               </div>
                             </div>
                         </div>
                     </div>

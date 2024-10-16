@@ -5,14 +5,20 @@
             <!-- Right Form Section -->
             <div class="form-card w-50">
                 <h3 class="text-warning mb-4">Broker Login</h3>
-                <form>
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit($event)">
                     <div class="form-group">
                         <label for="email">Email Address</label>
-                        <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                        <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter your email">
+                        <div *ngIf="loginFormSubmitted && loginForm.controls.email?.errors?.required" class="error">
+                            Company Type is required.
+                       </div>
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="Enter your password">
+                        <input type="password" class="form-control" id="password" formControlName="password" placeholder="Enter your password">
+                        <div *ngIf="loginFormSubmitted && loginForm.controls.password?.errors?.required" class="error">
+                            Company Type is required.
+                       </div>
                     </div>
                     <div class="form-group form-check">
                         <input type="checkbox" class="form-check-input" id="remember">

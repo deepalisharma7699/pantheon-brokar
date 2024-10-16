@@ -4,5 +4,9 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiBaseUrl: 'https://portal.pantheondevelopment.ae/backend/public/', // This represents the base URL for running our frontend project. 
+  // apiBaseUrl: 'http://127.0.0.1:8000/',
+  apiUrlPrefix: 'api/v1/', // Change only the domain part, keeping "/api" intact
+  encryptionKey: 'mCWHgB4ME2fx2IOUA6DOpCAvtJGIR9IotbJHQ7UeXv4'
 };
