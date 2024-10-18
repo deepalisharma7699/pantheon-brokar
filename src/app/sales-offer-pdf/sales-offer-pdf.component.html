@@ -458,8 +458,8 @@
         </header>
         <div class="heading-wrp">
             <p class="p1">Special Offer for</p>
-            <p class="p2">1 BHK ( Discount)</p>
-            <p class="p3">5 YEARS PAYMENT PLAN <span></span></p>
+            <p class="p2">1 BHK</p>
+            <p class="p3">6 YEARS PAYMENT PLAN <span></span></p>
         </div>
         <table>
             <tr>
@@ -468,7 +468,6 @@
                 <th>SIZE</th>
                 <th>TOTAL VALUE</th>
                 <th>PAYMENT SCHENE</th>
-                <th>OFFERED PRICE</th>
             </tr>
            
             <tr>
@@ -476,15 +475,13 @@
                 <td>{{unitData.unit_type}} </td>
                 <td>{{unitData.total_area}}</td>
                 <td>{{unitData.price}}</td>
-                <td>65.00 | 35.00 AED</td>
-                <td>{{unitData.price}}</td>
+                <td>65 | 35</td>
             </tr>
            
         </table>
         <table>
             <tr>
-                <th>ORIGINAL <br>PRICE</th>
-                <th>OFFERED <br>PRICE</th>
+                <th>ORIGINAL <br>PRICE</th>               
                 <th>DOWN <br>PAYMENT</th>
                 <th>PRE <br>HANDOVER</th>
                 <th>POST <br>HANDOVER</th>
@@ -492,7 +489,6 @@
             </tr>
             <tr>
                 <td>AED <br>1,099,900</td>
-                <td>AED <br>1,099,900.00</td>
                 <td>20% </td>
                 <td>45% </td>
                 <td>35% </td>
@@ -602,11 +598,11 @@
                 <td>{{empower.amount}}</td>
             </tr> -->
             <tr *ngFor="let paymentplan of paymentPlans; let i = index">
-                <td>EMI #{{i}} </td>
+                <td>{{paymentplan.serno}} </td>
                 <td>{{paymentplan.description}} </td>
                 <td>{{paymentplan.due_date}} </td>
                 <td> {{paymentplan.percentage}}</td>
-                <td>{{paymentplan.amount}}</td>
+                <td>{{paymentplan.amount.toFixed()}}</td>
             </tr>
           
         </table>

@@ -3,6 +3,7 @@ import { ROUTES } from '../sidebar/sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { Router } from '@angular/router';
 import Chart from 'chart.js';
+import { LoginService } from '../../login.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,15 +13,22 @@ import Chart from 'chart.js';
 export class NavbarComponent implements OnInit {
     private listTitles: any[];
     location: Location;
-      mobile_menu_visible: any = 0;
+    mobile_menu_visible: any = 0;
+    
     private toggleButton: any;
     private sidebarVisible: boolean;
 
     public isCollapsed = true;
 
-    constructor(location: Location,  private element: ElementRef, private router: Router) {
+    constructor(
+      location: Location,  
+      private element: ElementRef, 
+      private router: Router, 
+      private apiService: LoginService
+    ) {
       this.location = location;
           this.sidebarVisible = false;
+          
     }
 
     ngOnInit(){
@@ -151,6 +159,10 @@ export class NavbarComponent implements OnInit {
           }
       }
       return 'Dashboard';
+    }
+
+    signout() {
+      this.apiService.logout();
     }
 
     // getInitials(fullName: string): string {

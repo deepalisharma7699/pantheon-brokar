@@ -11,7 +11,8 @@ import {Router} from "@angular/router";
 export class RegisterComponent implements OnInit {
   registrationForm: FormGroup;
   registrationFormSubmitted = false;
-
+  currentDate: string;
+  selectedDate: string;
   constructor(
     private apiService: LoginService,
     private formbuilder: FormBuilder,
@@ -19,6 +20,8 @@ export class RegisterComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    const today = new Date();
+    this.currentDate = today.toISOString().split('T')[0]; // Format to 'YYYY-MM-DD'
     this.registrationForm = this.formbuilder.group({
       'broker_type': ['', Validators.required],
       'company_name': ['', Validators.required],
