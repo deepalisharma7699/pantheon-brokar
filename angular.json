@@ -26,6 +26,7 @@
               "node_modules/bootstrap/dist/css/bootstrap.css",
               "node_modules/ngx-toastr/toastr.css",
               "src/assets/scss/now-ui-dashboard.scss",
+              "node_modules/intl-tel-input/build/css/intlTelInput.css",
               "src/assets/demo/demo.css"
             ],
             "scripts": [
@@ -88,7 +89,8 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
             "scripts": [
-              "node_modules/chart.js/dist/Chart.min.js"
+              "node_modules/chart.js/dist/Chart.min.js",
+              "node_modules/intl-tel-input/build/js/intlTelInput.min.js"
             ],
             "styles": [
               "node_modules/perfect-scrollbar/css/perfect-scrollbar.css",
@@ -143,7 +145,6 @@
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app"
-      // "styleext": "scss"
     },
     "@schematics/angular:directive": {
       "prefix": "app"

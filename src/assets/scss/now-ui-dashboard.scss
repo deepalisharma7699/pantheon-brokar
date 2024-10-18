@@ -49,6 +49,8 @@
 @import "now-ui-dashboard/cards/card-user";
 @import "now-ui-dashboard/cards/card-map";
 
+@import "../../../node_modules/intl-tel-input/build/css/intlTelInput.css";
+
 @import "now-ui-dashboard/responsive";
 
 table{
@@ -103,6 +105,13 @@ select.minimal:focus {
 }
 input {
     color-scheme: dark;
+}
+.iti{
+    width: 100%;
+}
+.iti__country-list .iti__flag,
+.iti__country-name {
+    color: black;
 }
 
 .btn-01{
@@ -300,4 +309,49 @@ input {
      border-radius: 0px;
     //  border-left: 1px solid #ffffff94;
    }
+}
+
+
+@media (max-width: 767px){
+    .btn-01 {
+        font-size: 12px;
+        padding: 4px 10px;
+    }
+    .table th,
+    .table td {
+        padding: 0.5rem;
+        min-width: 100px;
+    }
+    .table th:first-child,
+    .table td:first-child {
+        min-width: auto;
+        width: 10px;
+    }
+    .panel-header {
+        padding-top: 50px;
+    }
+    .home-card-2{
+        .card-body{
+            >div {
+                width: 100%;
+            }
+            span {
+                width: 90%;
+                height: 1px;
+                margin: 20px auto 30px;
+            }
+            .btn-01-wrp{
+                text-align: center;
+                margin: 30px 0 0;
+            }
+        }
+    }
+    .offer-page-filter {
+        margin: 30px 0;
+    }
+    .card{
+        .card-body {
+            padding: 10px;
+        }
+    }
 }

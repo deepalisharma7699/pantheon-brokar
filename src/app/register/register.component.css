@@ -44,3 +44,28 @@ body {
     border: none;
     color: black;
 }
+
+
+@media (max-width: 1023px){
+    .form {
+        padding: 10vh;
+    }
+    .card {
+        flex-wrap: wrap;
+    }
+    .card > * {
+        width: 100% !important;
+    }
+}
+@media (max-width: 767px){
+    .form {
+        padding: 3vh;
+    }
+    .form-card {
+        padding: 20px;
+        text-align: center;
+    }
+    .form-card form {
+        text-align: left;
+    }
+}
