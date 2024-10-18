@@ -45,11 +45,9 @@ export class LoginService {
     return !!this.localStorageService.getItem(LocalStorageService.LOGIN_DATA) ? true : false;
   }
 
-  logout() {
-    // dismiss all modals
+  logout(){
     this.localStorageService.clear();
     this.router.navigate(['/login']);
-    // this.toastr.error('Unauthenticated', '', { positionClass: 'toast-top-center' });
   }
 
 

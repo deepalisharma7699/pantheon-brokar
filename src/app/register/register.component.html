@@ -50,7 +50,7 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="licenseExpiry">Trade License Expiry Date *</label>
-                                <input type="date" class="form-control" id="licenseExpiry" formControlName="company_license_expiry" placeholder="dd-mm-yyyy">
+                                <input type="date" class="form-control" id="licenseExpiry" formControlName="company_license_expiry" placeholder="dd-mm-yyyy" [min]="currentDate">
                                 <div *ngIf="registrationFormSubmitted && registrationForm.controls.company_license_expiry?.errors?.required" class="error">
                                     License Expiry is required.
                                </div>
@@ -70,7 +70,7 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="mobile">Mobile Number *</label>                                                              
-                                <input type="text" class="form-control" id="mobile" formControlName="mobile_number" placeholder="Enter Mobile Number">
+                                <input type="number" class="form-control" id="mobile" formControlName="mobile_number" placeholder="Enter Mobile Number">
                                 <div *ngIf="registrationFormSubmitted && registrationForm.controls.mobile_number?.errors?.required" class="error">
                                     Mobile is required.
                                </div>
@@ -81,7 +81,7 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="agentName">Agent Name</label>
+                                <label for="agentName">Agent Name *</label>
                                 <input type="text" class="form-control" id="agentName" formControlName="name" placeholder="Enter Agent Name">
                                 <div *ngIf="registrationFormSubmitted && registrationForm.controls.name?.errors?.required" class="error">
                                     Agent Name is required.
@@ -90,7 +90,7 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="consultantName">Pantheon Sales Consultant Name</label>
+                                <label for="consultantName">Pantheon Sales Consultant Name *</label>
                                 <input type="text" class="form-control" id="consultantName" formControlName="consultantName" placeholder="Enter Consultant Name">
                                 <div *ngIf="registrationFormSubmitted && registrationForm.controls.consultantName.errors?.required" class="error">
                                     Consultant Name is required.
@@ -99,6 +99,7 @@
                         </div>
                     </div>
                     <button type="submit" class="btn btn-submit btn-block mt-4">Let’s Get Started!</button>
+                    <p>if you have already registered then <a [routerLink]="['/login']">Login</a></p>
                 </form>
             </div>
         </div>

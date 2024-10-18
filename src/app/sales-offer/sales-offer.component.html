@@ -27,10 +27,10 @@
         <div class="col-lg-12 offer-page-filter" *ngIf="showProjectConfig">
             <div>
                 <div class="btn-01-wrp">
-                    <a href="javascript:void(0)" class="btn-01 is-white curve" [ngClass]="{'active' : configType == 'ALL'}" (click)="filterConfig('ALL')" >All Configurations (63)</a>
+                    <a href="javascript:void(0)" class="btn-01 is-white curve" [ngClass]="{'active' : configType == 'ALL'}" (click)="filterConfig('ALL')" >All Configurations ({{ unitData.length }})</a>
                 </div>  
                 <div class="btn-01-wrp" *ngFor="let unittype of unitTypes">
-                    <a href="javascript:void(0)" class="btn-01 is-white curve" [ngClass]="{'active' : configType == unittype}" (click)="filterConfig(unittype)">{{ unittype }} (63)</a>
+                    <a href="javascript:void(0)" class="btn-01 is-white curve" [ngClass]="{'active' : configType == unittype.unit_type}" (click)="filterConfig(unittype.unit_type)">{{ unittype.unit_type }} ({{ unittype.count }})</a>
                 </div>
             </div>           
             <div>
@@ -38,7 +38,7 @@
                     <a href="javascript:void(0)" class="btn-01 is-white curve" [ngClass]="{'active' : viewType == 'ALL'}" (click)="filterView('ALL')">All Views</a>
                 </div>
                 <div class="btn-01-wrp" *ngFor="let unitview of unitViews">
-                    <a href="javascript:void(0)" class="btn-01 is-white curve" [ngClass]="{'active' : viewType == unitview}"  (click)="filterView(unitview)">{{ unitview }} (63)</a>
+                    <a href="javascript:void(0)" class="btn-01 is-white curve" [ngClass]="{'active' : viewType == unitview.unit_view}"  (click)="filterView(unitview.unit_view)">{{ unitview.unit_view }} ({{ unitview.count }})</a>
                 </div>
             </div>
         </div>
@@ -64,7 +64,7 @@
                                     <td>{{ units.unit_type}}</td>
                                     <td>{{ units.total_area}}</td>
                                     <td>{{ units.unit_view}}</td>
-                                    <td>{{ units.price}}</td>
+                                    <td>{{ units.price.toFixed() | currency:'':'':''}}</td>
                                     <td>
                                         <div class="btn-01-wrp">
                                           <a href="javascript:void(0)" class="btn-01 is-white" (click)="generateSalesOffer(units.id)">GENERATE OFFER</a>
