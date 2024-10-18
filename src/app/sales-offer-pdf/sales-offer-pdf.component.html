@@ -21,8 +21,8 @@
         }
         .page {
             width: 100%;
-            height: 100vh;
-            /* page-break-after: always; */
+            min-height: 100vh;
+            page-break-after: always;
             position: relative;
             padding: 50px;
         }
@@ -43,7 +43,7 @@
         }
         footer {
             bottom: 0;
-            padding: 10px;
+            padding: 10px 10px 30px 10px;
             text-align: right;
         }
         table {
@@ -98,7 +98,7 @@
             width: 20%;
         }
         table, th, td {
-            border: 1px solid black;
+            border: 1px solid #c7c7c7;
         }
         th, td {
             padding: 10px;
@@ -115,7 +115,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 100%;
+            height:calc(100vh - 100px);
             flex-direction: column;
         }
         .page1 > div img{
@@ -268,9 +268,17 @@
             margin: 3px 8px 0 0;
         }
 
-        
+        .page4{
+            padding-bottom: 150px;
+        }
         .page4 h2{
             margin-bottom: 10px;
+        }
+        .page4 table {
+            background-color: #f7f7f7;
+        }
+        .page4 table th{
+            padding: 24px 0;
         }
         .page4 table th,
         .page4 table td {
@@ -283,6 +291,8 @@
         }
         .page4 table tr:nth-child(2) td {
             color: #fff;
+            padding: 7px 0;
+            line-height: 12px;
         }
         .page4 table tr:nth-child(2) td:nth-child(1) {
             background-color: #5b7779;
@@ -356,8 +366,8 @@
             padding: 20px 90px;
         }
         .page7 > h4{
-            text-align: right;
-            margin: 20px 100px 0 0;
+            /* text-align: right; */
+            margin: 20px 100px 0 120px;
         }
         .page7 .wrp-3{
             display: flex;
@@ -424,430 +434,289 @@
 <body>
     <!-- <button (click)="downloadPDF()">Download PDF</button> -->
     <div #content>
-        <div class="page page1" style="background-color: black;">
-            <header>
-                <p><b>Pantheon Elysee Real Estate</b></p>
-                <p><b>Development</b></p>
-                <br>
-                <p>Project : Pantheon Elysee</p>
-                <p>Handover : Q1 2027.</p>
-            </header>
-            <div>
-                <img src="http://localhost:4200/assets/img/salesoffer/big-logo.png" alt="">
-                <p>SALES OFFER</p>
-            </div>
-        </div>
-
-        <div class="page page2">
-            <header>
-                <p><b>Pantheon Elysee Real Estate</b></p>
-                <p><b>Development</b></p>
-                <br>
-                <p>Project : Pantheon Elysee</p>
-                <p>Handover : Q1 2027.</p>
-            </header>
-            <div class="heading-wrp">
-                <p class="p1">Special Offer for</p>
-                <p class="p2">1 BHK ( Discount)</p>
-                <p class="p3">5 YEARS PAYMENT PLAN <span></span></p>
-            </div>
-            <table>
-                <tr>
-                    <th>UNIT</th>
-                    <th>VIEW</th>
-                    <th>SIZE</th>
-                    <th>TOTAL VALUE</th>
-                    <th>PAYMENT SCHENE</th>
-                    <th>OFFERED PRICE</th>
-                </tr>
-                <tr>
-                    <td>ME2-2115 </td>
-                    <td>Pool/Amenities View</td>
-                    <td>687.17 Sqft. AED</td>
-                    <td>1,099,900.00</td>
-                    <td>65.00 | 35.00 AED</td>
-                    <td>1,099,900.00</td>
-                </tr>
-            </table>
-            <table>
-                <tr>
-                    <th>ORIGINAL <br>PRICE</th>
-                    <th>OFFERED <br>PRICE</th>
-                    <th>DOWN <br>PAYMENT</th>
-                    <th>PRE <br>HANDOVER</th>
-                    <th>POST <br>HANDOVER</th>
-                    <th>NO. OF <br>YEARS</th>
-                </tr>
-                <tr>
-                    <td>AED <br>1,099,900</td>
-                    <td>AED <br>1,099,900.00</td>
-                    <td>20% </td>
-                    <td>45% </td>
-                    <td>35% </td>
-                    <td>5.33</td>
-                </tr>
-            </table>
-            <p style="text-align: center;">NOTE: ALL PRICES IN THIS COMMUNICATION ARE VALID ONLY FOR TODAY AND SUBJECT TO CHANGE WITHOUT NOTICE</p>
-            <div class="wrp-1">
-                <div>
-                    <h4>Project <br>Exterior</h4>
-                    <h1>MAISON <br>ELYSÉE II</h1>
-                    <span></span>
-                </div>
-                <div>
-                    <img src="http://localhost:4200/assets/img/salesoffer/page2-img.jpg" alt="">
-                </div>
-            </div>
-            <footer>
-                <img src="http://localhost:4200/assets/img/salesoffer/logo.png" alt="">
-            </footer>
-        </div>
-
-        <div class="page page3">
-            <header>
-                <p><b>Pantheon Elysee Real Estate</b></p>
-                <p><b>Development</b></p>
-                <br>
-                <p>Project : Pantheon Elysee</p>
-                <p>Handover : Q1 2027.</p>
-            </header>
-            <div class="heading-wrp">
-                <p class="p1">Project Gallery <span></span></p>
-            </div>
-            <div class="img-wrp">
-                <img src="http://localhost:4200/assets/img/salesoffer/page3-img1.jpg" alt="" class="img1">
-                <img src="http://localhost:4200/assets/img/salesoffer/page3-img2.jpg" alt="" class="img2">
-                <img src="http://localhost:4200/assets/img/salesoffer/page3-img3.jpg" alt="" class="img3">
-                <img src="http://localhost:4200/assets/img/salesoffer/page3-img4.jpg" alt="" class="img4">
-                <p>Project Interior <br>and Exterior</p>
-            </div>
-            <div class="wrp-1">
-                <div>
-                    <h4>Project <br>Location</h4>
-                    <p><span>* </span>Dubai - Jumeirah Village Circle</p>
-                    <p><span>* </span>It is located near Sheikh Mohammed Bin Zayed Road and Al Khail Road</p>
-                    <p><span>* </span>Mall of the Emirates: 15 Mins.</p>
-                    <p><span>* </span>Burj Khalifa and Dubai Mall: 20 Mins.</p>
-                    <p><span>* </span>Palm Jumeirah: 20 Mins.</p>
-                    <p><span>* </span>Dubai International Airport: 25 Mins.</p>
-                    <p><span>* </span>Al Makhtoum Airport: 30 Mins.</p>
-                    <p><span>* </span>Expo Site: 20 Mins. </p>
-                </div>
-                <div>
-                    <img src="http://localhost:4200/assets/img/salesoffer/map.jpg" alt="">
-                </div>
-            </div>
-            <footer>
-                <img src="http://localhost:4200/assets/img/salesoffer/logo.png" alt="">
-            </footer>
-        </div>
-
-        <div class="page page4">
-            <div>
-                <h2>PAYMENT PLAN</h2>
-            </div>
-            <table>
-                <tr>
-                    <th>SR. </th>
-                    <th>PAYMENT TYPE </th>
-                    <th>INSTALLMENT DATE </th>
-                    <th>PERCENTAGE </th>
-                    <th>AMOUNT(IN AED)</th>
-                </tr>
-                <tr>
-                    <td>EMI #1 <br>(Downpayment) </td>
-                    <td>Down Payment </td>
-                    <td>29/9/2024 </td>
-                    <td>20.00% </td>
-                    <td>219,980.00 E</td>
-                </tr>
-                <tr>
-                    <td>EMI #2 </td>
-                    <td>Pre Handover EMI </td>
-                    <td>1/10/2024 </td>
-                    <td>1.38% </td>
-                    <td>15,171.03</td>
-                </tr>
-                <tr>
-                    <td>EMI #2 </td>
-                    <td>Pre Handover EMI </td>
-                    <td>1/10/2024 </td>
-                    <td>1.38% </td>
-                    <td>15,171.03</td>
-                </tr>
-                <tr>
-                    <td>EMI #2 </td>
-                    <td>Pre Handover EMI </td>
-                    <td>1/10/2024 </td>
-                    <td>1.38% </td>
-                    <td>15,171.03</td>
-                </tr>
-                <tr>
-                    <td>EMI #2 </td>
-                    <td>Pre Handover EMI </td>
-                    <td>1/10/2024 </td>
-                    <td>1.38% </td>
-                    <td>15,171.03</td>
-                </tr>
-                <tr>
-                    <td>EMI #2 </td>
-                    <td>Pre Handover EMI </td>
-                    <td>1/10/2024 </td>
-                    <td>1.38% </td>
-                    <td>15,171.03</td>
-                </tr>
-                <tr>
-                    <td>EMI #2 </td>
-                    <td>Pre Handover EMI </td>
-                    <td>1/10/2024 </td>
-                    <td>1.38% </td>
-                    <td>15,171.03</td>
-                </tr>
-                <tr>
-                    <td>EMI #2 </td>
-                    <td>Pre Handover EMI </td>
-                    <td>1/10/2024 </td>
-                    <td>1.38% </td>
-                    <td>15,171.03</td>
-                </tr>
-                <tr>
-                    <td>EMI #2 </td>
-                    <td>Pre Handover EMI </td>
-                    <td>1/10/2024 </td>
-                    <td>1.38% </td>
-                    <td>15,171.03</td>
-                </tr>
-                <tr>
-                    <td>EMI #2 </td>
-                    <td>Pre Handover EMI </td>
-                    <td>1/10/2024 </td>
-                    <td>1.38% </td>
-                    <td>15,171.03</td>
-                </tr>
-                <tr>
-                    <td>EMI #2 </td>
-                    <td>Pre Handover EMI </td>
-                    <td>1/10/2024 </td>
-                    <td>1.38% </td>
-                    <td>15,171.03</td>
-                </tr>
-                <tr>
-                    <td>EMI #2 </td>
-                    <td>Pre Handover EMI </td>
-                    <td>1/10/2024 </td>
-                    <td>1.38% </td>
-                    <td>15,171.03</td>
-                </tr>
-            </table>
-            <footer>
-                <img src="http://localhost:4200/assets/img/salesoffer/logo.png" alt="">
-            </footer>
-        </div>
-
-        <div class="page page5 page4">
-            <div>
-                <h2>PAYMENT PLAN</h2>
-            </div>
-            <table>
-                <tr>
-                    <th>SR. </th>
-                    <th>PAYMENT TYPE </th>
-                    <th>INSTALLMENT DATE </th>
-                    <th>PERCENTAGE </th>
-                    <th>AMOUNT(IN AED)</th>
-                </tr>
-                <tr>
-                    <td>EMI #1 <br>(Downpayment) </td>
-                    <td>Down Payment </td>
-                    <td>29/9/2024 </td>
-                    <td>20.00% </td>
-                    <td>219,980.00 E</td>
-                </tr>
-                <tr>
-                    <td>EMI #2 </td>
-                    <td>Pre Handover EMI </td>
-                    <td>1/10/2024 </td>
-                    <td>1.38% </td>
-                    <td>15,171.03</td>
-                </tr>
-                <tr>
-                    <td>EMI #2 </td>
-                    <td>Pre Handover EMI </td>
-                    <td>1/10/2024 </td>
-                    <td>1.38% </td>
-                    <td>15,171.03</td>
-                </tr>
-                <tr>
-                    <td>EMI #2 </td>
-                    <td>Pre Handover EMI </td>
-                    <td>1/10/2024 </td>
-                    <td>1.38% </td>
-                    <td>15,171.03</td>
-                </tr>
-                <tr>
-                    <td>EMI #2 </td>
-                    <td>Pre Handover EMI </td>
-                    <td>1/10/2024 </td>
-                    <td>1.38% </td>
-                    <td>15,171.03</td>
-                </tr>
-                <tr>
-                    <td>EMI #2 </td>
-                    <td>Pre Handover EMI </td>
-                    <td>1/10/2024 </td>
-                    <td>1.38% </td>
-                    <td>15,171.03</td>
-                </tr>
-                <tr>
-                    <td>EMI #2 </td>
-                    <td>Pre Handover EMI </td>
-                    <td>1/10/2024 </td>
-                    <td>1.38% </td>
-                    <td>15,171.03</td>
-                </tr>
-                <tr>
-                    <td>EMI #2 </td>
-                    <td>Pre Handover EMI </td>
-                    <td>1/10/2024 </td>
-                    <td>1.38% </td>
-                    <td>15,171.03</td>
-                </tr>
-                <tr>
-                    <td>EMI #2 </td>
-                    <td>Pre Handover EMI </td>
-                    <td>1/10/2024 </td>
-                    <td>1.38% </td>
-                    <td>15,171.03</td>
-                </tr>
-                <tr>
-                    <td>EMI #2 </td>
-                    <td>Pre Handover EMI </td>
-                    <td>1/10/2024 </td>
-                    <td>1.38% </td>
-                    <td>15,171.03</td>
-                </tr>
-                <tr>
-                    <td>EMI #2 </td>
-                    <td>Pre Handover EMI </td>
-                    <td>1/10/2024 </td>
-                    <td>1.38% </td>
-                    <td>15,171.03</td>
-                </tr>
-                <tr>
-                    <td>EMI #2 </td>
-                    <td>Pre Handover EMI </td>
-                    <td>1/10/2024 </td>
-                    <td>1.38% </td>
-                    <td>15,171.03</td>
-                </tr>
-            </table>
-            <div>
-                <p>Service Charges Payable at the time of Handover @AED15/ Per sq.ft (Price may vary as per RERA approval)</p>
-            </div>
-            <footer>
-                <img src="http://localhost:4200/assets/img/salesoffer/logo.png" alt="">
-            </footer>
-        </div>
-
-        <div class="page page6">
-            <table>
-                <tr>
-                    <th>Bank Details </th>
-                    <th></th>
-                </tr>
-                    <tr>
-                        <td>Company Name: </td> 
-                        <td>Pantheon Elysee Real Estate Development L.L.C</td>
-                    </tr>
-                    <tr>
-                        <td>Name of Bank: </td> 
-                        <td>ABU DHABI COMMERCIAL BANK</td>
-                    </tr>
-                    <tr>
-                        <td>Account Number: </td> 
-                        <td>12107757920002</td>
-                    </tr>
-                    <tr>
-                        <td>IBAN Number: </td> 
-                        <td>AE960030012107757920002</td>
-                    </tr>
-                    <tr>
-                        <td>Swift Code: </td> 
-                        <td>ADCBAEAA</td>
-                    </tr>
-                    <tr>
-                        <td>Bank Branch Name and Address: </td> 
-                        <td>KARAMA BRANCH</td>
-                    </tr>
-            </table>
-            <footer>
-                <img src="http://localhost:4200/assets/img/salesoffer/logo.png" alt="">
-            </footer>
-        </div>
-
-        <div class="page page7">
-            <div class="wrp-1">
-                <h2>Individual Layout Plan</h2>
-            </div>
-            <div class="wrp-2">
-                <h3>MAISON ELYSEE 2</h3>
-            </div>
-            <h4>UNIT 2115</h4>
-            <div class="wrp-3">
-                <img src="http://localhost:4200/assets/img/salesoffer/floor-plan-img1.png" alt="">
-            </div>
-            <div class="wrp-4">
-                <div>
-                    <h4>FLOOR PLAN</h4>
-                    <img src="http://localhost:4200/assets/img/salesoffer/floor-plan-img2.png" alt="">
-                </div>
-                <div>
-                    <h4>TYPE - 1BHK</h4>
-                    <table>
-                        <tr>
-                            <td>Suite Area</td>
-                            <td>59.02 sq.m.</td>
-                            <td>635.29 sq.ft.</td>
-                        </tr>
-                        <tr>
-                            <td>Balcony Area</td>
-                            <td>4.76 sq.m.</td>
-                            <td>51.24 sq.ft.</td>
-                        </tr>
-                        <tr>
-                            <td>Total Area</td>
-                            <td>63.78 sq.m.</td>
-                            <td>686.52 sq.ft.</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-            <footer>
-                <img src="http://localhost:4200/assets/img/salesoffer/logo.png" alt="">
-            </footer>
-        </div>
-
-        <div class="page page8">
-            <div>
-                <h2>Pantheon Elysee Real Estate <br>Development</h2>
-                <h3>Project : Pantheon Elysee <br>Handover : Q1 2027</h3>
-                <img src="http://localhost:4200/assets/img/salesoffer/white-logo.png" alt="">
-                <p class="icon">
-                    <img src="http://localhost:4200/assets/img/salesoffer/icon-1.png" alt="">
-                    www.pantheondevelopment.ae
-                </p>
-                <p class="icon" style="font-size: 16px;">
-                    <img src="http://localhost:4200/assets/img/salesoffer/icon-2.png" alt="">
-                    +971 4 523 5235
-                    <img src="http://localhost:4200/assets/img/salesoffer/icon-3.png" alt="" style="margin-left: 30px;">
-                    sales@pered.ae
-                </p>
-                <p class="icon" style="font-size: 18px;">
-                    <img src="http://localhost:4200/assets/img/salesoffer/icon-4.png" alt="">
-                    1st Floor, Lamborghini Building, <br>Sheikh Zayed Rd - Dubai- United Arab Emirates
-                </p>
-            </div>
+    <div class="page page1" style="background-color: black;">
+        <header>
+            <p><b>Pantheon Elysee Real Estate</b></p>
+            <p><b>Development</b></p>
+            <br>
+            <p>Project : {{unitData.project_name}}</p>
+            <p>Handover : Q1 2027.</p>
+        </header>
+        <div>
+            <img src="http://localhost:4200/assets/img/salesoffer/big-logo.png" alt="">
+            <p>SALES OFFER</p>
         </div>
     </div>
+
+    <div class="page page2">
+        <header>
+            <p><b>Pantheon Elysee Real Estate</b></p>
+            <p><b>Development</b></p>
+            <br>
+            <p>Project : {{unitData.project_name}}</p>
+            <p>Handover : Q1 2027.</p>
+        </header>
+        <div class="heading-wrp">
+            <p class="p1">Special Offer for</p>
+            <p class="p2">1 BHK ( Discount)</p>
+            <p class="p3">5 YEARS PAYMENT PLAN <span></span></p>
+        </div>
+        <table>
+            <tr>
+                <th>UNIT</th>
+                <th>VIEW</th>
+                <th>SIZE</th>
+                <th>TOTAL VALUE</th>
+                <th>PAYMENT SCHENE</th>
+                <th>OFFERED PRICE</th>
+            </tr>
+           
+            <tr>
+                <td>{{unitData.unit_number}}  </td>
+                <td>{{unitData.unit_type}} </td>
+                <td>{{unitData.total_area}}</td>
+                <td>{{unitData.price}}</td>
+                <td>65.00 | 35.00 AED</td>
+                <td>{{unitData.price}}</td>
+            </tr>
+           
+        </table>
+        <table>
+            <tr>
+                <th>ORIGINAL <br>PRICE</th>
+                <th>OFFERED <br>PRICE</th>
+                <th>DOWN <br>PAYMENT</th>
+                <th>PRE <br>HANDOVER</th>
+                <th>POST <br>HANDOVER</th>
+                <th>NO. OF <br>YEARS</th>
+            </tr>
+            <tr>
+                <td>AED <br>1,099,900</td>
+                <td>AED <br>1,099,900.00</td>
+                <td>20% </td>
+                <td>45% </td>
+                <td>35% </td>
+                <td>5.33</td>
+            </tr>
+        </table>
+        <p style="text-align: center;">NOTE: ALL PRICES IN THIS COMMUNICATION ARE VALID ONLY FOR TODAY AND SUBJECT TO CHANGE WITHOUT NOTICE</p>
+        <div class="wrp-1">
+            <div>
+                <h4>Project <br>Exterior</h4>
+                <h1>{{unitData.project_name}}</h1>
+                <span></span>
+            </div>
+            <div>
+                <img src="http://localhost:4200/assets/img/salesoffer/page2-img.jpg" alt="">
+            </div>
+        </div>
+        <footer>
+            <img src="http://localhost:4200/assets/img/salesoffer/logo.png" alt="">
+        </footer>
+    </div>
+
+    <div class="page page3">
+        <header>
+            <p><b>Pantheon Elysee Real Estate</b></p>
+            <p><b>Development</b></p>
+            <br>
+            <p>Project : {{unitData.project_name}}</p>
+            <p>Handover : Q1 2027.</p>
+        </header>
+        <div class="heading-wrp">
+            <p class="p1">Project Gallery <span></span></p>
+        </div>
+        <div class="img-wrp">
+            <img src="http://localhost:4200/assets/img/salesoffer/page3-img1.jpg" alt="" class="img1">
+            <img src="http://localhost:4200/assets/img/salesoffer/page3-img2.jpg" alt="" class="img2">
+            <img src="http://localhost:4200/assets/img/salesoffer/page3-img3.jpg" alt="" class="img3">
+            <img src="http://localhost:4200/assets/img/salesoffer/page3-img4.jpg" alt="" class="img4">
+            <p>Project Interior <br>and Exterior</p>
+        </div>
+        <div class="wrp-1">
+            <div>
+                <h4>Project <br>Location</h4>
+                <p><span>* </span>Dubai - Jumeirah Village Circle</p>
+                <p><span>* </span>It is located near Sheikh Mohammed Bin Zayed Road and Al Khail Road</p>
+                <p><span>* </span>Mall of the Emirates: 15 Mins.</p>
+                <p><span>* </span>Burj Khalifa and Dubai Mall: 20 Mins.</p>
+                <p><span>* </span>Palm Jumeirah: 20 Mins.</p>
+                <p><span>* </span>Dubai International Airport: 25 Mins.</p>
+                <p><span>* </span>Al Makhtoum Airport: 30 Mins.</p>
+                <p><span>* </span>Expo Site: 20 Mins. </p>
+            </div>
+            <div>
+                <img src="http://localhost:4200/assets/img/salesoffer/map.jpg" alt="">
+            </div>
+        </div>
+        <footer>
+            <img src="http://localhost:4200/assets/img/salesoffer/logo.png" alt="">
+        </footer>
+    </div>
+
+    <div class="page page5 page4">
+        <div>
+            <h2>PAYMENT PLAN</h2>
+        </div>
+        <table>
+            <tr>
+                <th>SR. </th>
+                <th>PAYMENT TYPE </th>
+                <th>INSTALLMENT DATE </th>
+                <th>PERCENTAGE </th>
+                <th>AMOUNT(IN AED)</th>
+            </tr>
+            <!-- <tr>
+                <td>1</td>
+                <td>{{downpayment.description}} </td>
+                <td>{{downpayment.due_date}} </td>
+                <td>{{downpayment.percentage}}</td>
+                <td>{{downpayment.amount}}</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>{{dldcharges.description}} </td>
+                <td>{{dldcharges.due_date}} </td>
+                <td>{{dldcharges.percentage}}</td>
+                <td>{{dldcharges.amount}}</td>
+            </tr>
+            <tr>
+                <td>3 </td>
+                <td>{{oqoodcharges.description}} </td>
+                <td>{{oqoodcharges.due_date}} </td>
+                <td> {{oqoodcharges.percentage}}</td>
+                <td>{{oqoodcharges.amount}}</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>{{adminfee.description}} </td>
+                <td>{{adminfee.due_date}} </td>
+                <td>{{adminfee.percentage}} </td>
+                <td>{{adminfee.amount}}</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>{{empower.description}} </td>
+                <td>{{empower.due_date}} </td>
+                <td>{{empower.percentage}}</td>
+                <td>{{empower.amount}}</td>
+            </tr> -->
+            <tr *ngFor="let paymentplan of paymentPlans; let i = index">
+                <td>EMI #{{i}} </td>
+                <td>{{paymentplan.description}} </td>
+                <td>{{paymentplan.due_date}} </td>
+                <td> {{paymentplan.percentage}}</td>
+                <td>{{paymentplan.amount}}</td>
+            </tr>
+          
+        </table>
+        <div>
+            <p>Service Charges Payable at the time of Handover @AED15/ Per sq.ft (Price may vary as per RERA approval)</p>
+        </div>
+        <footer>
+            <img src="http://localhost:4200/assets/img/salesoffer/logo.png" alt="">
+        </footer>
+    </div>
+
+    <div class="page page6">
+        <table>
+            <tr>
+                <th>Bank Details </th>
+                <th></th>
+            </tr>
+                <tr>
+                    <td>Company Name: </td> 
+                    <td>Pantheon Elysee Real Estate Development L.L.C</td>
+                </tr>
+                <tr>
+                    <td>Name of Bank: </td> 
+                    <td>{{unitData.bankname}}</td>
+                </tr>
+                <tr>
+                    <td>Account Number: </td> 
+                    <td>{{unitData.accountname}}</td>
+                </tr>
+                <tr>
+                    <td>IBAN Number: </td> 
+                    <td>{{unitData.iban_code}}</td>
+                </tr>
+                <tr>
+                    <td>Swift Code: </td> 
+                    <td>{{unitData.swift_code}}</td>
+                </tr>
+                <tr>
+                    <td>Bank Branch Name and Address: </td> 
+                    <td>{{unitData.branchname}}</td>
+                </tr>
+        </table>
+        <footer>
+            <img src="http://localhost:4200/assets/img/salesoffer/logo.png" alt="">
+        </footer>
+    </div>
+
+    <div class="page page7">
+        <div class="wrp-1">
+            <h2>Individual Layout Plan</h2>
+        </div>
+        <div class="wrp-2">
+            <h3>{{unitData.project_name}}</h3>
+        </div>
+        <h4>UNIT 2115</h4>
+        <div class="wrp-3">
+            <img src="http://localhost:4200/assets/img/salesoffer/floor-plan-img1.png" alt="">
+        </div>
+        <div class="wrp-4">
+            <div>
+                <h4>FLOOR PLAN</h4>
+                <img src="http://localhost:4200/assets/img/salesoffer/floor-plan-img2.png" alt="">
+            </div>
+            <div>
+                <h4>TYPE - 1BHK</h4>
+                <table>
+                    <tr>
+                        <td>Suite Area</td>
+                        <td>59.02 sq.m.</td>
+                        <td>635.29 sq.ft.</td>
+                    </tr>
+                    <tr>
+                        <td>Balcony Area</td>
+                        <td>4.76 sq.m.</td>
+                        <td>51.24 sq.ft.</td>
+                    </tr>
+                    <tr>
+                        <td>Total Area</td>
+                        <td>63.78 sq.m.</td>
+                        <td>686.52 sq.ft.</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <footer>
+            <img src="http://localhost:4200/assets/img/salesoffer/logo.png" alt="">
+        </footer>
+    </div>
+
+    <div class="page page8">
+        <div>
+            <h2>Pantheon Elysee Real Estate <br>Development</h2>
+            <h3>Project : {{unitData.project_name}} <br>Handover : Q1 2027</h3>
+            <img src="http://localhost:4200/assets/img/salesoffer/white-logo.png" alt="">
+            <p class="icon">
+                <img src="http://localhost:4200/assets/img/salesoffer/icon-1.png" alt="">
+                www.pantheondevelopment.ae
+            </p>
+            <p class="icon" style="font-size: 16px;">
+                <img src="http://localhost:4200/assets/img/salesoffer/icon-2.png" alt="">
+                +971 4 523 5235
+                <img src="http://localhost:4200/assets/img/salesoffer/icon-3.png" alt="" style="margin-left: 30px;">
+                sales@pered.ae
+            </p>
+            <p class="icon" style="font-size: 18px;">
+                <img src="http://localhost:4200/assets/img/salesoffer/icon-4.png" alt="">
+                1st Floor, Lamborghini Building, <br>Sheikh Zayed Rd - Dubai- United Arab Emirates
+            </p>
+        </div>
+    </div>
+</div>
 </body>
 </html>

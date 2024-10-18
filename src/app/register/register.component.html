@@ -4,11 +4,11 @@
            <video autoplay="true " loop="" muted="" playsinline="" class="card-video-left"><source src="https://www.pantheondevelopment.ae/wp-content/uploads/Pantheon-Development-Award.mp4" type="video/mp4"></video>
             <!-- Right Form Section -->
             <div class="form-card w-50">
-                <h3 class="text-warning mb-4">Pantheon Broker Registration</h3>
+                <h3 class="text-warning mb-4">Join the Pantheon Broker Network: Register For Exclusive Access!</h3>
                 <form [formGroup]="registrationForm" (ngSubmit)="onSubmit($event)" >
                     <div class="form-group">
-                        <label for="companyType">Company/Agency Type *</label>
-                        <select  class="form-control" id="companyType" formControlName="broker_type">
+                        <label for="companyType">Company / Agency Type *</label>
+                        <select  class="form-control minimal" id="companyType" formControlName="broker_type">
                             <option value="">--Select--</option>
                             <option value="agency">Agency</option>
                             <option value="broker">Broker</option>
@@ -20,8 +20,8 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="companyName">Company/Agency Name *</label>
-                                <input type="text" class="form-control" id="companyName" formControlName="company_name" placeholder="Enter Company/Agency Name">
+                                <label for="companyName">Company / Agency Name *</label>
+                                <input type="text" class="form-control" id="companyName" formControlName="company_name" placeholder="Enter Company / Agency Name">
                                 <div *ngIf="registrationFormSubmitted && registrationForm.controls.company_name?.errors?.required" class="error">
                                     Company Name is required.
                                </div>
@@ -29,8 +29,8 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="reraNumber">RERA/ORN Number *</label>
-                                <input type="text" class="form-control" id="reraNumber" formControlName="orn_number" placeholder="Enter RERA/ORN Number">
+                                <label for="reraNumber">RERA / ORN Number *</label>
+                                <input type="text" class="form-control" id="reraNumber" formControlName="orn_number" placeholder="Enter RERA / ORN Number">
                                 <div *ngIf="registrationFormSubmitted && registrationForm.controls.orn_number?.errors?.required" class="error">
                                     Rera Number is required.
                                </div>
@@ -70,7 +70,7 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="mobile">Mobile Number *</label>                                                              
-                                <input type="tel" class="form-control" id="mobile" formControlName="mobile_number" appPhoneNumber placeholder="Enter Mobile Number">
+                                <input type="text" class="form-control" id="mobile" formControlName="mobile_number" placeholder="Enter Mobile Number">
                                 <div *ngIf="registrationFormSubmitted && registrationForm.controls.mobile_number?.errors?.required" class="error">
                                     Mobile is required.
                                </div>
@@ -98,7 +98,7 @@
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-submit btn-block mt-4">Submit</button>
+                    <button type="submit" class="btn btn-submit btn-block mt-4">Let’s Get Started!</button>
                 </form>
             </div>
         </div>

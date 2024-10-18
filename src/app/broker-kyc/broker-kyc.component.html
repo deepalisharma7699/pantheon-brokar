@@ -3,12 +3,12 @@
 <div class="main-content kyc-page">
     <div class="container">
         <div class="card">
-            <div class="card-body p-3">
+            <div class="card-body pt-0">
                 <div class="row">
                     <!-- Vertical Tabs Navigation -->
-                    <div class="col-md-3 p-0">
+                    <div class="col-md-12 p-0">
                         <div
-                        class="nav flex-column nav-tabs"
+                        class="nav nav-tabs"
                         id="v-tabs"
                         role="tablist"
                         aria-orientation="vertical"
@@ -69,7 +69,7 @@
                     </div>
                 
                     <!-- Tab Content -->
-                    <div class="col-md-9 p-0">
+                    <div class="col-md-12 p-0">
                         <div class="tab-content form-section" id="v-tabs-content">
                         <!-- Basic Info Tab -->
                         <div
@@ -80,13 +80,18 @@
                             role="tabpanel"
                             aria-labelledby="v-tab-basic"
                         >
-                            <h3>Basic Info</h3>
-                            <form [formGroup]="basicForm" (ngSubmit)="onSubmitbasic($event)">
+                            <form [formGroup]="basicForm" >
                                 <div class="row">
-                                    <div class="col-lg-12 mb-3">
+                                    <div class="col-lg-12">
+                                        <h3 class="mb-0">Company Information</h3>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4 mb-3">
                                         <div class="form-group">
-                                            <label>Select New Company *</label>
-                                            <select name="" placeholder="Select Company" class="form-control" formControlName="company_name">
+                                            <label>Company Name *</label>
+                                            <input type="text" class="form-control" placeholder="Enter Company Name" formControlName="company_name"/>
+                                            <!-- <select name="" placeholder="Select Company" class="form-control minimal" formControlName="company_name">
                                                 <option value="0">Create New Company</option>
                                                 <option value="2149">
                                                    PRIVI BLACK PROPERTIES
@@ -94,15 +99,128 @@
                                                 <option value="2148">
                                                    MARKAI REAL ESTATE BROKERAGE LLC
                                                 </option>
-                                            </select>
+                                            </select> -->
                                             <div *ngIf="basicFormSubmitted && basicForm.controls.company_name?.errors?.required" class="error">
                                                 Company is required.
                                            </div>
                                         </div>
                                     </div>
+                                    <div class="col-lg-4 mb-3">
+                                        <div class="form-group">
+                                            <label>Trade / Company License No  *</label>
+                                            <input type="text" class="form-control" placeholder="Enter Trade / Company License No " formControlName="trade_license_number"/>
+                                            <div *ngIf="basicFormSubmitted && basicForm.controls.trade_license_number?.errors?.required" class="error">
+                                                Trade / Company License No is required.
+                                           </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 mb-3">
+                                        <div class="form-group">
+                                            <label>Trade / Company License Expiry Date *</label>
+                                            <input type="text" class="form-control" placeholder="Enter Trade / Company License Expiry Date" formControlName="trade_license_expiry_date"/>
+                                            <div *ngIf="basicFormSubmitted && basicForm.controls.trade_license_expiry_date?.errors?.required" class="error">
+                                                Trade / Company License Expiry Date is required.
+                                           </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 mb-3">
+                                        <div class="form-group">
+                                            <label>RERA Certificate No *</label>
+                                            <input type="text" class="form-control" placeholder="Enter No" formControlName="rera_registration_certificate_number"/>
+                                            <div *ngIf="basicFormSubmitted && basicForm.controls.rera_registration_certificate_number?.errors?.required" class="error">
+                                                RERA Certificate No is required.
+                                           </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 mb-3">
+                                        <div class="form-group">
+                                            <label>RERA Certificate Expiry Date *</label>
+                                            <input type="date" class="form-control" placeholder="Enter Date" formControlName="rera_registration_certificate_expiry_date"/>
+                                            <div *ngIf="basicFormSubmitted && basicForm.controls.rera_registration_certificate_expiry_date?.errors?.required" class="error">
+                                                RERA Certificate Expiry Date is required.
+                                           </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 mb-3">
+                                        <div class="form-group">
+                                            <label>Pantheon Sales Consultant Name *</label>
+                                            <input type="text" class="form-control" placeholder="Enter Pantheon Sales Consultant Name" formControlName="consultant_name"/>
+                                            <div *ngIf="basicFormSubmitted && basicForm.controls.consultant_name?.errors?.required" class="error">
+                                                Sales Consultant Name is required.
+                                           </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-lg-6 mb-3">
+                                    <div class="col-lg-12 mt-3">
+                                        <h3 class="mb-0">Authorized Person Information</h3>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4 mb-3">
+                                        <div class="form-group">
+                                            <label>Authorized Person Name *</label>
+                                            <input type="text" class="form-control" placeholder="Enter Authorized Person Name" formControlName="email"/>
+                                            <div *ngIf="basicFormSubmitted && basicForm.controls.email?.errors?.required" class="error">
+                                                Authorized Person Name is required.
+                                           </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 mb-3">
+                                        <div class="form-group">
+                                            <label>Position *</label>
+                                            <input type="text" class="form-control" placeholder="Enter Position" formControlName="position" />
+                                            <div *ngIf="basicFormSubmitted && basicForm.controls.position?.errors?.required" class="error">
+                                                Position is required.
+                                           </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 mb-3">
+                                        <div class="form-group">
+                                            <label>Nationality *</label>
+                                            <input type="text" class="form-control" placeholder="Enter Nationality" formControlName="nationality"/>
+                                            <div *ngIf="basicFormSubmitted && basicForm.controls.nationality?.errors?.required" class="error">
+                                                Nationality is required.
+                                           </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 mb-3">
+                                        <div class="form-group">
+                                            <label>Emirates ID *</label>
+                                            <input type="text" class="form-control" placeholder="Enter Emirates ID" formControlName="emirates_id_number"/>
+                                            <div *ngIf="basicFormSubmitted && basicForm.controls.emirates_id_number?.errors?.required" class="error">
+                                                Emirates ID is required.
+                                           </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 mb-3">
+                                        <div class="form-group">
+                                            <label>Passport No  *</label>
+                                            <input type="text" class="form-control" placeholder="Enter Passport No " formControlName="passport_number"/>
+                                            <div *ngIf="basicFormSubmitted && basicForm.controls.passport_number?.errors?.required" class="error">
+                                                Passport No is required.
+                                           </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 mb-3">
+                                        <div class="form-group">
+                                            <label>Mobile No  *</label>
+                                            <input type="number" class="form-control" placeholder="Enter Mobile No " formControlName="phone" />
+                                            <div *ngIf="basicFormSubmitted && basicForm.controls.phone?.errors?.required" class="error">
+                                                Mobile Number is required.
+                                           </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 mb-3">
+                                        <div class="form-group">
+                                            <label>Phone No  *</label>
+                                            <input type="number" class="form-control" placeholder="Enter Phone No " formControlName="phone" />
+                                            <div *ngIf="basicFormSubmitted && basicForm.controls.phone?.errors?.required" class="error">
+                                                Phone Number is required.
+                                           </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 mb-3">
                                         <div class="form-group">
                                             <label>Email *</label>
                                             <input type="email" class="form-control" placeholder="Enter Email" formControlName="email"/>
@@ -113,103 +231,12 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-lg-6 mb-3">
-                                        <div class="form-group">
-                                            <label>Nationality *</label>
-                                            <input type="text" class="form-control" placeholder="Enter Nationality" formControlName="nationality"/>
-                                            <div *ngIf="basicFormSubmitted && basicForm.controls.nationality?.errors?.required" class="error">
-                                                Nationality is required.
-                                           </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 mb-3">
-                                        <div class="form-group">
-                                            <label>Mobile No  *</label>
-                                            <input type="number" class="form-control" placeholder="Enter Mobile No " formControlName="mobile" />
-                                            <div *ngIf="basicFormSubmitted && basicForm.controls.mobile?.errors?.required" class="error">
-                                                Mobile Number is required.
-                                           </div>
-                                        </div>
+                                    <div class="col-lg-12 mt-3">
+                                        <h3 class="mb-0">Partner Information (if applicable)</h3>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-lg-6 mb-3">
-                                        <div class="form-group">
-                                            <label>Position *</label>
-                                            <input type="text" class="form-control" placeholder="Enter Position" formControlName="position" />
-                                            <div *ngIf="basicFormSubmitted && basicForm.controls.position?.errors?.required" class="error">
-                                                Position is required.
-                                           </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 mb-3">
-                                        <div class="form-group">
-                                            <label>Trade / Company License No  *</label>
-                                            <input type="text" class="form-control" placeholder="Enter Trade / Company License No " formControlName="license_number"/>
-                                            <div *ngIf="basicFormSubmitted && basicForm.controls.license_number?.errors?.required" class="error">
-                                                Trade / Company License No is required.
-                                           </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 mb-3">
-                                        <div class="form-group">
-                                            <label>Trade / Company License Expiry Date *</label>
-                                            <input type="text" class="form-control" placeholder="Enter Trade / Company License Expiry Date" formControlName="license_expiry_date"/>
-                                            <div *ngIf="basicFormSubmitted && basicForm.controls.license_expiry_date?.errors?.required" class="error">
-                                                Trade / Company License Expiry Date is required.
-                                           </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-6 mb-3">
-                                        <div class="form-group">
-                                            <label>Emirates ID *</label>
-                                            <input type="text" class="form-control" placeholder="Enter Emirates ID" formControlName="emiratesId"/>
-                                            <div *ngIf="basicFormSubmitted && basicForm.controls.emiratesId?.errors?.required" class="error">
-                                                Emirates ID is required.
-                                           </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 mb-3">
-                                        <div class="form-group">
-                                            <label>Passport No  *</label>
-                                            <input type="text" class="form-control" placeholder="Enter Passport No " formControlName="passport"/>
-                                            <div *ngIf="basicFormSubmitted && basicForm.controls.passport?.errors?.required" class="error">
-                                                Passport No is required.
-                                           </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 mb-3">
-                                        <div class="form-group">
-                                            <label>Pantheon Sales Consultant Name *</label>
-                                            <input type="text" class="form-control" placeholder="Enter Imtiaz Sales Consultant Name" formControlName="consultant_name"/>
-                                            <div *ngIf="basicFormSubmitted && basicForm.controls.consultant_name?.errors?.required" class="error">
-                                                Sales Consultant Name is required.
-                                           </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-6 mb-3">
-                                        <div class="form-group">
-                                            <label>RERA Certificate No *</label>
-                                            <input type="text" class="form-control" placeholder="Enter No" formControlName="rera_number"/>
-                                            <div *ngIf="basicFormSubmitted && basicForm.controls.rera_number?.errors?.required" class="error">
-                                                RERA Certificate No is required.
-                                           </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 mb-3">
-                                        <div class="form-group">
-                                            <label>RERA Certificate Expiry Date *</label>
-                                            <input type="date" class="form-control" placeholder="Enter Date" formControlName="rera_expiry_date"/>
-                                            <div *ngIf="basicFormSubmitted && basicForm.controls.rera_expiry_date?.errors?.required" class="error">
-                                                RERA Certificate Expiry Date is required.
-                                           </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 mb-3">
+                                    <div class="col-lg-4 mb-3">
                                         <div class="form-group">
                                             <label>Partner's Visa *</label>
                                             <input type="text" class="form-control" placeholder="Enter Partner's Visa" formControlName="partner_visa"/>
@@ -218,7 +245,7 @@
                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 mb-3">
+                                    <div class="col-lg-4 mb-3">
                                         <div class="form-group">
                                             <label>Partner's Visa Expiry Date *</label>
                                             <input type="date" class="form-control" placeholder="Enter Date" formControlName="partner_visa_expiry_date"/>
@@ -227,11 +254,22 @@
                                            </div>
                                         </div>
                                     </div>
+                                    <div class="col-lg-4 mb-3">
+                                        <div class="form-group">
+                                            <label>Partner’s Passport No. *</label>
+                                            <input type="date" class="form-control" placeholder="Enter Partner’s Passport No." formControlName="partner_visa_expiry_date"/>
+                                            <div *ngIf="basicFormSubmitted && basicForm.controls.partner_visa_expiry_date?.errors?.required" class="error">
+                                                Partner’s Passport No. is required.
+                                           </div>
+                                        </div>
+                                    </div>
                                 </div>
+
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="form-group d-flex justify-content-between">
-                                            <a href="javascript:void(0)" class="btn-01 fill exemplarPro-family">Next</a>
+                                            <span></span>
+                                            <a href="javascript:void(0)" class="btn-01 fill exemplarPro-family" (click)="onSubmitbasic($event)">Continue</a>
                                         </div>
                                     </div>
                                 </div>
@@ -247,8 +285,12 @@
                             role="tabpanel"
                             aria-labelledby="v-tab-address"
                         >
-                            <h3>Address</h3>
-                            <form [formGroup]="addressForm" (ngSubmit)="onSubmitaddress($event)">
+                            <form [formGroup]="addressForm" >
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <h3 class="mb-0">Address</h3>
+                                    </div>
+                                </div>
                                 <div class="row">
                                     <div class="col-lg-6 mb-3">
                                         <div class="form-group">
@@ -277,7 +319,7 @@
                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-12 mb-3">
+                                    <div class="col-lg-6 mb-3">
                                         <div class="form-group">
                                             <label>Postal / Zip Code *</label>
                                             <input type="text" class="form-control" placeholder="Enter Postal / Zip Code" formControlName="postel_code"/>
@@ -299,8 +341,8 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="form-group d-flex justify-content-between">
-                                            <a href="javascript:void(0)" class="btn-01 fill exemplarPro-family">Previous</a>
-                                            <a href="javascript:void(0)" class="btn-01 fill exemplarPro-family">Next</a>
+                                            <a href="javascript:void(0)" class="btn-01 is-white exemplarPro-family">Previous</a>
+                                            <a href="javascript:void(0)" class="btn-01 fill exemplarPro-family" (click)="onSubmitaddress($event)">Continue</a>
                                         </div>
                                     </div>
                                 </div>
@@ -315,10 +357,14 @@
                             id="v-content-bank"
                             role="tabpanel"
                             aria-labelledby="v-tab-bank">
-                            <h3>Bank Information</h3>
-                            <form [formGroup]="bankForm" (ngSubmit)="onSubmitbank($event)">
+                            <form [formGroup]="bankForm" >
                                 <div class="row">
-                                    <div class="col-lg-6 mb-3">
+                                    <div class="col-lg-12">
+                                        <h3 class="mb-0">Bank Information</h3>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4 mb-3">
                                         <div class="form-group">
                                             <label>Bank Name *</label>
                                             <input type="text" class="form-control" placeholder="Enter Country" formControlName="bank_name"/>
@@ -327,16 +373,16 @@
                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 mb-3">
+                                    <div class="col-lg-4 mb-3">
                                         <div class="form-group">
                                             <label>Bank Country *</label>
-                                            <input type="text" class="form-control" placeholder="" formControlName="bank_country"/>
+                                            <input type="text" class="form-control" placeholder="Enter Bank Country" formControlName="bank_country"/>
                                             <div *ngIf="bankFormSubmitted && bankForm.controls.bank_country?.errors?.required" class="error">
                                                 Bank Country is required.
                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 mb-3">
+                                    <div class="col-lg-4 mb-3">
                                         <div class="form-group">
                                             <label>Bank City *</label>
                                             <input type="text" class="form-control" placeholder="Enter Bank City" formControlName="bank_city"/>
@@ -345,28 +391,41 @@
                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 mb-3">
+                                    <div class="col-lg-4 mb-3">
                                         <div class="form-group">
                                             <label>Account Number *</label>
-                                            <input type="text" class="form-control" placeholder="Enter Bank Account Number" formControlName="accountNo"/>
-                                            <div *ngIf="bankFormSubmitted && bankForm.controls.accountNo?.errors?.required" class="error">
+                                            <input type="text" class="form-control" placeholder="Enter Bank Account Number" formControlName="account_number"/>
+                                            <div *ngIf="bankFormSubmitted && bankForm.controls.account_number?.errors?.required" class="error">
                                                 Account Number is required.
                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 mb-3">
+                                    <div class="col-lg-4 mb-3">
                                         <div class="form-group">
-                                            <label>IBAN *</label>
-                                            <input type="text" class="form-control" placeholder="Enter IBAN Number" formControlName="IBAN_number"/>
-                                            <div *ngIf="bankFormSubmitted && bankForm.controls.IBAN_number?.errors?.required" class="error">
-                                                IBAN is required.
+                                            <label>Account Title / Beneficiary Name *</label>
+                                            <input type="text" class="form-control" placeholder="Enter Bank Account Number" formControlName="account_name"/>
+                                            <div *ngIf="bankFormSubmitted && bankForm.controls.account_name?.errors?.required" class="error">
+                                                Account Number is required.
                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 mb-3">
+                                    <div class="col-lg-4 mb-3">
+                                        <div class="form-group">
+                                            <label>IBAN / SWIFT / SORT / IFSC *</label>
+                                            <input type="text" class="form-control" placeholder="Enter IBAN Number" formControlName="iban_number"/>
+                                            <div *ngIf="bankFormSubmitted && bankForm.controls.iban_number?.errors?.required" class="error">
+                                                IBAN / SWIFT / SORT / IFSC is required.
+                                           </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 mb-3">
                                         <div class="form-group">
                                             <label>Currency *</label>
-                                            <input type="text" class="form-control" placeholder="Enter Currency " formControlName="currency"/>
+                                            <!-- <input type="text" class="form-control" placeholder="Enter Currency " formControlName="currency"/> -->
+                                            <select class="form-control minimal" name="currency" id="currency" formControlName="currency" tabindex="-1" aria-hidden="true">
+                                                <option value="AED" selected>AED</option>
+                                                <option value="USD">USD</option>
+                                            </select>
                                             <div *ngIf="bankFormSubmitted && bankForm.controls.currency?.errors?.required" class="error">
                                                 Currency is required.
                                            </div>
@@ -376,8 +435,8 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="form-group d-flex justify-content-between">
-                                            <a href="javascript:void(0)" class="btn-01 fill exemplarPro-family">Previous</a>
-                                            <a href="javascript:void(0)" class="btn-01 fill exemplarPro-family">Next</a>
+                                            <a href="javascript:void(0)" class="btn-01 is-white exemplarPro-family">Previous</a>
+                                            <a href="javascript:void(0)" class="btn-01 fill exemplarPro-family" (click)="onSubmitbank($event)">Continue</a>
                                         </div>
                                     </div>
                                 </div>
@@ -393,14 +452,18 @@
                             role="tabpanel"
                             aria-labelledby="v-tab-attachments"
                         >
-                            <h3>Attachments</h3>
                             <form [formGroup]="attachmentForm" (ngSubmit)="onSubmitattachment($event)">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <h3 class="mb-0">Attachments</h3>
+                                    </div>
+                                </div>
                                 <div class="row">
                                     <div class="col-lg-6 mb-3">
                                         <div class="form-group">
                                             <label>Emirate ID *</label>
-                                            <input type="file" class="form-control" accept="image/*,.doc, .docx,.pdf" formControlName="emirateID"/>
-                                            <div *ngIf="basicFormSubmitted && basicForm.controls.emirateID?.errors?.required" class="error">
+                                            <input type="file" class="form-control" accept="image/*,.doc, .docx,.pdf" formControlName="doc_emirate_id" #fileInput (change)="onFileChange($event,'doc_emirate_id')"/>
+                                            <div *ngIf="basicFormSubmitted && basicForm.controls.doc_emirate_id?.errors?.required" class="error">
                                                 Emirate ID is required.
                                            </div>
                                         </div>
@@ -408,8 +471,8 @@
                                     <div class="col-lg-6 mb-3">
                                         <div class="form-group">
                                             <label>Visa *</label>
-                                            <input type="file" class="form-control" accept="image/*,.doc, .docx,.pdf" formControlName="visa"/>
-                                            <div *ngIf="basicFormSubmitted && basicForm.controls.visa?.errors?.required" class="error">
+                                            <input type="file" class="form-control" accept="image/*,.doc, .docx,.pdf" formControlName="doc_visa" #fileInput (change)="onFileChange($event,'doc_visa')"/>
+                                            <div *ngIf="basicFormSubmitted && basicForm.controls.doc_visa?.errors?.required" class="error">
                                                 Visa is required.
                                            </div>
                                         </div>
@@ -417,8 +480,8 @@
                                     <div class="col-lg-6 mb-3">
                                         <div class="form-group">
                                             <label>Passport *</label>
-                                            <input type="file" class="form-control" accept="image/*,.doc, .docx,.pdf" formControlName="passport"/>
-                                            <div *ngIf="basicFormSubmitted && basicForm.controls.passport?.errors?.required" class="error">
+                                            <input type="file" class="form-control" accept="image/*,.doc, .docx,.pdf" formControlName="doc_passport" #fileInput (change)="onFileChange($event,'doc_passport')"/>
+                                            <div *ngIf="basicFormSubmitted && basicForm.controls.doc_passport?.errors?.required" class="error">
                                                 Passport is required.
                                            </div>
                                         </div>
@@ -426,8 +489,8 @@
                                     <div class="col-lg-6 mb-3">
                                         <div class="form-group">
                                             <label>Valid Trade License*</label>
-                                            <input type="file" class="form-control" accept="image/*,.doc, .docx,.pdf" formControlName="trade_license"/>
-                                            <div *ngIf="basicFormSubmitted && basicForm.controls.trade_license?.errors?.required" class="error">
+                                            <input type="file" class="form-control" accept="image/*,.doc, .docx,.pdf" formControlName="doc_trade_license" #fileInput (change)="onFileChange($event,'doc_trade_license')"/>
+                                            <div *ngIf="basicFormSubmitted && basicForm.controls.doc_trade_license?.errors?.required" class="error">
                                                 Trade License is required.
                                            </div>
                                         </div>
@@ -435,8 +498,8 @@
                                     <div class="col-lg-6 mb-3">
                                         <div class="form-group">
                                             <label>Valid VAT Certificate / VAT NOC (Non-Registered)</label>
-                                            <input type="file" class="form-control" accept="image/*,.doc, .docx,.pdf" formControlName="VAT_certificate"/>
-                                            <div *ngIf="basicFormSubmitted && basicForm.controls.VAT_certificate?.errors?.required" class="error">
+                                            <input type="file" class="form-control" accept="image/*,.doc, .docx,.pdf" formControlName="doc_VAT_certificate" #fileInput (change)="onFileChange($event,'doc_VAT_certificate')"/>
+                                            <div *ngIf="basicFormSubmitted && basicForm.controls.doc_VAT_certificate?.errors?.required" class="error">
                                                 VAT Certificate is required.
                                            </div>
                                         </div>
@@ -444,8 +507,8 @@
                                     <div class="col-lg-6 mb-3">
                                         <div class="form-group">
                                             <label>Partner's Visa</label>
-                                            <input type="file" class="form-control" accept="image/*,.doc, .docx,.pdf" formControlName="partner_visa"/>
-                                            <div *ngIf="basicFormSubmitted && basicForm.controls.partner_visa?.errors?.required" class="error">
+                                            <input type="file" class="form-control" accept="image/*,.doc, .docx,.pdf" formControlName="doc_partner_visa" #fileInput (change)="onFileChange($event,'doc_partner_visa')"/>
+                                            <div *ngIf="basicFormSubmitted && basicForm.controls.doc_partner_visa?.errors?.required" class="error">
                                                 Partner's Visa is required.
                                            </div>
                                         </div>
@@ -453,8 +516,8 @@
                                     <div class="col-lg-6 mb-3">
                                         <div class="form-group">
                                             <label>Company Bank Letter*</label>
-                                            <input type="file" class="form-control" accept="image/*,.doc, .docx,.pdf" formControlName="company_bank_letter"/>
-                                            <div *ngIf="basicFormSubmitted && basicForm.controls.company_bank_letter?.errors?.required" class="error">
+                                            <input type="file" class="form-control" accept="image/*,.doc, .docx,.pdf" formControlName="doc_company_bank_letter" #fileInput (change)="onFileChange($event,'doc_company_bank_letter')"/>
+                                            <div *ngIf="basicFormSubmitted && basicForm.controls.doc_company_bank_letter?.errors?.required" class="error">
                                                 Company Bank Letter is required.
                                            </div>
                                         </div>
@@ -462,8 +525,8 @@
                                     <div class="col-lg-6 mb-3">
                                         <div class="form-group">
                                             <label>Power of Atty / MOA</label>
-                                            <input type="file" class="form-control" accept="image/*,.doc, .docx,.pdf" formControlName="MOA"/>
-                                            <div *ngIf="basicFormSubmitted && basicForm.controls.MOA?.errors?.required" class="error">
+                                            <input type="file" class="form-control" accept="image/*,.doc, .docx,.pdf" formControlName="doc_MOA" #fileInput (change)="onFileChange($event,'doc_MOA')"/>
+                                            <div *ngIf="basicFormSubmitted && basicForm.controls.doc_MOA?.errors?.required" class="error">
                                                 Power of Atty is required.
                                            </div>
                                         </div>
@@ -471,8 +534,8 @@
                                     <div class="col-lg-6 mb-3">
                                         <div class="form-group">
                                             <label>RERA CERTIFICATE*</label>
-                                            <input type="file" class="form-control" accept="image/*,.doc, .docx,.pdf" formControlName="rera_certificate"/>
-                                            <div *ngIf="basicFormSubmitted && basicForm.controls.rera_certificate?.errors?.required" class="error">
+                                            <input type="file" class="form-control" accept="image/*,.doc, .docx,.pdf" formControlName="doc_rera_certificate" #fileInput (change)="onFileChange($event,'doc_rera_certificate')"/>
+                                            <div *ngIf="basicFormSubmitted && basicForm.controls.doc_rera_certificate?.errors?.required" class="error">
                                                 RERA CERTIFICATE is required.
                                            </div>
                                         </div>
@@ -480,8 +543,8 @@
                                     <div class="col-lg-6 mb-3">
                                         <div class="form-group">
                                             <label>Broker Card*</label>
-                                            <input type="file" class="form-control" accept="image/*,.doc, .docx,.pdf" formControlName="broker_card"/>
-                                            <div *ngIf="basicFormSubmitted && basicForm.controls.broker_card?.errors?.required" class="error">
+                                            <input type="file" class="form-control" accept="image/*,.doc, .docx,.pdf" formControlName="doc_broker_card" #fileInput (change)="onFileChange($event,'doc_broker_card')"/>
+                                            <div *ngIf="basicFormSubmitted && basicForm.controls.doc_broker_card?.errors?.required" class="error">
                                                 Broker Card is required.
                                            </div>
                                         </div>
@@ -490,8 +553,8 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="form-group d-flex justify-content-between">
-                                            <a href="javascript:void(0)" class="btn-01 fill exemplarPro-family">Previous</a>
-                                            <a href="javascript:void(0)" class="btn-01 fill exemplarPro-family">Submit</a>
+                                            <a href="javascript:void(0)" class="btn-01 is-white exemplarPro-family">Previous</a>
+                                            <a href="javascript:void(0)" class="btn-01 fill exemplarPro-family" (click)="onSubmitattachment($event)">Submit</a>
                                         </div>
                                     </div>
                                 </div>

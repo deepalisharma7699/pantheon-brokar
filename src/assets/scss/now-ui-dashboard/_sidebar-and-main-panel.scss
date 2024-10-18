@@ -178,7 +178,7 @@ body {
         overflow: auto;
         width: 100%;
         z-index: 4;
-        background: #121212;
+        background: #1e1d1d;
         border-radius: 6px;
 
         .dropdown .dropdown-backdrop{
@@ -253,7 +253,7 @@ body {
                 font-size: $font-size-base;
                 padding: 6px 8px;
                 line-height: $line-height-nav-link;
-                border-bottom: 1px solid #ffffff59;
+                border-bottom: 1px solid #353434;
                 border-radius: 0;
             }
 
@@ -434,7 +434,8 @@ body {
     }
 
     &:after{
-        @include icon-gradient($default-color);
+        // @include icon-gradient($default-color);
+        background-color: #030303;
         z-index: 3;
     }
 
@@ -482,7 +483,7 @@ body {
     width: $sidebar-width;
     // width: 100%;
     background-color: $light-gray;
-    background-color: #000000;
+    background-color: #030303;
 
     @include transition (0.50s, cubic-bezier(0.685, 0.0473, 0.346, 1));
 

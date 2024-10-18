@@ -6,6 +6,9 @@ body {
     padding: 15vh;
     background: linear-gradient(120deg, #3A3A3A, #111);
     overflow-y:hidden;
+    height: 100vh;
+    display: flex;
+    align-items: center;
 }
 
 .card {

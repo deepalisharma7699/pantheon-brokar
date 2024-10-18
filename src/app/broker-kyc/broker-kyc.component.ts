@@ -19,6 +19,7 @@ export class BrokerKycComponent implements OnInit {
   bankFormSubmitted = false;
   attachmentForm: FormGroup;
   attachmentFormSubmitted = false;
+  inputData = {};
 
   constructor(
     private apiService: ApiService,
@@ -35,15 +36,15 @@ export class BrokerKycComponent implements OnInit {
       'company_name': ['', Validators.required],
       'email': ['', Validators.required],
       'nationality': ['', Validators.required],
-      'mobile': ['', Validators.required],
+      'phone': ['', Validators.required],
       'position': ['', Validators.required],
-      'license_number': ['', Validators.required],
-      'license_expiry_date': ['', Validators.required],
-      'emiratesId': ['', Validators.required],
-      'passport': ['', Validators.required],
+      'trade_license_number': ['', Validators.required],
+      'trade_license_expiry_date': ['', Validators.required],
+      'emirates_id_number': ['', Validators.required],
+      'passport_number': ['', Validators.required],
       'consultant_name': ['', Validators.required],
-      'rera_number': ['', Validators.required],
-      'rera_expiry_date': ['', Validators.required],
+      'rera_registration_certificate_number': ['', Validators.required],
+      'rera_registration_certificate_expiry_date': ['', Validators.required],
       'partner_visa': ['', Validators.required],
       'partner_visa_expiry_date': ['', Validators.required]
     });
@@ -60,22 +61,23 @@ export class BrokerKycComponent implements OnInit {
       'bank_name': ['', Validators.required],
       'bank_country': ['', Validators.required],
       'bank_city': ['', Validators.required],
-      'accountNo': ['', Validators.required],
-      'IBAN_number': ['', Validators.required],
+      'account_number': ['', Validators.required],
+      'iban_number': ['', Validators.required],
+      'account_name': ['', Validators.required],      
       'currency': ['', Validators.required]
     });
 
     this.attachmentForm = this.formbuilder.group({     
-      'emirateID': ['', Validators.required],
-      'visa': ['', Validators.required],
-      'passport': ['', Validators.required],
-      'trade_license': ['', Validators.required],
-      'VAT_certificate': ['', Validators.required],
-      'partner_visa': ['', Validators.required],
-      'company_bank_letter': ['', Validators.required],
-      'MOA': ['', Validators.required],
-      'rera_certificate': ['', Validators.required],
-      'broker_card': ['', Validators.required]
+      'doc_emirate_id':  ['', ''],
+      'doc_visa':  ['', ''],
+      'doc_passport':  ['', ''],
+      'doc_trade_license':  ['', ''],
+      'doc_VAT_certificate':  ['', ''],
+      'doc_partner_visa':  ['', ''],
+      'doc_company_bank_letter':  ['', ''],
+      'doc_MOA':  ['', ''],
+      'doc_rera_certificate':  ['', ''],
+      'doc_broker_card':  ['', '']
     });
     
   }
@@ -163,32 +165,95 @@ export class BrokerKycComponent implements OnInit {
     }
    
   }
-   // Method to submit form data
-   onSubmitattachment(event: Event) {
-    this.attachmentFormSubmitted = true;
-    console.log('this.attachmentForm', this.attachmentForm);
-    if(this.attachmentForm.status == 'VALID'){
-      console.log('this.attachmentForm.value', this.attachmentForm.value);
+  //  // Method to submit form data
+  //  onSubmitattachment(event: Event) {
+  //   this.attachmentFormSubmitted = true;
+  //   console.log('this.attachmentForm', this.attachmentForm);
+  //   if(this.attachmentForm.status == 'VALID'){
+  //     console.log('this.attachmentForm.value', this.attachmentForm.value);
       
-      const data = this.attachmentForm.value;
-      this.apiService.attachmentForm(data).subscribe(
-        // tslint:disable-next-line:no-shadowed-variable
-        data => {
-        console.log('data', data);
-        if(data.status == 'status'){
-          alert(data.message);
-          //this.router.navigate(['/login']);
-          return;
-        }else{
-          alert(data.message);
-        }
-        },
-        error => {
-          alert(error.error.message);
-          console.log('error', error);
-        }
-      );
-    }
+  //     const data = this.attachmentForm.value;
+  //     this.apiService.attachmentForm(data).subscribe(
+  //       // tslint:disable-next-line:no-shadowed-variable
+  //       data => {
+  //       console.log('data', data);
+  //       if(data.status == 'status'){
+  //         alert(data.message);
+  //         //this.router.navigate(['/login']);
+  //         return;
+  //       }else{
+  //         alert(data.message);
+  //       }
+  //       },
+  //       error => {
+  //         alert(error.error.message);
+  //         console.log('error', error);
+  //       }
+  //     );
+  //   }
    
+  // }
+
+
+  onSubmitattachment(f: NgForm) {
+    this.attachmentFormSubmitted = true;
+    if (this.attachmentForm.valid) {
+      // this.showBankList = false;
+      let data = {
+        doc_emirate_id:   this.inputData['file'],
+        doc_visa:   this.inputData['file'],
+        doc_passport:   this.inputData['file'],
+        doc_trade_license:   this.inputData['file'],
+        doc_VAT_certificate:   this.inputData['file'],
+        doc_partner_visa:   this.inputData['file'],
+        doc_company_bank_letter:   this.inputData['file'],
+        doc_MOA:   this.inputData['file'],
+        doc_rera_certificate:   this.inputData['file'],
+        doc_broker_card:   this.inputData['file']
+      };
+
+      // if (this.agentBankList.length >= 3) {
+      //   this.errorService.errorMessage('You have maximum number of account.');
+      // } else {
+        // this.loader.setLoading(true);
+        this.apiService.attachmentForm(data).subscribe(
+          response => {
+            console.log('data', data);
+            // if(data.status == 'status'){
+            //   alert(data.message);
+            //   //this.router.navigate(['/login']);
+            //   return;
+            // }else{
+            //   alert(data.message);
+            // }
+          },
+          error => {
+            alert(error.error.message);
+            console.log('error', error);
+          });
+      // }
+    } else {
+      return false;
+    }
+    this.attachmentFormSubmitted = false;
+  }
+
+  
+  onFileChange(event, name, key?: string) {
+    const reader = new FileReader();
+    if (event.target.files && event.target.files.length) {
+      // if (this.fielExtList.includes(event.target.files[0].type)) {
+        const size = event.srcElement.files[0].size;
+        if (size > 5242880) {
+          alert('Please upload File not exceed more than 5MB');
+          return false;
+        } else {
+          const [file] = event.target.files;
+          reader.readAsDataURL(file);
+          reader.onload = () => {
+            this.inputData[name] = event.target.files[0];
+          };
+        }
+    }
   }
 }

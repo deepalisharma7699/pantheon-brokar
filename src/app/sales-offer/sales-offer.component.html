@@ -1,5 +1,6 @@
 <div class="panel-header panel-header-lg" ></div>
-   
+<link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css" />
+
 <div class="main-content">
     <div class="row">
         <div class="col-lg-12">
@@ -24,19 +25,21 @@
             </div>
         </div>
         <div class="col-lg-12 offer-page-filter" *ngIf="showProjectConfig">
-            <div class="btn-01-wrp">
-                <a href="javascript:void(0)" class="btn-01 is-white curve" [ngClass]="{'active' : configType == 'ALL'}" (click)="filterConfig('ALL')" >ALL CONFIGURATIONS</a>
-            </div>  
-            <div class="btn-01-wrp" *ngFor="let unittype of unitTypes">
-                <a href="javascript:void(0)" class="btn-01 is-white curve" [ngClass]="{'active' : configType == unittype}" (click)="filterConfig(unittype)">{{ unittype }}</a>
-            </div>
-            <!-- </div>
-            <div class="col-lg-12 offer-page-filter"> -->
-            <div class="btn-01-wrp">
-                <a href="javascript:void(0)" class="btn-01 is-white curve" [ngClass]="{'active' : viewType == 'ALL'}" (click)="filterView('ALL')">ALL Views</a>
-            </div>
-            <div class="btn-01-wrp" *ngFor="let unitview of unitViews">
-                <a href="javascript:void(0)" class="btn-01 is-white curve" [ngClass]="{'active' : viewType == unitview}"  (click)="filterView(unitview)">{{ unitview }}</a>
+            <div>
+                <div class="btn-01-wrp">
+                    <a href="javascript:void(0)" class="btn-01 is-white curve" [ngClass]="{'active' : configType == 'ALL'}" (click)="filterConfig('ALL')" >All Configurations (63)</a>
+                </div>  
+                <div class="btn-01-wrp" *ngFor="let unittype of unitTypes">
+                    <a href="javascript:void(0)" class="btn-01 is-white curve" [ngClass]="{'active' : configType == unittype}" (click)="filterConfig(unittype)">{{ unittype }} (63)</a>
+                </div>
+            </div>           
+            <div>
+                <div class="btn-01-wrp">
+                    <a href="javascript:void(0)" class="btn-01 is-white curve" [ngClass]="{'active' : viewType == 'ALL'}" (click)="filterView('ALL')">All Views</a>
+                </div>
+                <div class="btn-01-wrp" *ngFor="let unitview of unitViews">
+                    <a href="javascript:void(0)" class="btn-01 is-white curve" [ngClass]="{'active' : viewType == unitview}"  (click)="filterView(unitview)">{{ unitview }} (63)</a>
+                </div>
             </div>
         </div>
         
@@ -44,7 +47,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table">
+                        <table class="table display" id="myTable" >
                             <thead class=" text-primary">
                                 <th></th>
                                 <th>UNIT <br>NUMBER</th>
@@ -56,12 +59,12 @@
                             </thead>
                             <tbody>
                                 <tr *ngFor="let units of filteredUnitData">
-                                    <td><i class="now-ui-icons ui-1_check"></i></td>
+                                    <td><i class="now-ui-icons location_bookmark"></i></td>
                                     <td>{{ units.unit_number}}</td>
                                     <td>{{ units.unit_type}}</td>
                                     <td>{{ units.total_area}}</td>
                                     <td>{{ units.unit_view}}</td>
-                                    <td>{{ units.price | currency:'AED': true }}</td>
+                                    <td>{{ units.price}}</td>
                                     <td>
                                         <div class="btn-01-wrp">
                                           <a href="javascript:void(0)" class="btn-01 is-white" (click)="generateSalesOffer(units.id)">GENERATE OFFER</a>
@@ -77,4 +80,7 @@
 
     </div>
 </div>
-   
+<script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
+<script>$(document).ready( function () {
+    $('#myTable').DataTable();
+} );</script>

@@ -152,4 +152,14 @@ export class NavbarComponent implements OnInit {
       }
       return 'Dashboard';
     }
+
+    // getInitials(fullName: string): string {
+    //   // Split the name by space
+    //   const nameParts = fullName.split(' ');
+  
+    //   // Get the first letter of each part and join them
+    //   const initials = nameParts.map(part => part.charAt(0).toUpperCase()).join('');
+  
+    //   return initials;
+    // }
 }

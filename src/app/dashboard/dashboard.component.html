@@ -54,7 +54,7 @@
                 <h4>Sales Offers <br>(Created)</h4>
               </div>
               <div class="btn-01-wrp">
-                <a href="" class="btn-01 is-gold">Start Selling</a>
+                <a [routerLink]="['/sales-offer']" class="btn-01 is-gold">Start Selling</a>
               </div>
             </div>
           </div>
@@ -63,22 +63,11 @@
               <div class="card card-chart home-card-3">
                 <div class="card-body">
                   <div>
-                    <a href="">Complete Your Profile</a>
+                    <a href="">Create Sales Offers</a>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-lg-6">
-              <div class="card card-chart home-card-3">
-                <div class="card-body">
-                  <div>
-                    <a href="">Complete Your Profile</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
             <div class="col-lg-6">
               <div class="card card-chart home-card-3">
                 <div class="card-body">
@@ -94,16 +83,16 @@
           <div class="card card-chart home-card-3">
             <div class="card-body">
               <div>
-                <a href="">Contact RM</a>
+                <a href="javascript:void(0)">Contact RM</a>
               </div>
               <div>
-                <a href="">Schedule Appointment</a>
+                <a href="javascript:void(0)">Schedule Appointment</a>
               </div>
               <div>
-                <a href="">Special Offers / Discounts</a>
+                <a href="javascript:void(0)">Special Offers / Discounts</a>
               </div>
               <div>
-                <a href="">FAQs</a>
+                <a href="javascript:void(0)">FAQs</a>
               </div>
             </div>
           </div>
@@ -355,34 +344,4 @@
       </div>
     </div>
   </div> -->
-</div>
-
-
-<!-- Trigger Div -->
-<div (click)="showPopup = true" class="popup-trigger">
-  Click me to open popup
-</div>
-
-<!-- Popup (conditionally displayed when 'showPopup' is true) -->
-<div class="popup-container" *ngIf="showPopup">
-  <div class="popup-content">
-    <p>
-      This is a two-liner paragraph. <br>
-      Please select your purpose from the dropdown below.
-    </p>
-
-    <!-- Dropdown for Purpose -->
-    <label for="purpose">Purpose:</label>
-    <select id="purpose" [(ngModel)]="selectedPurpose">
-      <option value="inquiry">Inquiry</option>
-      <option value="support">Support</option>
-      <option value="feedback">Feedback</option>
-    </select>
-
-    <!-- Button to Request Callback -->
-    <button (click)="requestCallback()">Request a callback</button>
-
-    <!-- Button to Close Popup -->
-    <button (click)="closePopup()">Close</button>
-  </div>
 </div>

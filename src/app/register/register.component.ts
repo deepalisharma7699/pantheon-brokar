@@ -43,7 +43,7 @@ export class RegisterComponent implements OnInit {
         // tslint:disable-next-line:no-shadowed-variable
         data => {
         console.log('data', data);
-        if(data.status == 'status'){
+        if(data.status == 'success'){
           alert(data.message);
           this.router.navigate(['/login']);
           return;

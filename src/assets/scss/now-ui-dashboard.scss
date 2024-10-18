@@ -51,20 +51,6 @@
 
 @import "now-ui-dashboard/responsive";
 
-.error{
-    border-color: red;
-}
-
-.form-group select.form-control{
-    color: #898d8a;
-}
-.iti{
-    width: 100%;
-}
-.iti__country {
-    color: black;
-}
-
 table{
    td,th{
        color: #fff;
@@ -72,12 +58,58 @@ table{
    }
 }
 
+.form-group,
+.input-group{
+    .form-control {
+        background-color: #444;
+        border: none;
+        border-radius: 10px;
+        color: #fff;
+    }
+}
+
+select.minimal {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    // color: gray !important;
+
+  background-image:
+    linear-gradient(45deg, transparent 50%, #ffffff 50%),
+    linear-gradient(135deg, #ffffff 50%, transparent 50%);
+  background-position:
+    calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px),
+    calc(100% - 2.5em) 0.5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1px 1.5em;
+  background-repeat: no-repeat;
+}
+
+select.minimal:focus {
+  background-image:
+    linear-gradient(45deg, green 50%, transparent 50%),
+    linear-gradient(135deg, transparent 50%, green 50%);
+  background-position:
+    calc(100% - 15px) 1em,
+    calc(100% - 20px) 1em,
+    calc(100% - 2.5em) 0.5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1px 1.5em;
+  background-repeat: no-repeat;
+}
+input {
+    color-scheme: dark;
+}
+
 .btn-01{
-   font-size: 18px;
-   text-transform: uppercase;
-   padding: 7px 30px;
+   font-size: 14px;
+   padding: 5px 20px;
    border-radius: 8px;
-   border: 2px solid #d4af37;
+   border: 1px solid #d4af37;
    color: #d4af37;
    display: inline-block;
    &.fill{
@@ -85,7 +117,8 @@ table{
        color: #000;
    }
    &.is-white{
-       border-color: #fff;
+        background-color: #323131;
+       border-color: #353434;
        color: #fff;
    }
    &.is-gold{
@@ -207,18 +240,29 @@ table{
    }
 }
 .offer-page-filter{
-   display: flex;
-   flex-wrap: wrap;
    margin: 50px 0;
    .btn-01{
-       margin: 0 25px 25px 0;
+       margin: 0 10px 15px 0;
+   }
+   >div{
+    display:flex;
+    flex-wrap: wrap;
    }
 }
 
 
 .kyc-page{
+    .card{
+        overflow: hidden;
+    }
    .nav-tabs{
        border: 0;
+       align-items: center;
+       justify-content: center;
+       border-bottom: 1px solid #323131;
+       margin-bottom: 20px;
+       padding: 20px;
+       background: #323131;
        .nav-link {
            border: none;
            border-radius: 0;
@@ -226,7 +270,7 @@ table{
            cursor: pointer;
            display: flex;
            align-items: center;
-           margin-bottom: 18px;
+        //    margin-bottom: 18px;
            &:last-child{
                margin-bottom: 0;
            }
@@ -254,51 +298,6 @@ table{
      padding: 0 20px 0 40px;
      color:white;
      border-radius: 0px;
-     border-left: 1px solid #ffffff94;
+    //  border-left: 1px solid #ffffff94;
    }
-}
-
-/* Styling for the popup */
-.popup-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* semi-transparent background */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.popup-content {
-  background-color: white;
-  padding: 20px;
-  border-radius: 5px;
-  width: 300px;
-  text-align: center;
-}
-
-.popup-trigger {
-  cursor: pointer;
-  padding: 10px;
-  background-color: #007bff;
-  color: white;
-  width: 150px;
-  text-align: center;
-  border-radius: 5px;
-  margin: 20px;
-}
-
-button {
-  margin-top: 10px;
-  padding: 8px 15px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-}
-
-button:hover {
-  background-color: #0056b3;
 }

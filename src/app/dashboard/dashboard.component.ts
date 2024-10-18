@@ -10,20 +10,6 @@ import { LocalStorageService } from '../local-storage.service';
 })
 export class DashboardComponent implements OnInit {
 
-  showPopup: boolean = false;
-  selectedPurpose: string = '';
-
-  requestCallback() {
-    console.log('Callback requested for purpose:', this.selectedPurpose);
-    alert(`Callback requested for purpose: ${this.selectedPurpose}`);
-    this.closePopup();  // Close popup after requesting callback
-  }
-
-  // Function to close the popup
-  closePopup() {
-    this.showPopup = false;
-  }
-
   userdata: any;
 
   public lineBigDashboardChartType;

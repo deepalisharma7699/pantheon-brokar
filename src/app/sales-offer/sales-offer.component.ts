@@ -73,36 +73,7 @@ export class SalesOfferComponent implements OnInit {
     const url = this.router.serializeUrl(this.router.createUrlTree(['/sales-offer-pdf']));
     console.log('url',url);
     // Open the route in a new tab
-    window.open('/#'+url, '_blank');
-
-    // this.router.navigate(['/sales-offer-pdf']);
-
-    // this.apiService.getSalesOffer(unitid).subscribe(
-    //   // tslint:disable-next-line:no-shadowed-variable
-    //   data => {
-    //     this.showProjectConfig = true;
-    //   console.log('getSalesOffer', data);
-    //   const base64Pdf = data.data.offerdata;
-
-    //   // Create a Blob from the base64 string
-    //   const binary = atob(base64Pdf);
-    //   const len = binary.length;
-    //   const buffer = new Uint8Array(len);
-    //   for (let i = 0; i < len; i++) {
-    //     buffer[i] = binary.charCodeAt(i);
-    //   }
-    //   const blob = new Blob([buffer.buffer], { type: 'application/pdf' });
-
-    //   window.open(URL.createObjectURL(blob), '_blank');
-    //   },
-    //   error => {
-    //     alert(error.error.error_message);
-    //     console.log('error', error);
-    //   }
-    // );
-
-
-
+    window.open('/#'+url+'?u='+unitid, '_blank');
   }
 
   filterConfig(val){

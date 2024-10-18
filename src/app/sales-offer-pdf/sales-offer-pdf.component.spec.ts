@@ -22,4 +22,5 @@ describe('SalesOfferPdfComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  
 });

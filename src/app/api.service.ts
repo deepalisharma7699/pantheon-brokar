@@ -72,11 +72,16 @@ export class ApiService {
       }));
   }
   attachmentForm(data) {
-    return this.http.post<any>(this.fullApiUrl + 'broker/add/attachment', data)
-      // tslint:disable-next-line:no-shadowed-variable
-      .pipe(map(data => {
+    const formData: FormData = new FormData();
+      Object.keys(data).map((key: string) => {
+        formData.append(key, data[key]);
+      });
+      return this.http.post<any>(this.fullApiUrl + 'broker/add/attachment', formData, {
+        headers: { 'Accept': 'application/json' },
+      }).pipe(map(data => {
         return data;
-      }));
+      })
+    );
   }
   
 

@@ -11,15 +11,12 @@ export class PhoneNumberDirective implements OnInit {
   ngOnInit(): void {
     const input = this.el.nativeElement;
     intlTelInput(input, {
-      initialCountry: 'auto',  // Automatically set the country based on geo-location
+      initialCountry: 'auto',
       geoIpLookup: (callback) => {
-        fetch('https://ipinfo.io/json?token=<YOUR_IPINFO_TOKEN>')
+        fetch('https://ipinfo.io?token=<YOUR_IPINFO_TOKEN>')
           .then(response => response.json())
-          .then(data => {
-            const countryCode = data.country ? data.country.toLowerCase() : 'ae'; // Fallback to India if location fails
-            callback(countryCode);
-          })
-          .catch(() => callback('ae'));  // Default to India on error
+          .then(data => callback(data.country))
+          .catch(() => callback('us'));
       },
       utilsScript: 'assets/js/utils.js', // Path to utils.js (optional)
     });
