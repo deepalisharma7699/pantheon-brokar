@@ -1,7 +1,9 @@
 body {
     background-color:#111 !important;
 } 
-
+.error{
+    color:red;
+}
 .form {
     padding: 20px 70px;
     background: linear-gradient(120deg, #3A3A3A, #111);

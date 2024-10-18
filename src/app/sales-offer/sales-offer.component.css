@@ -1,0 +1,20 @@
+
+.table-responsive table{
+    font-size: 14px;
+}
+.table-responsive table th{
+    background-color: #323131;
+    font-weight: 600;
+}
+.table-responsive table th:first-child{
+    border-radius: 15px 0px 0px 15px;
+}
+.table-responsive table th:last-child{
+    border-radius: 0px 15px 15px 0px;
+}
+.table-responsive table tr:first-child td{
+    border-top: 0;
+}
+.table-responsive table tr td{
+    border-top-color: #353434;
+}

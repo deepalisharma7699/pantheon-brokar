@@ -4,24 +4,31 @@
            <video autoplay="true" loop="" muted="" playsinline="" class="card-video-left"><source src="https://www.pantheondevelopment.ae/wp-content/uploads/Pantheon-Development-Award.mp4" type="video/mp4"></video>
             <!-- Right Form Section -->
             <div class="form-card w-50">
-                <h3 class="text-warning mb-4">Broker Login</h3>
-                <form>
+                <h3 class="text-warning mb-4">Login To Pantheon Broker Hub</h3>
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit($event)">
                     <div class="form-group">
                         <label for="email">Email Address</label>
-                        <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                        <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter your registered email address">
+                        <div *ngIf="loginFormSubmitted && loginForm.controls.email?.errors?.required" class="error">
+                            Email is required.
+                       </div>
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="Enter your password">
+                        <input type="password" class="form-control" id="password" formControlName="password" placeholder="Enter your password">
+                        <div *ngIf="loginFormSubmitted && loginForm.controls.password?.errors?.required" class="error">
+                            Password is required.
+                       </div>
                     </div>
                     <div class="form-group form-check">
                         <input type="checkbox" class="form-check-input" id="remember">
                         <label class="form-check-label" for="remember">Remember Me</label>
                     </div>
-                    <button type="submit" class="btn btn-submit btn-block mt-4">Login</button>
-                    <div class="text-center mt-3">
+                    <button type="submit" class="btn btn-submit btn-block mt-4">Let's Go!</button>
+                    <p>New to Pantheon Broker Hub? <a [routerLink]="['/register']">Create an account ></a></p>
+                    <!-- <div class="text-center mt-3">
                         <a href="#" class="text-warning">Forgot Password?</a>
-                    </div>
+                    </div> -->
                 </form>
             </div>
         </div>

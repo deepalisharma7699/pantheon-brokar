@@ -13,9 +13,19 @@
     <ul class="nav">
         <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
             <a [routerLink]="[menuItem.path]">
-                <i class="now-ui-icons {{menuItem.icon}}"></i>
+                <!-- <i class="now-ui-icons {{menuItem.icon}}"></i> -->
                 <p>{{menuItem.title}}</p>
             </a>
         </li>
     </ul>
+</div>
+<div class="complete-profile-box">
+    <div class="card card-chart home-card-3">
+        <div class="card-body">
+        <div>
+            <p>You're almost there! <br>Upload your documents now to complete your profile and unlock exclusive offers. Let’s get started!</p>
+            <a href="" class="btn-01 fill exemplarPro-family">Complete Your Profile</a>
+        </div>
+        </div>
+    </div>
 </div>

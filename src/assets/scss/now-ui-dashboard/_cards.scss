@@ -6,9 +6,16 @@
     width: 100%;
     margin-bottom: 20px;
     box-shadow: $box-shadow;
+    background-color: #1E1D1D;
+    border-radius: 12px;
+
+    h1{
+        color: $white-color;
+    }
 
     .card-body{
-        padding: 15px 15px 10px 15px;
+        // padding: 15px 15px 10px 15px;
+        padding: 15px 15px;
 
         &.table-full-width{
             padding-left: 0;

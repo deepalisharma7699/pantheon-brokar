@@ -8,7 +8,13 @@ declare interface RouteInfo {
 }
 export const ROUTES: RouteInfo[] = [
     { path: '/dashboard', title: 'Dashboard',  icon: 'design_app', class: '' },
-     { path: '/broker-kyc', title: 'broker KYC',  icon:'education_atom', class: '' },
+    { path: '/sales-offer', title: 'Create Sales Offer',  icon:'design_app', class: '' },
+    // { path: '/available-inventory', title: 'Available Inventory',  icon:'design_app', class: '' },
+    // { path: '/generate-invoice', title: 'Generate Invoice',  icon:'design_app', class: '' },
+    // { path: '/marketing-collateral', title: 'Marketing Collateral',  icon:'design_app', class: '' },
+    // { path: '/offers-discounts', title: 'Offers / Discounts',  icon:'design_app', class: '' },
+    // { path: '/my-account', title: 'My Account',  icon:'design_app', class: '' },
+    { path: '/broker-kyc', title: 'broker KYC',  icon:'education_atom', class: '' },
     // { path: '/maps', title: 'Maps',  icon:'location_map-big', class: '' },
     // { path: '/notifications', title: 'Notifications',  icon:'ui-1_bell-53', class: '' },
 

@@ -1,18 +1,159 @@
 @font-face {
-  font-family: 'ExemplarPro-Regular';
-  src: url('../../fonts/ExemplarPro-Regular.otf') format('otf');
+  font-family: 'Lexend';
+  src: url('../../fonts/Lexend-Regular.eot');
+  src: url('../../fonts/Lexend-Regular.eot?#iefix') format('embedded-opentype'),
+      url('../../fonts/Lexend-Regular.woff2') format('woff2'),
+      url('../../fonts/Lexend-Regular.woff') format('woff'),
+      url('../../fonts/Lexend-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
+
+@font-face {
+  font-family: 'Lexend';
+  src: url('../../fonts/Lexend-Thin.eot');
+  src: url('../../fonts/Lexend-Thin.eot?#iefix') format('embedded-opentype'),
+      url('../../fonts/Lexend-Thin.woff2') format('woff2'),
+      url('../../fonts/Lexend-Thin.woff') format('woff'),
+      url('../../fonts/Lexend-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lexend';
+  src: url('../../fonts/Lexend-Light.eot');
+  src: url('../../fonts/Lexend-Light.eot?#iefix') format('embedded-opentype'),
+      url('../../fonts/Lexend-Light.woff2') format('woff2'),
+      url('../../fonts/Lexend-Light.woff') format('woff'),
+      url('../../fonts/Lexend-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lexend';
+  src: url('../../fonts/Lexend-SemiBold.eot');
+  src: url('../../fonts/Lexend-SemiBold.eot?#iefix') format('embedded-opentype'),
+      url('../../fonts/Lexend-SemiBold.woff2') format('woff2'),
+      url('../../fonts/Lexend-SemiBold.woff') format('woff'),
+      url('../../fonts/Lexend-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lexend';
+  src: url('../../fonts/Lexend-Medium.eot');
+  src: url('../../fonts/Lexend-Medium.eot?#iefix') format('embedded-opentype'),
+      url('../../fonts/Lexend-Medium.woff2') format('woff2'),
+      url('../../fonts/Lexend-Medium.woff') format('woff'),
+      url('../../fonts/Lexend-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lexend';
+  src: url('../../fonts/Lexend-Black.eot');
+  src: url('../../fonts/Lexend-Black.eot?#iefix') format('embedded-opentype'),
+      url('../../fonts/Lexend-Black.woff2') format('woff2'),
+      url('../../fonts/Lexend-Black.woff') format('woff'),
+      url('../../fonts/Lexend-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lexend';
+  src: url('../../fonts/Lexend-ExtraLight.eot');
+  src: url('../../fonts/Lexend-ExtraLight.eot?#iefix') format('embedded-opentype'),
+      url('../../fonts/Lexend-ExtraLight.woff2') format('woff2'),
+      url('../../fonts/Lexend-ExtraLight.woff') format('woff'),
+      url('../../fonts/Lexend-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lexend';
+  src: url('../../fonts/Lexend-ExtraBold.eot');
+  src: url('../../fonts/Lexend-ExtraBold.eot?#iefix') format('embedded-opentype'),
+      url('../../fonts/Lexend-ExtraBold.woff2') format('woff2'),
+      url('../../fonts/Lexend-ExtraBold.woff') format('woff'),
+      url('../../fonts/Lexend-ExtraBold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lexend';
+  src: url('../../fonts/Lexend-Bold.eot');
+  src: url('../../fonts/Lexend-Bold.eot?#iefix') format('embedded-opentype'),
+      url('../../fonts/Lexend-Bold.woff2') format('woff2'),
+      url('../../fonts/Lexend-Bold.woff') format('woff'),
+      url('../../fonts/Lexend-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+@font-face {
+  font-family: 'Exemplar Pro';
+  src: url('../../fonts/ExemplarPro-Bold.eot');
+  src: url('../../fonts/ExemplarPro-Bold.eot?#iefix') format('embedded-opentype'),
+      url('../../fonts/ExemplarPro-Bold.woff2') format('woff2'),
+      url('../../fonts/ExemplarPro-Bold.woff') format('woff'),
+      url('../../fonts/ExemplarPro-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Exemplar Pro';
+  src: url('../../fonts/ExemplarPro-Light.eot');
+  src: url('../../fonts/ExemplarPro-Light.eot?#iefix') format('embedded-opentype'),
+      url('../../fonts/ExemplarPro-Light.woff2') format('woff2'),
+      url('../../fonts/ExemplarPro-Light.woff') format('woff'),
+      url('../../fonts/ExemplarPro-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Exemplar Pro';
+  src: url('../../fonts/ExemplarPro-Regular.eot');
+  src: url('../../fonts/ExemplarPro-Regular.eot?#iefix') format('embedded-opentype'),
+      url('../../fonts/ExemplarPro-Regular.woff2') format('woff2'),
+      url('../../fonts/ExemplarPro-Regular.woff') format('woff'),
+      url('../../fonts/ExemplarPro-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
 
 /* Apply the custom font globally or to specific elements */
 body {
-  font-family: "ExemplarPro", Sans-serif;
+  color: #FFFFFF;
 }
 .wrapper{
     position: relative;
     top: 0;
-    height: 100vh;
+    // height: 100vh;
 
     &.wrapper-full-page{
         min-height: 100vh;
@@ -26,17 +167,19 @@ body {
     top: 0;
     height: 100%;
     bottom: 0;
-    width: 260px;
+    width: 340px;
     left: 0;
     z-index: 1030;
+    padding: 0 20px;
 
     .sidebar-wrapper{
         position: relative;
-        height: calc(100vh - 75px);
+        // height: calc(100vh - 75px);
         overflow: auto;
-        width: 260px;
+        width: 100%;
         z-index: 4;
-        padding-bottom: 100px;
+        background: #1e1d1d;
+        border-radius: 6px;
 
         .dropdown .dropdown-backdrop{
           display: none !important;
@@ -83,7 +226,8 @@ body {
     }
 
     .nav{
-        margin-top: 20px;
+        margin-top: 10px;
+        margin-bottom: 10px;
         display: block;
 
         .caret{
@@ -98,17 +242,19 @@ body {
             }
 
             > a{
-                margin: 10px 15px 0;
-                border-radius: $btn-round-radius;
+                margin: 0px 15px;
+                // border-radius: $btn-round-radius;
                 color: $white-color;
                 display: block;
                 text-decoration: none;
                 position: relative;
-                text-transform: uppercase;
+                text-transform: capitalize;
                 cursor: pointer;
-                font-size: $font-size-mini;
-                padding: 10px 8px;
+                font-size: $font-size-base;
+                padding: 6px 8px;
                 line-height: $line-height-nav-link;
+                border-bottom: 1px solid #353434;
+                border-radius: 0;
             }
 
             &:first-child > a{
@@ -117,7 +263,7 @@ body {
 
             &:hover:not(.active) > a,
             &:focus:not(.active) > a{
-                background-color: $opacity-1;
+                // background-color: $opacity-1;
 
                 i{
                   color: $white-color;
@@ -126,10 +272,19 @@ body {
 
             &.active > a,
             &.active-pro > a{
-              background-color: $white-color;
-              box-shadow: $box-shadow;
+              // background-color: $white-color;
+              // box-shadow: $box-shadow;
               i{
                 color: $danger-color;
+              }
+              &:after {
+                content: '';
+                background: #d4af37;
+                width: 4px;
+                height: 70%;
+                position: absolute;
+                right: -15px;
+                top: 10%;
               }
             }
             :hover &.active-pro > a,
@@ -141,11 +296,15 @@ body {
                 color: $danger-color;
               }
             }
+
+            &:last-child > a{
+              border-bottom: none;
+            }
         }
 
         p{
             margin: 0;
-            line-height: 30px;
+            line-height: 24px;
             position: relative;
             display: block;
             height: auto;
@@ -210,10 +369,11 @@ body {
             display: block;
             opacity: 1;
             @include transform-translate-x(0px);
+            text-align: center;
         }
 
         &:after{
-            content: '';
+            // content: '';
             position: absolute;
             bottom: 0;
             right: 15px;
@@ -274,7 +434,8 @@ body {
     }
 
     &:after{
-        @include icon-gradient($default-color);
+        // @include icon-gradient($default-color);
+        background-color: #030303;
         z-index: 3;
     }
 
@@ -322,7 +483,7 @@ body {
     width: $sidebar-width;
     // width: 100%;
     background-color: $light-gray;
-    background-color: #000000;
+    background-color: #030303;
 
     @include transition (0.50s, cubic-bezier(0.685, 0.0473, 0.346, 1));
 
@@ -363,7 +524,7 @@ body {
   height: 260px;
   padding-top: 80px;
   padding-bottom: 45px;
-  @include panel-gradient($black-color);
+  // @include panel-gradient($black-color);
   position: relative;
   overflow: hidden;
 
@@ -389,5 +550,6 @@ body {
 }
 
 .panel-header-lg{
-  height: 380px
+  // height: 380px
+  height: 0px
 }
