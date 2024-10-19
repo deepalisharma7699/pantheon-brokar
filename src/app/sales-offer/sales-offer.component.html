@@ -64,7 +64,7 @@
                                     <td>{{ units.unit_type}}</td>
                                     <td>{{ units.total_area}}</td>
                                     <td>{{ units.unit_view}}</td>
-                                    <td>{{ units.price.toFixed() | currency:'':'':''}}</td>
+                                    <td>{{ units.price.toFixed(0) | currency:'':'':'1.0-0' }}</td>
                                     <td>
                                         <div class="btn-01-wrp">
                                           <a href="javascript:void(0)" class="btn-01 is-white" (click)="generateSalesOffer(units.id)">GENERATE OFFER</a>

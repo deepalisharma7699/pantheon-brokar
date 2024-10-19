@@ -4,6 +4,7 @@ import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common'
 import { Router } from '@angular/router';
 import Chart from 'chart.js';
 import { LoginService } from '../../login.service';
+import { LocalStorageService } from '../../local-storage.service';
 
 @Component({
   selector: 'app-navbar',
@@ -19,16 +20,25 @@ export class NavbarComponent implements OnInit {
     private sidebarVisible: boolean;
 
     public isCollapsed = true;
+    userdata: any;
 
     constructor(
       location: Location,  
       private element: ElementRef, 
       private router: Router, 
-      private apiService: LoginService
+      private apiService: LoginService,
+      private localStorageService: LocalStorageService
     ) {
       this.location = location;
-          this.sidebarVisible = false;
-          
+      this.sidebarVisible = false;
+      this.userdata = this.localStorageService.getUserData();
+    console.log('userdata', this.userdata);  
+    }
+
+    getInitials(): string {
+      const firstInitial = this.userdata.first_name.charAt(0).toUpperCase();
+      const lastInitial = this.userdata.last_name.charAt(0).toUpperCase();
+      return firstInitial + lastInitial;
     }
 
     ngOnInit(){

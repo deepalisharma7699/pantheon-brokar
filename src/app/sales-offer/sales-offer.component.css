@@ -18,3 +18,9 @@
 .table-responsive table tr td{
     border-top-color: #353434;
 }
+
+@media (max-width: 767px){
+    .table-responsive table{
+        font-size: 12px;
+    }
+}

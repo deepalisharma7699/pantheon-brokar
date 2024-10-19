@@ -1,63 +1,53 @@
 <div class="form">
-        <div class="card d-flex flex-row">
-            <!-- Left Image Section -->
-           <video autoplay="true " loop="" muted="" playsinline="" class="card-video-left"><source src="https://www.pantheondevelopment.ae/wp-content/uploads/Pantheon-Development-Award.mp4" type="video/mp4"></video>
-            <!-- Right Form Section -->
-            <div class="form-card w-50">
-                <h3 class="text-warning mb-4">Join the Pantheon Broker Network: Register For Exclusive Access!</h3>
+    <div class="card d-flex flex-row">
+        <!-- Left Image Section -->
+       <video autoplay="true " loop="" muted="" playsinline="" class="card-video-left"><source src="https://www.pantheondevelopment.ae/wp-content/uploads/Pantheon-Development-Award.mp4" type="video/mp4"></video>
+        <!-- Right Form Section -->
+        <div class="form-card w-50">
+            <div class="wrp-0 active"  *ngIf="rag_form_0_show">
+                <h2 class="text-warning mb-0">Welcome to <br>Pantheon Broker Hub!</h2>
+                <h4 class="text-warning mt-0 mb-4">Let’s get you started on your journey with us. First, tell us who you are:</h4>
+                <div (click)="showDiv(1)" style="cursor: pointer;">
+                    <h4 class="my-0">I’m a Broker</h4>
+                    <p class="mb-0"><i>An individual broker working in the UAE.</i></p>
+                </div>
+                <div (click)="showDiv(2)" style="cursor: pointer;" class="mr-0">
+                    <h4 class="my-0">We’re an Agency</h4>
+                    <p class="mb-0"><i>A brokerage company based in the UAE.</i></p>
+                </div>
+                <div (click)="showDiv(3)" style="cursor: pointer;">
+                    <h4 class="my-0">I’m an International Company</h4>
+                    <p class="mb-0"><i>A real estate firm operating outside the UAE.</i></p>
+                </div>
+                <div (click)="showDiv(4)" style="cursor: pointer;" class="mr-0">
+                    <h4 class="my-0">I’m an International Individual</h4>
+                    <p class="mb-0"><i>A solo broker working internationally.</i></p>
+                </div>
+                <h4 class="mt-0">Choose the option that best describes you, and we’ll guide you through the rest!</h4>
+                <p>if you have already registered then <a [routerLink]="['/login']">Login</a></p>
+            </div>
+            <div class="rag_form_wrp_1" *ngIf="rag_form_1_show">
+                <h3 class="text-warning mb-4">Welcome, Broker! Let’s get you started in no time. Just fill in the basics below, and we’ll send you the login link to complete the rest later.</h3>
                 <form [formGroup]="registrationForm" (ngSubmit)="onSubmit($event)" >
-                    <div class="form-group">
-                        <label for="companyType">Company / Agency Type *</label>
-                        <select  class="form-control minimal" id="companyType" formControlName="broker_type">
-                            <option value="">--Select--</option>
-                            <option value="agency">Agency</option>
-                            <option value="broker">Broker</option>
-                        </select>
-                        <div *ngIf="registrationFormSubmitted && registrationForm.controls.broker_type?.errors?.required" class="error">
-                              Company Type is required.
-                         </div>
-                    </div>
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="companyName">Company / Agency Name *</label>
-                                <input type="text" class="form-control" id="companyName" formControlName="company_name" placeholder="Enter Company / Agency Name">
-                                <div *ngIf="registrationFormSubmitted && registrationForm.controls.company_name?.errors?.required" class="error">
-                                    Company Name is required.
+                                <label for="firstName">First Name *</label>
+                                <input type="text" class="form-control" id="firstName" formControlName="name" placeholder="Enter First Name">
+                                <div *ngIf="registrationFormSubmitted && registrationForm.controls.name?.errors?.required" class="error">
+                                    First Name is required.
                                </div>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="reraNumber">RERA / ORN Number *</label>
-                                <input type="text" class="form-control" id="reraNumber" formControlName="orn_number" placeholder="Enter RERA / ORN Number">
-                                <div *ngIf="registrationFormSubmitted && registrationForm.controls.orn_number?.errors?.required" class="error">
-                                    Rera Number is required.
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" class="form-control" id="lastName" formControlName="name" placeholder="Enter Last Name">
+                                <div *ngIf="registrationFormSubmitted && registrationForm.controls.name?.errors?.required" class="error">
+                                    Last Name is required.
                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label for="licenseNumber">Trade License Number *</label>
-                                <input type="number" class="form-control" id="licenseNumber" formControlName="company_license_number" placeholder="Enter Trade License Number">
-                                <div *ngIf="registrationFormSubmitted && registrationForm.controls.company_license_number?.errors?.required" class="error">
-                                    License Number is required.
-                               </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label for="licenseExpiry">Trade License Expiry Date *</label>
-                                <input type="date" class="form-control" id="licenseExpiry" formControlName="company_license_expiry" placeholder="dd-mm-yyyy" [min]="currentDate">
-                                <div *ngIf="registrationFormSubmitted && registrationForm.controls.company_license_expiry?.errors?.required" class="error">
-                                    License Expiry is required.
-                               </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
                         <div class="col-lg-6">                                  
                             <div class="form-group">
                                 <label for="email">Email *</label>
@@ -74,17 +64,32 @@
                                 <div *ngIf="registrationFormSubmitted && registrationForm.controls.mobile_number?.errors?.required" class="error">
                                     Mobile is required.
                                </div>
-                               
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="agentName">Agent Name *</label>
-                                <input type="text" class="form-control" id="agentName" formControlName="name" placeholder="Enter Agent Name">
-                                <div *ngIf="registrationFormSubmitted && registrationForm.controls.name?.errors?.required" class="error">
-                                    Agent Name is required.
+                                <label for="companyName">Company Name *</label>
+                                <input type="text" class="form-control" id="companyName" formControlName="company_name" placeholder="Enter Company Name">
+                                <div *ngIf="registrationFormSubmitted && registrationForm.controls.company_name?.errors?.required" class="error">
+                                    Company Name is required.
+                               </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="licenseNumber">Trade License Number *</label>
+                                <input type="number" class="form-control" id="licenseNumber" formControlName="company_license_number" placeholder="Enter Trade License Number">
+                                <div *ngIf="registrationFormSubmitted && registrationForm.controls.company_license_number?.errors?.required" class="error">
+                                    License Number is required.
+                               </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="reraNumber">RERA / ORN Number *</label>
+                                <input type="text" class="form-control" id="reraNumber" formControlName="orn_number" placeholder="Enter RERA / ORN Number">
+                                <div *ngIf="registrationFormSubmitted && registrationForm.controls.orn_number?.errors?.required" class="error">
+                                    Rera Number is required.
                                </div>
                             </div>
                         </div>
@@ -98,13 +103,230 @@
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-submit btn-block mt-4">Let’s Get Started!</button>
+                    <button type="submit" class="btn btn-submit btn-block mt-4">Get Started Now!</button>
+                    <p>if you have already registered then <a [routerLink]="['/login']">Login</a></p>
+                </form>
+            </div>
+            <div class="rag_form_wrp_2" *ngIf="rag_form_2_show">
+                <h3 class="text-warning mb-4">Welcome to the Pantheon Broker Hub! As an authorized representative, let’s get your agency set up quickly. Just fill out the basics, and we’ll email you the login details shortly.</h3>
+                <form [formGroup]="registrationForm" (ngSubmit)="onSubmit($event)" >
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="agency Name">Agency Name *</label>
+                                <input type="text" class="form-control" id="agency Name" formControlName="agencyname" placeholder="Enter Agency Name">
+                                <div *ngIf="registrationFormSubmitted && registrationForm.controls.agencyname?.errors?.required" class="error">
+                                    Agency Name is required.
+                               </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="authorizedRepresentativeName">Authorized Representative Name *</label>
+                                <input type="text" class="form-control" id="authorizedRepresentativeName" formControlName="name" placeholder="Enter Authorized Representative Name">
+                                <div *ngIf="registrationFormSubmitted && registrationForm.controls.name?.errors?.required" class="error">
+                                    Last Name is required.
+                               </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">                                  
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter Email Address">
+                                <div *ngIf="registrationFormSubmitted && registrationForm.controls.email?.errors?.required" class="error">
+                                    Email is required.
+                               </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="mobile">Mobile Number *</label>                                                              
+                                <input type="number" class="form-control" id="mobile" formControlName="mobile_number" placeholder="Enter Mobile Number">
+                                <div *ngIf="registrationFormSubmitted && registrationForm.controls.mobile_number?.errors?.required" class="error">
+                                    Mobile is required.
+                               </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="licenseNumber">Trade License Number *</label>
+                                <input type="number" class="form-control" id="licenseNumber" formControlName="company_license_number" placeholder="Enter Trade License Number">
+                                <div *ngIf="registrationFormSubmitted && registrationForm.controls.company_license_number?.errors?.required" class="error">
+                                    License Number is required.
+                               </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="reraNumber">RERA / ORN Number *</label>
+                                <input type="text" class="form-control" id="reraNumber" formControlName="orn_number" placeholder="Enter RERA / ORN Number">
+                                <div *ngIf="registrationFormSubmitted && registrationForm.controls.orn_number?.errors?.required" class="error">
+                                    Rera Number is required.
+                               </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="consultantName">Pantheon Sales Consultant Name *</label>
+                                <input type="text" class="form-control" id="consultantName" formControlName="consultantName" placeholder="Enter Consultant Name">
+                                <div *ngIf="registrationFormSubmitted && registrationForm.controls.consultantName.errors?.required" class="error">
+                                    Consultant Name is required.
+                               </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-submit btn-block mt-4">Get Started Now!</button>
+                    <p>if you have already registered then <a [routerLink]="['/login']">Login</a></p>
+                </form>
+            </div>
+            <div class="rag_form_wrp_3" *ngIf="rag_form_3_show">
+                <h3 class="text-warning mb-4">Welcome to Pantheon Broker Hub! Let’s quickly get your company registered. Provide the details below, and we’ll email you the login information to complete your profile later.</h3>
+                <form [formGroup]="registrationForm" (ngSubmit)="onSubmit($event)" >
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="companyName">Company Name *</label>
+                                <input type="text" class="form-control" id="companyName" formControlName="name" placeholder="Enter Company Name">
+                                <div *ngIf="registrationFormSubmitted && registrationForm.controls.name?.errors?.required" class="error">
+                                    Company Name is required.
+                               </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="authorizedRepresentativeName">Authorized Representative Name *</label>
+                                <input type="text" class="form-control" id="authorizedRepresentativeName" formControlName="name" placeholder="Enter Authorized Representative Name">
+                                <div *ngIf="registrationFormSubmitted && registrationForm.controls.name?.errors?.required" class="error">
+                                    Last Name is required.
+                               </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">                                  
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter Email Address">
+                                <div *ngIf="registrationFormSubmitted && registrationForm.controls.email?.errors?.required" class="error">
+                                    Email is required.
+                               </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="mobile">Mobile Number *</label>                                                              
+                                <input type="number" class="form-control" id="mobile" formControlName="mobile_number" placeholder="Enter Mobile Number">
+                                <div *ngIf="registrationFormSubmitted && registrationForm.controls.mobile_number?.errors?.required" class="error">
+                                    Mobile is required.
+                               </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="countryNumber">Country *</label>
+                                <input type="text" class="form-control" id="countryNumber" formControlName="orn_number" placeholder="Enter Country">
+                                <div *ngIf="registrationFormSubmitted && registrationForm.controls.orn_number?.errors?.required" class="error">
+                                    Country is required.
+                               </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="companyNumber">Company Registration Number *</label>
+                                <input type="number" class="form-control" id="companyNumber" formControlName="company_license_number" placeholder="Enter Company Registration Number">
+                                <div *ngIf="registrationFormSubmitted && registrationForm.controls.company_license_number?.errors?.required" class="error">
+                                    Company Number is required.
+                               </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="consultantName">Pantheon Sales Consultant Name *</label>
+                                <input type="text" class="form-control" id="consultantName" formControlName="consultantName" placeholder="Enter Consultant Name">
+                                <div *ngIf="registrationFormSubmitted && registrationForm.controls.consultantName.errors?.required" class="error">
+                                    Consultant Name is required.
+                               </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-submit btn-block mt-4">Join the Global Network!</button>
+                    <p>if you have already registered then <a [routerLink]="['/login']">Login</a></p>
+                </form>
+            </div>
+            <div class="rag_form_wrp_4" *ngIf="rag_form_4_show">
+                <h3 class="text-warning mb-4">Welcome to Pantheon Broker Hub! Let’s quickly set you up as an international broker. Provide the essentials below, and we’ll send your login details shortly.</h3>
+                <form [formGroup]="registrationForm" (ngSubmit)="onSubmit($event)" >
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" class="form-control" id="firstName" formControlName="name" placeholder="Enter First Name">
+                                <div *ngIf="registrationFormSubmitted && registrationForm.controls.name?.errors?.required" class="error">
+                                    First Name is required.
+                               </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" class="form-control" id="lastName" formControlName="name" placeholder="Enter Last Name">
+                                <div *ngIf="registrationFormSubmitted && registrationForm.controls.name?.errors?.required" class="error">
+                                    Last Name is required.
+                               </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">                                  
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter Email Address">
+                                <div *ngIf="registrationFormSubmitted && registrationForm.controls.email?.errors?.required" class="error">
+                                    Email is required.
+                               </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="mobile">Mobile Number *</label>                                                              
+                                <input type="number" class="form-control" id="mobile" formControlName="mobile_number" placeholder="Enter Mobile Number">
+                                <div *ngIf="registrationFormSubmitted && registrationForm.controls.mobile_number?.errors?.required" class="error">
+                                    Mobile is required.
+                               </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="countryNumber">Country *</label>
+                                <input type="text" class="form-control" id="countryNumber" formControlName="orn_number" placeholder="Enter Country">
+                                <div *ngIf="registrationFormSubmitted && registrationForm.controls.orn_number?.errors?.required" class="error">
+                                    Country is required.
+                               </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="passportNumber">Passport Number *</label>
+                                <input type="number" class="form-control" id="passportNumber" formControlName="company_license_number" placeholder="Enter Passport Number">
+                                <div *ngIf="registrationFormSubmitted && registrationForm.controls.company_license_number?.errors?.required" class="error">
+                                    Passport Number is required.
+                               </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="consultantName">Pantheon Sales Consultant Name *</label>
+                                <input type="text" class="form-control" id="consultantName" formControlName="consultantName" placeholder="Enter Consultant Name">
+                                <div *ngIf="registrationFormSubmitted && registrationForm.controls.consultantName.errors?.required" class="error">
+                                    Consultant Name is required.
+                               </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-submit btn-block mt-4">Start Your Global Journey!</button>
                     <p>if you have already registered then <a [routerLink]="['/login']">Login</a></p>
                 </form>
             </div>
         </div>
     </div>
+</div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.3/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.3/js/bootstrap.min.js"></script>

@@ -1,6 +1,6 @@
-import { Component, OnInit} from '@angular/core';
-// import html2canvas from 'html2canvas';
-// import jsPDF from 'jspdf';
+import { Component, OnInit, ViewChild, ElementRef} from '@angular/core';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 import { ApiService } from '../api.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -60,32 +60,35 @@ export class SalesOfferPdfComponent implements OnInit {
     );
   }
   
-  // @ViewChild('contentToConvert', { static: false }) contentToConvert!: ElementRef;
+  @ViewChild('contentToConvert', { static: false }) contentToConvert!: ElementRef;
 
-  // async downloadPDF() {
-  //   const pdf = new jsPDF('p', 'mm', 'a4'); // Initialize PDF (A4 size)
-  //   const content = this.contentToConvert.nativeElement;
+  async downloadPDF() {
+    const pdf = new jsPDF('p', 'mm', 'a4'); // Initialize PDF (A4 size)
+    const content = this.contentToConvert.nativeElement;
 
-  //   const options = { scale: 2, scrollY: 0 }; // Higher scale for better quality
+    const options = { scale: 2, scrollY: 0 }; // Higher scale for better quality
 
-  //   const pages = content.querySelectorAll('.page'); // Select all pages
-  //   let positionY = 0;
+    const pages = content.querySelectorAll('.page'); // Select all pages
+    let positionY = 0;
 
-  //   for (let i = 0; i < pages.length; i++) {
-  //     const canvas = await html2canvas(pages[i], options);
-  //     const imgData = canvas.toDataURL('image/jpeg', 0.8);
-  //     const imgWidth = 210;
-  //     const imgHeight = (canvas.height * imgWidth) / canvas.width;
+    for (let i = 0; i < pages.length; i++) {
+      const canvas = await html2canvas(pages[i], options);
+      const imgData = canvas.toDataURL('image/jpeg', 0.8);
+      const imgWidth = 210;
+      const imgHeight = (canvas.height * imgWidth) / canvas.width;
 
-  //     if (i > 0) pdf.addPage(); // Add new page for every subsequent section
-  //     pdf.addImage(imgData, 'JPEG', 0, 0, imgWidth, imgHeight);
+      if (i > 0) pdf.addPage(); // Add new page for every subsequent section
+      pdf.addImage(imgData, 'JPEG', 0, 0, imgWidth, imgHeight);
 
-  //     positionY += imgHeight; // Adjust position for next page
-  //   }
+      positionY += imgHeight; // Adjust position for next page
+    }
 
-  //   pdf.save('pantheon-offer.pdf');
-  // }
+    pdf.save('pantheon-offer.pdf');
+  }
 
+  sharePdf(){
+    alert('coming soon');
+  }
   
   
   // downloadPDF() {

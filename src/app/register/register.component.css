@@ -7,6 +7,10 @@ body {
 .form {
     padding: 20px 70px;
     background: linear-gradient(120deg, #3A3A3A, #111);
+    min-height: 100vh;
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
 }
 
 .card {
@@ -43,4 +47,57 @@ body {
     background-color: #ffa500;
     border: none;
     color: black;
+}
+
+.form-card h3{
+    font-size: 1.5em;
+}
+.form-card .wrp-0{
+    /* display: none; */
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+}
+.form-card .wrp-0.active{
+    display: flex;
+}
+.form-card .wrp-0 div {
+    background: #1e1d1d;
+    border-radius: 6px;
+    padding: 20px 30px;
+    width: 48%;
+    margin: 0 20px 20px 0;
+}
+.form-card .wrp-0 > h4{
+    font-size: 15px;
+}
+.form-card .wrp-0 div .mb-0 {
+    font-size: 13px;
+    color: #9d9c9c;
+}
+
+
+@media (max-width: 1023px){
+    .form {
+        padding: 10vh;
+    }
+    .card {
+        flex-wrap: wrap;
+    }
+    .card > * {
+        width: 100% !important;
+    }
+}
+@media (max-width: 767px){
+    .form {
+        padding: 3vh;
+    }
+    .form-card {
+        padding: 20px;
+        text-align: center;
+    }
+    .form-card form {
+        text-align: left;
+    }
 }

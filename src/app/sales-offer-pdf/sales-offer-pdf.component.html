@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" #contentToConvert>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -429,11 +429,59 @@
             width: 30px;
             margin-right: 10px;
         }
+        .bg-completion {
+            background-color: #5b7779;
+        }
+        .bg-date-completion {
+            background-color: #86a1a4;
+        }
+        .bg-percent-completion {
+            background-color: #b6c7c8;
+        }
+        .bg-amount-completion {
+            background-color: #c0cece;
+        }
+
+                /* Styling for the navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background-color: #333;
+            padding: 10px;
+            /* color: white; */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        /* Styling for the buttons */
+        .navbar button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            /* color: white; */
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
-    <!-- <button (click)="downloadPDF()">Download PDF</button> -->
+    <div class="navbar">
+        <!-- <div class="brand">Sales Offer</div> -->
+        <h1 class="card-title exemplarPro-family" style="text-transform: uppercase; color: white;">sales offer</h1>
+        <div>
+            <a class="btn-01 fill exemplarPro-family" style="padding: 6px 10px; display: inline-block; margin-right: 10px; cursor: pointer;" (click)="sharePdf()">Share</a>
+            <a class="btn-01 fill exemplarPro-family" style="padding: 6px 10px; display: inline-block; cursor: pointer;" (click)="downloadPDF()">Download</a>
+        </div>
+    </div>
     <div #content>
+        <!-- <button (click)="downloadPDF()">pdf</button> -->
     <div class="page page1" style="background-color: black;">
         <header>
             <p><b>Pantheon Elysee Real Estate</b></p>
@@ -443,7 +491,7 @@
             <p>Handover : Q1 2027.</p>
         </header>
         <div>
-            <img src="http://localhost:4200/assets/img/salesoffer/big-logo.png" alt="">
+            <img src="../../assets/img/salesoffer/big-logo.png" alt="">
             <p>SALES OFFER</p>
         </div>
     </div>
@@ -458,37 +506,37 @@
         </header>
         <div class="heading-wrp">
             <p class="p1">Special Offer for</p>
-            <p class="p2">1 BHK</p>
+            <p class="p2">{{ unitData.unit_type }}</p>
             <p class="p3">6 YEARS PAYMENT PLAN <span></span></p>
         </div>
         <table>
             <tr>
                 <th>UNIT</th>
                 <th>VIEW</th>
-                <th>SIZE</th>
-                <th>TOTAL VALUE</th>
-                <th>PAYMENT SCHENE</th>
+                <th>SIZE  (Sqft.)</th>
+                <th>TOTAL VALUE (AED)</th>
+                <th>PAYMENT SCHEME</th>
             </tr>
            
             <tr>
-                <td>{{unitData.unit_number}}  </td>
-                <td>{{unitData.unit_type}} </td>
-                <td>{{unitData.total_area}}</td>
-                <td>{{unitData.price}}</td>
+                <td>{{unitData.unit_number }}  </td>
+                <td>{{unitData.unit_view }} </td>
+                <td>{{unitData.total_area }}</td>
+                <td>{{unitData.price.toFixed(0) | currency:'':'':'1.0-0' }}</td>
                 <td>65 | 35</td>
             </tr>
            
         </table>
         <table>
             <tr>
-                <th>ORIGINAL <br>PRICE</th>               
+                <th>ORIGINAL <br>PRICE (AED)</th>               
                 <th>DOWN <br>PAYMENT</th>
                 <th>PRE <br>HANDOVER</th>
                 <th>POST <br>HANDOVER</th>
                 <th>NO. OF <br>YEARS</th>
             </tr>
             <tr>
-                <td>AED <br>1,099,900</td>
+                <td>{{ unitData.price.toFixed(0) | currency:'':'':'1.0-0' }}</td>
                 <td>20% </td>
                 <td>45% </td>
                 <td>35% </td>
@@ -503,11 +551,11 @@
                 <span></span>
             </div>
             <div>
-                <img src="http://localhost:4200/assets/img/salesoffer/page2-img.jpg" alt="">
+                <img src="../../assets/img/salesoffer/page2-img.jpg" alt="">
             </div>
         </div>
         <footer>
-            <img src="http://localhost:4200/assets/img/salesoffer/logo.png" alt="">
+            <img src="../../assets/img/salesoffer/logo.png" alt="">
         </footer>
     </div>
 
@@ -523,10 +571,10 @@
             <p class="p1">Project Gallery <span></span></p>
         </div>
         <div class="img-wrp">
-            <img src="http://localhost:4200/assets/img/salesoffer/page3-img1.jpg" alt="" class="img1">
-            <img src="http://localhost:4200/assets/img/salesoffer/page3-img2.jpg" alt="" class="img2">
-            <img src="http://localhost:4200/assets/img/salesoffer/page3-img3.jpg" alt="" class="img3">
-            <img src="http://localhost:4200/assets/img/salesoffer/page3-img4.jpg" alt="" class="img4">
+            <img src="../../assets/img/salesoffer/page3-img1.jpg" alt="" class="img1">
+            <img src="../../assets/img/salesoffer/page3-img2.jpg" alt="" class="img2">
+            <img src="../../assets/img/salesoffer/page3-img3.jpg" alt="" class="img3">
+            <img src="../../assets/img/salesoffer/page3-img4.jpg" alt="" class="img4">
             <p>Project Interior <br>and Exterior</p>
         </div>
         <div class="wrp-1">
@@ -542,11 +590,11 @@
                 <p><span>* </span>Expo Site: 20 Mins. </p>
             </div>
             <div>
-                <img src="http://localhost:4200/assets/img/salesoffer/map.jpg" alt="">
+                <img src="../../assets/img/salesoffer/map.jpg" alt="">
             </div>
         </div>
         <footer>
-            <img src="http://localhost:4200/assets/img/salesoffer/logo.png" alt="">
+            <img src="../../assets/img/salesoffer/logo.png" alt="">
         </footer>
     </div>
 
@@ -560,57 +608,27 @@
                 <th>PAYMENT TYPE </th>
                 <th>INSTALLMENT DATE </th>
                 <th>PERCENTAGE </th>
-                <th>AMOUNT(IN AED)</th>
+                <th>AMOUNT(AED)</th>
             </tr>
-            <!-- <tr>
-                <td>1</td>
-                <td>{{downpayment.description}} </td>
-                <td>{{downpayment.due_date}} </td>
-                <td>{{downpayment.percentage}}</td>
-                <td>{{downpayment.amount}}</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>{{dldcharges.description}} </td>
-                <td>{{dldcharges.due_date}} </td>
-                <td>{{dldcharges.percentage}}</td>
-                <td>{{dldcharges.amount}}</td>
-            </tr>
-            <tr>
-                <td>3 </td>
-                <td>{{oqoodcharges.description}} </td>
-                <td>{{oqoodcharges.due_date}} </td>
-                <td> {{oqoodcharges.percentage}}</td>
-                <td>{{oqoodcharges.amount}}</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>{{adminfee.description}} </td>
-                <td>{{adminfee.due_date}} </td>
-                <td>{{adminfee.percentage}} </td>
-                <td>{{adminfee.amount}}</td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>{{empower.description}} </td>
-                <td>{{empower.due_date}} </td>
-                <td>{{empower.percentage}}</td>
-                <td>{{empower.amount}}</td>
-            </tr> -->
             <tr *ngFor="let paymentplan of paymentPlans; let i = index">
-                <td>{{paymentplan.serno}} </td>
-                <td>{{paymentplan.description}} </td>
-                <td>{{paymentplan.due_date}} </td>
-                <td> {{paymentplan.percentage}}</td>
-                <td>{{paymentplan.amount.toFixed()}}</td>
+                <td [ngClass]="{'bg-completion': paymentplan.description == 'On Completion Payment'}">{{paymentplan.serno}}</td>
+                <td [ngClass]="{'bg-completion': paymentplan.description == 'On Completion Payment'}">{{paymentplan.description}}</td>
+                <td [ngClass]="{'bg-date-completion': paymentplan.description == 'On Completion Payment'}">{{paymentplan.due_date}}</td>
+                <td [ngClass]="{'bg-percent-completion': paymentplan.description == 'On Completion Payment'}">{{paymentplan.percentage}}</td>
+                <td [ngClass]="{'bg-amount-completion': paymentplan.description == 'On Completion Payment'}">{{paymentplan.amount.toFixed(0) | currency:'':'':'1.0-0'}}</td>
             </tr>
-          
+            <tr>
+                <td colspan="2" class="bg-completion">Total</td>
+                <td class="bg-date-completion"></td>
+                <td class="bg-percent-completion"></td>
+                <td class="bg-amount-completion">AED {{ unitData.price.toFixed(0) | currency:'':'':'1.0-0' }}</td>
+            </tr>
         </table>
         <div>
             <p>Service Charges Payable at the time of Handover @AED15/ Per sq.ft (Price may vary as per RERA approval)</p>
         </div>
         <footer>
-            <img src="http://localhost:4200/assets/img/salesoffer/logo.png" alt="">
+            <img src="../../assets/img/salesoffer/logo.png" alt="">
         </footer>
     </div>
 
@@ -646,7 +664,7 @@
                 </tr>
         </table>
         <footer>
-            <img src="http://localhost:4200/assets/img/salesoffer/logo.png" alt="">
+            <img src="../../assets/img/salesoffer/logo.png" alt="">
         </footer>
     </div>
 
@@ -659,12 +677,12 @@
         </div>
         <h4>UNIT 2115</h4>
         <div class="wrp-3">
-            <img src="http://localhost:4200/assets/img/salesoffer/floor-plan-img1.png" alt="">
+            <img src="../../assets/img/salesoffer/floor-plan-img1.png" alt="">
         </div>
         <div class="wrp-4">
             <div>
                 <h4>FLOOR PLAN</h4>
-                <img src="http://localhost:4200/assets/img/salesoffer/floor-plan-img2.png" alt="">
+                <img src="../../assets/img/salesoffer/floor-plan-img2.png" alt="">
             </div>
             <div>
                 <h4>TYPE - 1BHK</h4>
@@ -688,7 +706,7 @@
             </div>
         </div>
         <footer>
-            <img src="http://localhost:4200/assets/img/salesoffer/logo.png" alt="">
+            <img src="../../assets/img/salesoffer/logo.png" alt="">
         </footer>
     </div>
 
@@ -696,23 +714,23 @@
         <div>
             <h2>Pantheon Elysee Real Estate <br>Development</h2>
             <h3>Project : {{unitData.project_name}} <br>Handover : Q1 2027</h3>
-            <img src="http://localhost:4200/assets/img/salesoffer/white-logo.png" alt="">
+            <img src="../../assets/img/salesoffer/white-logo.png" alt="">
             <p class="icon">
-                <img src="http://localhost:4200/assets/img/salesoffer/icon-1.png" alt="">
+                <img src="../../assets/img/salesoffer/icon-1.png" alt="">
                 www.pantheondevelopment.ae
             </p>
             <p class="icon" style="font-size: 16px;">
-                <img src="http://localhost:4200/assets/img/salesoffer/icon-2.png" alt="">
+                <img src="../../assets/img/salesoffer/icon-2.png" alt="">
                 +971 4 523 5235
-                <img src="http://localhost:4200/assets/img/salesoffer/icon-3.png" alt="" style="margin-left: 30px;">
+                <img src="../../assets/img/salesoffer/icon-3.png" alt="" style="margin-left: 30px;">
                 sales@pered.ae
             </p>
             <p class="icon" style="font-size: 18px;">
-                <img src="http://localhost:4200/assets/img/salesoffer/icon-4.png" alt="">
+                <img src="../../assets/img/salesoffer/icon-4.png" alt="">
                 1st Floor, Lamborghini Building, <br>Sheikh Zayed Rd - Dubai- United Arab Emirates
             </p>
         </div>
     </div>
-</div>
+    </div>
 </body>
 </html>
