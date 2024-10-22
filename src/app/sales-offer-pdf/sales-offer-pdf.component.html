@@ -21,7 +21,8 @@
         }
         .page {
             width: 100%;
-            min-height: 100vh;
+            /* min-height: 100vh; */
+            min-height: 1910px;
             page-break-after: always;
             position: relative;
             padding: 50px;
@@ -115,7 +116,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            height:calc(100vh - 100px);
+            /* height:calc(100vh - 100px); */
+            height:1645px;
             flex-direction: column;
         }
         .page1 > div img{
@@ -474,7 +476,7 @@
 <body>
     <div class="navbar">
         <!-- <div class="brand">Sales Offer</div> -->
-        <h1 class="card-title exemplarPro-family" style="text-transform: uppercase; color: white;">sales offer</h1>
+        <h1 class="card-title exemplarPro-family" style="text-transform: uppercase; color: white;font-size: 30px;">sales offer</h1>
         <div>
             <a class="btn-01 fill exemplarPro-family" style="padding: 6px 10px; display: inline-block; margin-right: 10px; cursor: pointer;" (click)="sharePdf()">Share</a>
             <a class="btn-01 fill exemplarPro-family" style="padding: 6px 10px; display: inline-block; cursor: pointer;" (click)="downloadPDF()">Download</a>
@@ -543,7 +545,7 @@
                 <td>5.33</td>
             </tr>
         </table>
-        <p style="text-align: center;">NOTE: ALL PRICES IN THIS COMMUNICATION ARE VALID ONLY FOR TODAY AND SUBJECT TO CHANGE WITHOUT NOTICE</p>
+        <p style="text-align: center; color: red;">NOTE: ALL PRICES IN THIS COMMUNICATION ARE VALID ONLY FOR TODAY AND SUBJECT TO CHANGE WITHOUT NOTICE</p>
         <div class="wrp-1">
             <div>
                 <h4>Project <br>Exterior</h4>

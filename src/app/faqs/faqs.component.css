@@ -1,0 +1,48 @@
+/* .accordion {
+    padding: 0 15px;
+}
+
+.accordion-item {
+    border-top: 1px solid #ccc;
+    padding: 0 0;
+}
+
+.accordion-header {
+    cursor: pointer;
+    padding: 16px 0 0;
+    position: relative;
+}
+.accordion-header .icon{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #fff;
+    color: #000;
+}
+.accordion-header .icon:after{
+    content: "+";
+    font-size: 20px;
+    position: absolute;
+    top: 0;
+    transform: translateY(0);
+}
+.accordion-header.active .icon:after{
+    content: "-";
+}
+
+.accordion-body {
+    overflow: hidden;
+    padding-bottom: 16px;
+}
+.accordion-body p{
+    padding-top: 20px;
+}
+   */

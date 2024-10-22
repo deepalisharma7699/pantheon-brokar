@@ -68,6 +68,7 @@ body {
     padding: 20px 30px;
     width: 48%;
     margin: 0 20px 20px 0;
+    cursor: pointer;
 }
 .form-card .wrp-0 > h4{
     font-size: 15px;
@@ -75,6 +76,13 @@ body {
 .form-card .wrp-0 div .mb-0 {
     font-size: 13px;
     color: #9d9c9c;
+}
+.form-card .wrp-0 div:hover{
+    background-color: #ffa500;
+    color: #1e1d1d;
+}
+.form-card .wrp-0 div:hover .mb-0{
+    color: #1e1d1d;
 }
 
 

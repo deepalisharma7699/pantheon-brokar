@@ -21,11 +21,134 @@ export class BrokerKycComponent implements OnInit {
   attachmentFormSubmitted = false;
   inputData = {};
 
+  brokerPrimaryData:any;
+  brokerBankData:any;
+  brokerAddressData:any;
+  brokerAttachmentData:any;
+
+
   constructor(
     private apiService: ApiService,
     private formbuilder: FormBuilder,
     private router: Router
-  ) {} 
+  ) {
+    this.getBrokerPrimaryDetails();
+    this.getBrokerAddressDetails();
+    this.getBrokerAttachmentDetails();
+    this.getBrokerBankDetails();
+  } 
+
+  getBrokerPrimaryDetails(){
+    this.apiService.getBrokerPrimaryDetails().subscribe(
+      // tslint:disable-next-line:no-shadowed-variable
+      data => {
+      if(data.status == 200){
+        this.brokerPrimaryData = data.data;
+        console.log('brokerPrimaryData', this.brokerPrimaryData);
+        // patch primary value
+        this.basicForm.patchValue({
+          company_name: this.brokerPrimaryData.company_name,
+          trade_license_number : this.brokerPrimaryData.trade_license_number,
+          trade_license_expiry_date : new Date(this.brokerPrimaryData.trade_license_expiry_date).toISOString().split('T')[0],
+          rera_registration_certificate_number : this.brokerPrimaryData.rera_registration_certificate_number,
+          rera_registration_certificate_expiry_date : new Date(this.brokerPrimaryData.rera_registration_certificate_expiry_date).toISOString().split('T')[0],
+          consultant_name : this.brokerPrimaryData.consultant_name,
+          authorized_person_name : this.brokerPrimaryData.authorized_person_name,
+          position : this.brokerPrimaryData.position,
+          nationality : this.brokerPrimaryData.nationality,
+          emirates_id_number : this.brokerPrimaryData.emirates_id_number,
+          passport_number : this.brokerPrimaryData.passport_number,
+          phone : this.brokerPrimaryData.phone,
+          mobile_no : this.brokerPrimaryData.mobile_no,
+          email : this.brokerPrimaryData.email,
+          partner_visa : this.brokerPrimaryData.partner_visa,
+          partner_visa_expiry_date : new Date(this.brokerPrimaryData.partner_visa_expiry_date).toISOString().split('T')[0],
+          partner_passport_no : this.brokerPrimaryData.partner_passport_no,
+        });
+      }
+      },
+      error => {
+        // alert(error.error.error_message);
+        console.log('error', error);
+      }
+    );
+  }
+
+  getBrokerAttachmentDetails(){
+    this.apiService.getBrokerAttachmentDetails().subscribe(
+      // tslint:disable-next-line:no-shadowed-variable
+      data => {
+      if(data.status == 200){
+        this.brokerAttachmentData = data.data;
+        console.log('brokerAttachmentData', this.brokerAttachmentData);
+
+        this.attachmentForm.patchValue({
+          doc_emirate_id : this.brokerAttachmentData.doc_emirate_id,
+          doc_visa : this.brokerAttachmentData.doc_visa,
+          doc_passport : this.brokerAttachmentData.doc_passport,
+          doc_trade_license : this.brokerAttachmentData.doc_trade_license,
+          doc_VAT_certificate : this.brokerAttachmentData.doc_VAT_certificate,
+          doc_partner_visa : this.brokerAttachmentData.doc_partner_visa,
+          doc_company_bank_letter : this.brokerAttachmentData.doc_company_bank_letter,
+          doc_MOA : this.brokerAttachmentData.doc_MOA,
+          doc_rera_certificate : this.brokerAttachmentData.doc_rera_certificate,
+          doc_broker_card : this.brokerAttachmentData.doc_broker_card
+        });
+        
+      }
+      },
+      error => {
+        // alert(error.error.error_message);
+        console.log('error', error);
+      }
+    );
+  }
+  getBrokerAddressDetails(){
+    this.apiService.getBrokerAddressDetails().subscribe(
+      // tslint:disable-next-line:no-shadowed-variable
+      data => {
+      if(data.status == 200){
+        this.brokerAddressData = data.data;
+        console.log('brokerAddressData', this.brokerAddressData);
+        this.addressForm.patchValue({
+          country: this.brokerAddressData.country,
+          state: this.brokerAddressData.state,
+          city: this.brokerAddressData.city,
+          postel_code: this.brokerAddressData.postel_code,
+          address: this.brokerAddressData.address
+        });
+      }
+      },
+      error => {
+        // alert(error.error.error_message);
+        console.log('error', error);
+      }
+    );
+  }
+  getBrokerBankDetails(){
+    this.apiService.getBrokerBankDetails().subscribe(
+      // tslint:disable-next-line:no-shadowed-variable
+      data => {
+      if(data.status == 200){
+        this.brokerBankData = data.data;
+        console.log('brokerBankData', this.brokerBankData);
+        this.bankForm.patchValue({
+          bank_name: this.brokerBankData.bank_name,
+          bank_country: this.brokerBankData.bank_country,
+          bank_city: this.brokerBankData.bank_city,
+          account_number: this.brokerBankData.account_number,
+          iban_number: this.brokerBankData.iban_number,
+          account_name: this.brokerBankData.account_name,      
+          currency: this.brokerBankData.currency
+        });
+      }
+      },
+      error => {
+        // alert(error.error.error_message);
+        console.log('error', error);
+      }
+    );
+  }
 
   selectTab(tab: string) {
     this.activeTab = tab;
@@ -33,20 +156,23 @@ export class BrokerKycComponent implements OnInit {
 
   ngOnInit(): void {
     this.basicForm = this.formbuilder.group({     
-      'company_name': ['', Validators.required],
-      'email': ['', Validators.required],
-      'nationality': ['', Validators.required],
-      'phone': ['', Validators.required],
-      'position': ['', Validators.required],
+      'company_name': ['', [Validators.required]],
       'trade_license_number': ['', Validators.required],
       'trade_license_expiry_date': ['', Validators.required],
-      'emirates_id_number': ['', Validators.required],
-      'passport_number': ['', Validators.required],
-      'consultant_name': ['', Validators.required],
       'rera_registration_certificate_number': ['', Validators.required],
       'rera_registration_certificate_expiry_date': ['', Validators.required],
+      'consultant_name': ['', Validators.required],
+      'authorized_person_name': ['', Validators.required],
+      'position': ['', Validators.required],
+      'nationality': ['', Validators.required],
+      'emirates_id_number': ['', Validators.required],
+      'passport_number': ['', Validators.required],
+      'phone': ['', Validators.required],
+      'mobile_no': ['', Validators.required],
+      'email': ['', Validators.required],
       'partner_visa': ['', Validators.required],
-      'partner_visa_expiry_date': ['', Validators.required]
+      'partner_visa_expiry_date': ['', Validators.required],
+      'partner_passport_no': ['', Validators.required],
     });
 
     this.addressForm = this.formbuilder.group({     
@@ -93,16 +219,16 @@ export class BrokerKycComponent implements OnInit {
         // tslint:disable-next-line:no-shadowed-variable
         data => {
         console.log('data', data);
-        if(data.status == 'status'){
-          alert(data.message);
+        if(data.status == 200){
+          this.selectTab('address');
+          alert(data.data.message);
           //this.router.navigate(['/login']);
-          return;
         }else{
           alert(data.message);
         }
         },
         error => {
-          alert(error.error.message);
+          alert(error.error.error_message);
           console.log('error', error);
         }
       );
@@ -121,8 +247,9 @@ export class BrokerKycComponent implements OnInit {
         // tslint:disable-next-line:no-shadowed-variable
         data => {
         console.log('data', data);
-        if(data.status == 'status'){
-          alert(data.message);
+        if(data.status == 200){
+          this.selectTab('bank');
+          alert(data.data.message);
           //this.router.navigate(['/login']);
           return;
         }else{
@@ -130,7 +257,7 @@ export class BrokerKycComponent implements OnInit {
         }
         },
         error => {
-          alert(error.error.message);
+          alert(error.error.error_message);
           console.log('error', error);
         }
       );
@@ -149,16 +276,16 @@ export class BrokerKycComponent implements OnInit {
         // tslint:disable-next-line:no-shadowed-variable
         data => {
         console.log('data', data);
-        if(data.status == 'status'){
-          alert(data.message);
-          //this.router.navigate(['/login']);
+        if(data.status == 200){
+          this.selectTab('attachments');
+          alert(data.data.message);
           return;
         }else{
           alert(data.message);
         }
         },
         error => {
-          alert(error.error.message);
+          alert(error.error.error_message);
           console.log('error', error);
         }
       );
@@ -186,7 +313,7 @@ export class BrokerKycComponent implements OnInit {
   //       }
   //       },
   //       error => {
-  //         alert(error.error.message);
+  //         alert(error.error.error_message);
   //         console.log('error', error);
   //       }
   //     );
@@ -200,16 +327,16 @@ export class BrokerKycComponent implements OnInit {
     if (this.attachmentForm.valid) {
       // this.showBankList = false;
       let data = {
-        doc_emirate_id:   this.inputData['file'],
-        doc_visa:   this.inputData['file'],
-        doc_passport:   this.inputData['file'],
-        doc_trade_license:   this.inputData['file'],
-        doc_VAT_certificate:   this.inputData['file'],
-        doc_partner_visa:   this.inputData['file'],
-        doc_company_bank_letter:   this.inputData['file'],
-        doc_MOA:   this.inputData['file'],
-        doc_rera_certificate:   this.inputData['file'],
-        doc_broker_card:   this.inputData['file']
+        doc_emirate_id:   this.inputData['doc_emirate_id'] ?? null,
+        doc_visa:   this.inputData['doc_visa'] ?? null,
+        doc_passport:   this.inputData['doc_passport'] ?? null,
+        doc_trade_license:   this.inputData['doc_trade_license'] ?? null,
+        doc_VAT_certificate:   this.inputData['doc_VAT_certificate'] ?? null,
+        doc_partner_visa:   this.inputData['doc_partner_visa'] ?? null,
+        doc_company_bank_letter:   this.inputData['doc_company_bank_letter'] ?? null,
+        doc_MOA:   this.inputData['doc_MOA'] ?? null,
+        doc_rera_certificate:   this.inputData['doc_rera_certificate'] ?? null,
+        doc_broker_card:   this.inputData['doc_broker_card'] ?? null
       };
 
       // if (this.agentBankList.length >= 3) {
@@ -217,18 +344,18 @@ export class BrokerKycComponent implements OnInit {
       // } else {
         // this.loader.setLoading(true);
         this.apiService.attachmentForm(data).subscribe(
-          response => {
+          data => {
             console.log('data', data);
-            // if(data.status == 'status'){
-            //   alert(data.message);
-            //   //this.router.navigate(['/login']);
-            //   return;
-            // }else{
-            //   alert(data.message);
-            // }
+            if(data.status == 200){
+              alert(data.data.message);
+              //this.router.navigate(['/login']);
+              return;
+            }else{
+              alert(data.message);
+            }
           },
           error => {
-            alert(error.error.message);
+            alert(error.error.error_message);
             console.log('error', error);
           });
       // }
@@ -252,6 +379,7 @@ export class BrokerKycComponent implements OnInit {
           reader.readAsDataURL(file);
           reader.onload = () => {
             this.inputData[name] = event.target.files[0];
+            console.log('inputData', this.inputData);
           };
         }
     }

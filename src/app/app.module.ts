@@ -24,6 +24,7 @@ import { AppHttpInterceptor } from './app-http.interceptor';
 import { BrokerKycComponent } from './broker-kyc/broker-kyc.component';
 import { SalesOfferPdfComponent } from './sales-offer-pdf/sales-offer-pdf.component';
 import { PhoneNumberDirective } from './directives/phone-number.directive';
+import { FaqsComponent } from './faqs/faqs.component';
 
 @NgModule({
   imports: [
@@ -50,7 +51,8 @@ import { PhoneNumberDirective } from './directives/phone-number.directive';
     LoginComponent,
     BrokerKycComponent,
     SalesOfferPdfComponent,
-    PhoneNumberDirective
+    PhoneNumberDirective,
+    FaqsComponent
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AppHttpInterceptor, multi: true }

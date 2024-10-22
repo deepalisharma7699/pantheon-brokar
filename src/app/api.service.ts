@@ -33,6 +33,34 @@ export class ApiService {
       }));
   }
 
+  getBrokerPrimaryDetails() {
+    return this.http.get<any>(this.fullApiUrl + 'broker/get/primary-details')
+      // tslint:disable-next-line:no-shadowed-variable
+      .pipe(map(data => {
+        return data;
+      }));
+  }
+  getBrokerBankDetails() {
+    return this.http.get<any>(this.fullApiUrl + 'broker/get/bank-details')
+      // tslint:disable-next-line:no-shadowed-variable
+      .pipe(map(data => {
+        return data;
+      }));
+  }
+  getBrokerAddressDetails() {
+    return this.http.get<any>(this.fullApiUrl + 'broker/get/address-details')
+      // tslint:disable-next-line:no-shadowed-variable
+      .pipe(map(data => {
+        return data;
+      }));
+  }
+  getBrokerAttachmentDetails() {
+    return this.http.get<any>(this.fullApiUrl + 'broker/get/attachment-details')
+      // tslint:disable-next-line:no-shadowed-variable
+      .pipe(map(data => {
+        return data;
+      }));
+  }
 
     getUnitData(data) {
     return this.http.get<any>(this.fullApiUrl + 'project/get/configuration/'+data)
@@ -86,4 +114,4 @@ export class ApiService {
   
 
 
-}
+} 

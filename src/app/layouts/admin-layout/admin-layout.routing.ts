@@ -15,6 +15,7 @@ import { GenerateInvoiceComponent } from '../../generate-invoice/generate-invoic
 import { MarketingCollateralComponent } from '../../marketing-collateral/marketing-collateral.component';
 import { OffersDiscountsComponent } from '../../offers-discounts/offers-discounts.component';
 import { MyAccountComponent } from '../../my-account/my-account.component';
+import { FaqsComponent } from '../../faqs/faqs.component';
 //import { RegisterComponent } from '../../register/register.component';
 
 export const AdminLayoutRoutes: Routes = [
@@ -32,5 +33,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'generate-invoice',    component: GenerateInvoiceComponent },
     { path: 'marketing-collateral',    component: MarketingCollateralComponent },
     { path: 'offers-discounts',    component: OffersDiscountsComponent },
-    { path: 'my-account',    component: MyAccountComponent }
+    { path: 'my-account',    component: MyAccountComponent },
+    { path: 'faqs',    component: FaqsComponent }
 ];

@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit {
     private router: Router
   ) {}
 
-  rag_form_0_show = true;
+  rag_form_0_show = false;
   rag_form_1_show = false;
   rag_form_2_show = false;
   rag_form_3_show = false;
@@ -32,13 +32,13 @@ export class RegisterComponent implements OnInit {
     this.registrationForm = this.formbuilder.group({
       // 'broker_type': ['', Validators. ],
       // 'company_name': ['', Validators.required],
-      'orn_number': ['', Validators.required],
+      // 'orn_number': ['', Validators.required],
       'company_license_number': ['', Validators.required],
       'agencyname': ['', Validators.required],
       'email': ['', Validators.required],
       'mobile_number': ['', Validators.required],
-      'name': ['', Validators.required],
-      'consultantName': ['', Validators.required]
+      'name': ['', Validators.required]
+      // 'consultantName': ['', Validators.required]
     });
   }
   // Method to submit form data

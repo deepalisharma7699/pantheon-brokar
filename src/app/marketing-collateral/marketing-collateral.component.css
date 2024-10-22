@@ -1,0 +1,14 @@
+
+.home-card-3 .card .card-body{
+    padding: 0;
+}
+
+.home-card-3 a {
+    padding: 21px 25px;
+    display: block;
+    text-decoration: none;
+}
+.home-card-3 a:hover {
+    background-color: #ffa500;
+    color: #000000;
+}

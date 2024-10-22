@@ -83,7 +83,7 @@
           <div class="card card-chart home-card-3">
             <div class="card-body">
               <div>
-                <a href="javascript:void(0)">Contact RM</a>
+                <a href="javascript:void(0)" (click)="showPopup = true">Contact RM</a>
               </div>
               <div>
                 <a href="javascript:void(0)">Schedule Appointment</a>
@@ -92,11 +92,33 @@
                 <a href="javascript:void(0)">Special Offers / Discounts</a>
               </div>
               <div>
-                <a href="javascript:void(0)">FAQs</a>
+                <a href="/faqs">FAQs</a>
               </div>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="popup-container" *ngIf="showPopup">
+      <div class="popup-content">
+        <p>
+          This is a two-liner paragraph. <br>
+          Please select your purpose from the dropdown below.
+        </p>
+
+        <!-- Dropdown for Purpose -->
+        <label for="purpose">Purpose:</label>
+        <select id="purpose" [(ngModel)]="selectedPurpose">
+          <option value="inquiry">Inquiry</option>
+          <option value="support">Support</option>
+          <option value="feedback">Feedback</option>
+        </select>
+
+        <!-- Button to Request Callback -->
+        <button (click)="requestCallback()">Request a callback</button>
+
+        <!-- Button to Close Popup -->
+        <button (click)="closePopup()">Close</button>
       </div>
     </div>
     <!-- <div class="col-lg-4 col-md-6">
@@ -161,8 +183,9 @@
         </div>
       </div>
     </div> -->
+
   </div>
-  <!-- <div class="row">
+   <!-- <div class="row">
     <div class="col-md-6">
       <div class="card  card-tasks">
         <div class="card-header ">
@@ -343,5 +366,6 @@
         </div>
       </div>
     </div>
-  </div> -->
+   </div> -->
+
 </div>

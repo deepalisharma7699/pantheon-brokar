@@ -90,7 +90,7 @@
                                     <div class="col-lg-4 mb-3">
                                         <div class="form-group">
                                             <label>Company Name *</label>
-                                            <input type="text" class="form-control" placeholder="Enter Company Name" formControlName="company_name"/>
+                                            <input type="text" class="form-control" placeholder="Enter Company Name" formControlName="company_name" [readonly]="basicForm.get('company_name').value ? true : false" value=""/>
                                             <!-- <select name="" placeholder="Select Company" class="form-control minimal" formControlName="company_name">
                                                 <option value="0">Create New Company</option>
                                                 <option value="2149">
@@ -108,7 +108,7 @@
                                     <div class="col-lg-4 mb-3">
                                         <div class="form-group">
                                             <label>Trade / Company License No  *</label>
-                                            <input type="text" class="form-control" placeholder="Enter Trade / Company License No " formControlName="trade_license_number"/>
+                                            <input type="text" class="form-control" placeholder="Enter Trade / Company License No " formControlName="trade_license_number" [readonly]="basicForm.get('trade_license_number').value ? true : false"/>
                                             <div *ngIf="basicFormSubmitted && basicForm.controls.trade_license_number?.errors?.required" class="error">
                                                 Trade / Company License No is required.
                                            </div>
@@ -117,7 +117,7 @@
                                     <div class="col-lg-4 mb-3">
                                         <div class="form-group">
                                             <label>Trade / Company License Expiry Date *</label>
-                                            <input type="text" class="form-control" placeholder="Enter Trade / Company License Expiry Date" formControlName="trade_license_expiry_date"/>
+                                            <input type="date" class="form-control" placeholder="Enter Trade / Company License Expiry Date" formControlName="trade_license_expiry_date" [readonly]="basicForm.get('trade_license_expiry_date').value ? true : false"/>
                                             <div *ngIf="basicFormSubmitted && basicForm.controls.trade_license_expiry_date?.errors?.required" class="error">
                                                 Trade / Company License Expiry Date is required.
                                            </div>
@@ -126,7 +126,7 @@
                                     <div class="col-lg-4 mb-3">
                                         <div class="form-group">
                                             <label>RERA Certificate No *</label>
-                                            <input type="text" class="form-control" placeholder="Enter No" formControlName="rera_registration_certificate_number"/>
+                                            <input type="text" class="form-control" placeholder="Enter No" formControlName="rera_registration_certificate_number" [readonly]="basicForm.get('rera_registration_certificate_number').value ? true : false"/>
                                             <div *ngIf="basicFormSubmitted && basicForm.controls.rera_registration_certificate_number?.errors?.required" class="error">
                                                 RERA Certificate No is required.
                                            </div>
@@ -135,7 +135,7 @@
                                     <div class="col-lg-4 mb-3">
                                         <div class="form-group">
                                             <label>RERA Certificate Expiry Date *</label>
-                                            <input type="date" class="form-control" placeholder="Enter Date" formControlName="rera_registration_certificate_expiry_date"/>
+                                            <input type="date" class="form-control" placeholder="Enter Date" formControlName="rera_registration_certificate_expiry_date" [readonly]="basicForm.get('rera_registration_certificate_expiry_date').value ? true : false"/>
                                             <div *ngIf="basicFormSubmitted && basicForm.controls.rera_registration_certificate_expiry_date?.errors?.required" class="error">
                                                 RERA Certificate Expiry Date is required.
                                            </div>
@@ -144,7 +144,7 @@
                                     <div class="col-lg-4 mb-3">
                                         <div class="form-group">
                                             <label>Pantheon Sales Consultant Name *</label>
-                                            <input type="text" class="form-control" placeholder="Enter Pantheon Sales Consultant Name" formControlName="consultant_name"/>
+                                            <input type="text" class="form-control" placeholder="Enter Pantheon Sales Consultant Name" formControlName="consultant_name" [readonly]="basicForm.get('consultant_name').value ? true : false"/>
                                             <div *ngIf="basicFormSubmitted && basicForm.controls.consultant_name?.errors?.required" class="error">
                                                 Sales Consultant Name is required.
                                            </div>
@@ -160,8 +160,8 @@
                                     <div class="col-lg-4 mb-3">
                                         <div class="form-group">
                                             <label>Authorized Person Name *</label>
-                                            <input type="text" class="form-control" placeholder="Enter Authorized Person Name" formControlName="email"/>
-                                            <div *ngIf="basicFormSubmitted && basicForm.controls.email?.errors?.required" class="error">
+                                            <input type="text" class="form-control" placeholder="Enter Authorized Person Name" formControlName="authorized_person_name" [readonly]="basicForm.get('authorized_person_name').value ? true : false"/>
+                                            <div *ngIf="basicFormSubmitted && basicForm.controls.authorized_person_name?.errors?.required" class="error">
                                                 Authorized Person Name is required.
                                            </div>
                                         </div>
@@ -169,7 +169,7 @@
                                     <div class="col-lg-4 mb-3">
                                         <div class="form-group">
                                             <label>Position *</label>
-                                            <input type="text" class="form-control" placeholder="Enter Position" formControlName="position" />
+                                            <input type="text" class="form-control" placeholder="Enter Position" formControlName="position" [readonly]="basicForm.get('position').value ? true : false"/>
                                             <div *ngIf="basicFormSubmitted && basicForm.controls.position?.errors?.required" class="error">
                                                 Position is required.
                                            </div>
@@ -178,7 +178,7 @@
                                     <div class="col-lg-4 mb-3">
                                         <div class="form-group">
                                             <label>Nationality *</label>
-                                            <input type="text" class="form-control" placeholder="Enter Nationality" formControlName="nationality"/>
+                                            <input type="text" class="form-control" placeholder="Enter Nationality" formControlName="nationality" [readonly]="basicForm.get('nationality').value ? true : false"/>
                                             <div *ngIf="basicFormSubmitted && basicForm.controls.nationality?.errors?.required" class="error">
                                                 Nationality is required.
                                            </div>
@@ -187,7 +187,7 @@
                                     <div class="col-lg-4 mb-3">
                                         <div class="form-group">
                                             <label>Emirates ID *</label>
-                                            <input type="text" class="form-control" placeholder="Enter Emirates ID" formControlName="emirates_id_number"/>
+                                            <input type="text" class="form-control" placeholder="Enter Emirates ID" formControlName="emirates_id_number" [readonly]="basicForm.get('emirates_id_number').value ? true : false"/>
                                             <div *ngIf="basicFormSubmitted && basicForm.controls.emirates_id_number?.errors?.required" class="error">
                                                 Emirates ID is required.
                                            </div>
@@ -196,7 +196,7 @@
                                     <div class="col-lg-4 mb-3">
                                         <div class="form-group">
                                             <label>Passport No  *</label>
-                                            <input type="text" class="form-control" placeholder="Enter Passport No " formControlName="passport_number"/>
+                                            <input type="text" class="form-control" placeholder="Enter Passport No " formControlName="passport_number" [readonly]="basicForm.get('passport_number').value ? true : false"/>
                                             <div *ngIf="basicFormSubmitted && basicForm.controls.passport_number?.errors?.required" class="error">
                                                 Passport No is required.
                                            </div>
@@ -205,8 +205,8 @@
                                     <div class="col-lg-4 mb-3">
                                         <div class="form-group">
                                             <label>Mobile No  *</label>
-                                            <input type="number" class="form-control" placeholder="Enter Mobile No " formControlName="phone" />
-                                            <div *ngIf="basicFormSubmitted && basicForm.controls.phone?.errors?.required" class="error">
+                                            <input type="number" class="form-control" placeholder="Enter Mobile No " formControlName="mobile_no" appPhoneNumber [readonly]="basicForm.get('mobile_no').value ? true : false"/>
+                                            <div *ngIf="basicFormSubmitted && basicForm.controls.mobile_no?.errors?.required" class="error">
                                                 Mobile Number is required.
                                            </div>
                                         </div>
@@ -214,7 +214,7 @@
                                     <div class="col-lg-4 mb-3">
                                         <div class="form-group">
                                             <label>Phone No  *</label>
-                                            <input type="number" class="form-control" placeholder="Enter Phone No " formControlName="phone" />
+                                            <input type="number" class="form-control" placeholder="Enter Phone No " formControlName="phone" appPhoneNumber [readonly]="basicForm.get('phone').value ? true : false"/>
                                             <div *ngIf="basicFormSubmitted && basicForm.controls.phone?.errors?.required" class="error">
                                                 Phone Number is required.
                                            </div>
@@ -223,7 +223,7 @@
                                     <div class="col-lg-4 mb-3">
                                         <div class="form-group">
                                             <label>Email *</label>
-                                            <input type="email" class="form-control" placeholder="Enter Email" formControlName="email"/>
+                                            <input type="email" class="form-control" placeholder="Enter Email" formControlName="email" [readonly]="basicForm.get('email').value ? true : false"/>
                                             <div *ngIf="basicFormSubmitted && basicForm.controls.email?.errors?.required" class="error">
                                                 Email is required.
                                            </div>
@@ -239,7 +239,7 @@
                                     <div class="col-lg-4 mb-3">
                                         <div class="form-group">
                                             <label>Partner's Visa *</label>
-                                            <input type="text" class="form-control" placeholder="Enter Partner's Visa" formControlName="partner_visa"/>
+                                            <input type="text" class="form-control" placeholder="Enter Partner's Visa" formControlName="partner_visa" [readonly]="basicForm.get('partner_visa').value ? true : false"/>
                                             <div *ngIf="basicFormSubmitted && basicForm.controls.partner_visa?.errors?.required" class="error">
                                                 Partner's Visa is required.
                                            </div>
@@ -248,7 +248,7 @@
                                     <div class="col-lg-4 mb-3">
                                         <div class="form-group">
                                             <label>Partner's Visa Expiry Date *</label>
-                                            <input type="date" class="form-control" placeholder="Enter Date" formControlName="partner_visa_expiry_date"/>
+                                            <input type="date" class="form-control" placeholder="Enter Date" formControlName="partner_visa_expiry_date" [readonly]="basicForm.get('partner_visa_expiry_date').value ? true : false"/>
                                             <div *ngIf="basicFormSubmitted && basicForm.controls.partner_visa_expiry_date?.errors?.required" class="error">
                                                 Partner's Visa Expiry Date is required.
                                            </div>
@@ -257,8 +257,8 @@
                                     <div class="col-lg-4 mb-3">
                                         <div class="form-group">
                                             <label>Partner’s Passport No. *</label>
-                                            <input type="date" class="form-control" placeholder="Enter Partner’s Passport No." formControlName="partner_visa_expiry_date"/>
-                                            <div *ngIf="basicFormSubmitted && basicForm.controls.partner_visa_expiry_date?.errors?.required" class="error">
+                                            <input type="date" class="form-control" placeholder="Enter Partner’s Passport No." formControlName="partner_passport_no" [readonly]="basicForm.get('partner_passport_no').value ? true : false"/>
+                                            <div *ngIf="basicFormSubmitted && basicForm.controls.partner_passport_no?.errors?.required" class="error">
                                                 Partner’s Passport No. is required.
                                            </div>
                                         </div>
@@ -295,7 +295,7 @@
                                     <div class="col-lg-6 mb-3">
                                         <div class="form-group">
                                             <label>Country *</label>
-                                            <input type="text" class="form-control" placeholder="Enter Country Name" formControlName="country"/>
+                                            <input type="text" class="form-control" placeholder="Enter Country Name" formControlName="country" [readonly]="addressForm.get('country').value ? true : false"/>
                                             <div *ngIf="addressFormSubmitted && addressForm.controls.country?.errors?.required" class="error">
                                                 Country is required.
                                            </div>
@@ -304,7 +304,7 @@
                                     <div class="col-lg-6 mb-3">
                                         <div class="form-group">
                                             <label>State *</label>
-                                            <input type="text" class="form-control" placeholder="Enter State Name" formControlName="state"/>
+                                            <input type="text" class="form-control" placeholder="Enter State Name" formControlName="state" [readonly]="addressForm.get('state').value ? true : false"/>
                                             <div *ngIf="addressFormSubmitted && addressForm.controls.state?.errors?.required" class="error">
                                                 State is required.
                                            </div>
@@ -313,7 +313,7 @@
                                     <div class="col-lg-6 mb-3">
                                         <div class="form-group">
                                             <label>City *</label>
-                                            <input type="text" class="form-control" placeholder="" formControlName="city"/>
+                                            <input type="text" class="form-control" placeholder="" formControlName="city" [readonly]="addressForm.get('city').value ? true : false"/>
                                             <div *ngIf="addressFormSubmitted && addressForm.controls.city?.errors?.required" class="error">
                                                 City is required.
                                            </div>
@@ -322,7 +322,7 @@
                                     <div class="col-lg-6 mb-3">
                                         <div class="form-group">
                                             <label>Postal / Zip Code *</label>
-                                            <input type="text" class="form-control" placeholder="Enter Postal / Zip Code" formControlName="postel_code"/>
+                                            <input type="text" class="form-control" placeholder="Enter Postal / Zip Code" formControlName="postel_code" [readonly]="addressForm.get('postel_code').value ? true : false"/>
                                             <div *ngIf="addressFormSubmitted && addressForm.controls.postel_code?.errors?.required" class="error">
                                                 Postal Code is required.
                                            </div>
@@ -331,7 +331,7 @@
                                     <div class="col-lg-12 mb-3">
                                         <div class="form-group">
                                             <label>Address *</label>
-                                            <input type="text" class="form-control" placeholder="Enter Address " formControlName="address"/>
+                                            <input type="text" class="form-control" placeholder="Enter Address " formControlName="address" [readonly]="addressForm.get('address').value ? true : false"/>
                                             <div *ngIf="addressFormSubmitted && addressForm.controls.address?.errors?.required" class="error">
                                                 Address is required.
                                            </div>
@@ -341,7 +341,7 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="form-group d-flex justify-content-between">
-                                            <a href="javascript:void(0)" class="btn-01 is-white exemplarPro-family">Previous</a>
+                                            <a href="javascript:void(0)" class="btn-01 is-white exemplarPro-family" (click)="selectTab('basic')">Previous</a>
                                             <a href="javascript:void(0)" class="btn-01 fill exemplarPro-family" (click)="onSubmitaddress($event)">Continue</a>
                                         </div>
                                     </div>
@@ -367,7 +367,7 @@
                                     <div class="col-lg-4 mb-3">
                                         <div class="form-group">
                                             <label>Bank Name *</label>
-                                            <input type="text" class="form-control" placeholder="Enter Country" formControlName="bank_name"/>
+                                            <input type="text" class="form-control" placeholder="Enter Country" formControlName="bank_name" [readonly]="bankForm.get('bank_name').value ? true : false"/>
                                             <div *ngIf="bankFormSubmitted && bankForm.controls.bank_name?.errors?.required" class="error">
                                                 Bank Name is required.
                                            </div>
@@ -376,7 +376,7 @@
                                     <div class="col-lg-4 mb-3">
                                         <div class="form-group">
                                             <label>Bank Country *</label>
-                                            <input type="text" class="form-control" placeholder="Enter Bank Country" formControlName="bank_country"/>
+                                            <input type="text" class="form-control" placeholder="Enter Bank Country" formControlName="bank_country" [readonly]="bankForm.get('bank_country').value ? true : false"/>
                                             <div *ngIf="bankFormSubmitted && bankForm.controls.bank_country?.errors?.required" class="error">
                                                 Bank Country is required.
                                            </div>
@@ -385,7 +385,7 @@
                                     <div class="col-lg-4 mb-3">
                                         <div class="form-group">
                                             <label>Bank City *</label>
-                                            <input type="text" class="form-control" placeholder="Enter Bank City" formControlName="bank_city"/>
+                                            <input type="text" class="form-control" placeholder="Enter Bank City" formControlName="bank_city" [readonly]="bankForm.get('bank_city').value ? true : false"/>
                                             <div *ngIf="bankFormSubmitted && bankForm.controls.bank_city?.errors?.required" class="error">
                                                 Bank City is required.
                                            </div>
@@ -394,7 +394,7 @@
                                     <div class="col-lg-4 mb-3">
                                         <div class="form-group">
                                             <label>Account Number *</label>
-                                            <input type="text" class="form-control" placeholder="Enter Bank Account Number" formControlName="account_number"/>
+                                            <input type="text" class="form-control" placeholder="Enter Bank Account Number" formControlName="account_number" [readonly]="bankForm.get('account_number').value ? true : false"/>
                                             <div *ngIf="bankFormSubmitted && bankForm.controls.account_number?.errors?.required" class="error">
                                                 Account Number is required.
                                            </div>
@@ -403,7 +403,7 @@
                                     <div class="col-lg-4 mb-3">
                                         <div class="form-group">
                                             <label>Account Title / Beneficiary Name *</label>
-                                            <input type="text" class="form-control" placeholder="Enter Bank Account Number" formControlName="account_name"/>
+                                            <input type="text" class="form-control" placeholder="Enter Bank Account Number" formControlName="account_name" [readonly]="bankForm.get('account_name').value ? true : false"/>
                                             <div *ngIf="bankFormSubmitted && bankForm.controls.account_name?.errors?.required" class="error">
                                                 Account Number is required.
                                            </div>
@@ -412,7 +412,7 @@
                                     <div class="col-lg-4 mb-3">
                                         <div class="form-group">
                                             <label>IBAN / SWIFT / SORT / IFSC *</label>
-                                            <input type="text" class="form-control" placeholder="Enter IBAN Number" formControlName="iban_number"/>
+                                            <input type="text" class="form-control" placeholder="Enter IBAN Number" formControlName="iban_number" [readonly]="bankForm.get('iban_number').value ? true : false"/>
                                             <div *ngIf="bankFormSubmitted && bankForm.controls.iban_number?.errors?.required" class="error">
                                                 IBAN / SWIFT / SORT / IFSC is required.
                                            </div>
@@ -422,7 +422,7 @@
                                         <div class="form-group">
                                             <label>Currency *</label>
                                             <!-- <input type="text" class="form-control" placeholder="Enter Currency " formControlName="currency"/> -->
-                                            <select class="form-control minimal" name="currency" id="currency" formControlName="currency" tabindex="-1" aria-hidden="true">
+                                            <select class="form-control minimal" name="currency" id="currency" formControlName="currency" [disabled]="bankForm.get('currency').value ? true : false" tabindex="-1" aria-hidden="true">
                                                 <option value="AED" selected>AED</option>
                                                 <option value="USD">USD</option>
                                             </select>
@@ -435,7 +435,7 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="form-group d-flex justify-content-between">
-                                            <a href="javascript:void(0)" class="btn-01 is-white exemplarPro-family">Previous</a>
+                                            <a href="javascript:void(0)" class="btn-01 is-white exemplarPro-family" (click)="selectTab('address')">Previous</a>
                                             <a href="javascript:void(0)" class="btn-01 fill exemplarPro-family" (click)="onSubmitbank($event)">Continue</a>
                                         </div>
                                     </div>
@@ -462,7 +462,7 @@
                                     <div class="col-lg-6 mb-3">
                                         <div class="form-group">
                                             <label>Emirate ID *</label>
-                                            <input type="file" class="form-control" accept="image/*,.doc, .docx,.pdf" formControlName="doc_emirate_id" #fileInput (change)="onFileChange($event,'doc_emirate_id')"/>
+                                            <input type="file" class="form-control" accept="image/*,.pdf" formControlName="doc_emirate_id" [readonly]="attachmentForm.get('doc_emirate_id').value ? true : false" #fileInput (change)="onFileChange($event,'doc_emirate_id')"/>
                                             <div *ngIf="basicFormSubmitted && basicForm.controls.doc_emirate_id?.errors?.required" class="error">
                                                 Emirate ID is required.
                                            </div>
@@ -471,7 +471,7 @@
                                     <div class="col-lg-6 mb-3">
                                         <div class="form-group">
                                             <label>Visa *</label>
-                                            <input type="file" class="form-control" accept="image/*,.doc, .docx,.pdf" formControlName="doc_visa" #fileInput (change)="onFileChange($event,'doc_visa')"/>
+                                            <input type="file" class="form-control" accept="image/*,.pdf" formControlName="doc_visa" [readonly]="attachmentForm.get('doc_visa').value ? true : false" #fileInput (change)="onFileChange($event,'doc_visa')"/>
                                             <div *ngIf="basicFormSubmitted && basicForm.controls.doc_visa?.errors?.required" class="error">
                                                 Visa is required.
                                            </div>
@@ -480,7 +480,7 @@
                                     <div class="col-lg-6 mb-3">
                                         <div class="form-group">
                                             <label>Passport *</label>
-                                            <input type="file" class="form-control" accept="image/*,.doc, .docx,.pdf" formControlName="doc_passport" #fileInput (change)="onFileChange($event,'doc_passport')"/>
+                                            <input type="file" class="form-control" accept="image/*,.pdf" formControlName="doc_passport" [readonly]="attachmentForm.get('doc_passport').value ? true : false" #fileInput (change)="onFileChange($event,'doc_passport')"/>
                                             <div *ngIf="basicFormSubmitted && basicForm.controls.doc_passport?.errors?.required" class="error">
                                                 Passport is required.
                                            </div>
@@ -489,7 +489,7 @@
                                     <div class="col-lg-6 mb-3">
                                         <div class="form-group">
                                             <label>Valid Trade License*</label>
-                                            <input type="file" class="form-control" accept="image/*,.doc, .docx,.pdf" formControlName="doc_trade_license" #fileInput (change)="onFileChange($event,'doc_trade_license')"/>
+                                            <input type="file" class="form-control" accept="image/*,.pdf" formControlName="doc_trade_license" [readonly]="attachmentForm.get('doc_trade_license').value ? true : false" #fileInput (change)="onFileChange($event,'doc_trade_license')"/>
                                             <div *ngIf="basicFormSubmitted && basicForm.controls.doc_trade_license?.errors?.required" class="error">
                                                 Trade License is required.
                                            </div>
@@ -498,7 +498,7 @@
                                     <div class="col-lg-6 mb-3">
                                         <div class="form-group">
                                             <label>Valid VAT Certificate / VAT NOC (Non-Registered)</label>
-                                            <input type="file" class="form-control" accept="image/*,.doc, .docx,.pdf" formControlName="doc_VAT_certificate" #fileInput (change)="onFileChange($event,'doc_VAT_certificate')"/>
+                                            <input type="file" class="form-control" accept="image/*,.pdf" formControlName="doc_VAT_certificate" [readonly]="attachmentForm.get('doc_VAT_certificate').value ? true : false" #fileInput (change)="onFileChange($event,'doc_VAT_certificate')"/>
                                             <div *ngIf="basicFormSubmitted && basicForm.controls.doc_VAT_certificate?.errors?.required" class="error">
                                                 VAT Certificate is required.
                                            </div>
@@ -507,7 +507,7 @@
                                     <div class="col-lg-6 mb-3">
                                         <div class="form-group">
                                             <label>Partner's Visa</label>
-                                            <input type="file" class="form-control" accept="image/*,.doc, .docx,.pdf" formControlName="doc_partner_visa" #fileInput (change)="onFileChange($event,'doc_partner_visa')"/>
+                                            <input type="file" class="form-control" accept="image/*,.pdf" formControlName="doc_partner_visa" [readonly]="attachmentForm.get('doc_partner_visa').value ? true : false" #fileInput (change)="onFileChange($event,'doc_partner_visa')"/>
                                             <div *ngIf="basicFormSubmitted && basicForm.controls.doc_partner_visa?.errors?.required" class="error">
                                                 Partner's Visa is required.
                                            </div>
@@ -516,7 +516,7 @@
                                     <div class="col-lg-6 mb-3">
                                         <div class="form-group">
                                             <label>Company Bank Letter*</label>
-                                            <input type="file" class="form-control" accept="image/*,.doc, .docx,.pdf" formControlName="doc_company_bank_letter" #fileInput (change)="onFileChange($event,'doc_company_bank_letter')"/>
+                                            <input type="file" class="form-control" accept="image/*,.pdf" formControlName="doc_company_bank_letter" [readonly]="attachmentForm.get('doc_company_bank_letter').value ? true : false" #fileInput (change)="onFileChange($event,'doc_company_bank_letter')"/>
                                             <div *ngIf="basicFormSubmitted && basicForm.controls.doc_company_bank_letter?.errors?.required" class="error">
                                                 Company Bank Letter is required.
                                            </div>
@@ -525,7 +525,7 @@
                                     <div class="col-lg-6 mb-3">
                                         <div class="form-group">
                                             <label>Power of Atty / MOA</label>
-                                            <input type="file" class="form-control" accept="image/*,.doc, .docx,.pdf" formControlName="doc_MOA" #fileInput (change)="onFileChange($event,'doc_MOA')"/>
+                                            <input type="file" class="form-control" accept="image/*,.pdf" formControlName="doc_MOA" [readonly]="attachmentForm.get('doc_MOA').value ? true : false" #fileInput (change)="onFileChange($event,'doc_MOA')"/>
                                             <div *ngIf="basicFormSubmitted && basicForm.controls.doc_MOA?.errors?.required" class="error">
                                                 Power of Atty is required.
                                            </div>
@@ -534,7 +534,7 @@
                                     <div class="col-lg-6 mb-3">
                                         <div class="form-group">
                                             <label>RERA CERTIFICATE*</label>
-                                            <input type="file" class="form-control" accept="image/*,.doc, .docx,.pdf" formControlName="doc_rera_certificate" #fileInput (change)="onFileChange($event,'doc_rera_certificate')"/>
+                                            <input type="file" class="form-control" accept="image/*,.pdf" formControlName="doc_rera_certificate"  [readonly]="attachmentForm.get('doc_rera_certificate').value ? true : false" #fileInput (change)="onFileChange($event,'doc_rera_certificate')"/>
                                             <div *ngIf="basicFormSubmitted && basicForm.controls.doc_rera_certificate?.errors?.required" class="error">
                                                 RERA CERTIFICATE is required.
                                            </div>
@@ -543,7 +543,7 @@
                                     <div class="col-lg-6 mb-3">
                                         <div class="form-group">
                                             <label>Broker Card*</label>
-                                            <input type="file" class="form-control" accept="image/*,.doc, .docx,.pdf" formControlName="doc_broker_card" #fileInput (change)="onFileChange($event,'doc_broker_card')"/>
+                                            <input type="file" class="form-control" accept="image/*,.pdf" formControlName="doc_broker_card"  [readonly]="attachmentForm.get('doc_broker_card').value ? true : false" #fileInput (change)="onFileChange($event,'doc_broker_card')"/>
                                             <div *ngIf="basicFormSubmitted && basicForm.controls.doc_broker_card?.errors?.required" class="error">
                                                 Broker Card is required.
                                            </div>
@@ -553,7 +553,7 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="form-group d-flex justify-content-between">
-                                            <a href="javascript:void(0)" class="btn-01 is-white exemplarPro-family">Previous</a>
+                                            <a href="javascript:void(0)" class="btn-01 is-white exemplarPro-family" (click)="selectTab('bank')">Previous</a>
                                             <a href="javascript:void(0)" class="btn-01 fill exemplarPro-family" (click)="onSubmitattachment($event)">Submit</a>
                                         </div>
                                     </div>
