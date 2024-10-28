@@ -20,6 +20,7 @@ import { UpgradeComponent } from '../../upgrade/upgrade.component';
     CommonModule,
     RouterModule.forChild(AdminLayoutRoutes),
     FormsModule,
+    ReactiveFormsModule,
     ChartsModule,
     NgbModule,
     ToastrModule.forRoot()

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../login.service';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import {Router, ActivatedRoute} from "@angular/router";
+import { ErrorService } from '../error.service';
 
 @Component({
   selector: 'app-register',
@@ -17,7 +18,8 @@ export class LoginComponent implements OnInit {
     private apiService: LoginService,
     private formbuilder: FormBuilder,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private errorService: ErrorService
   ) { }
 
   ngOnInit() {
@@ -51,7 +53,7 @@ export class LoginComponent implements OnInit {
          });
         },
         error => {
-          alert(error.error.message);
+          this.errorService.error(error);
           console.log('error', error);
         }
       );

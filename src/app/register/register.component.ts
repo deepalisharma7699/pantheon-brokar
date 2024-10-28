@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../login.service';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import {Router} from "@angular/router";
+import { ErrorService } from '../error.service';
 
 @Component({
   selector: 'app-register',
@@ -16,7 +17,8 @@ export class RegisterComponent implements OnInit {
   constructor(
     private apiService: LoginService,
     private formbuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private errorService: ErrorService
   ) {}
 
   rag_form_0_show = false;
@@ -32,13 +34,13 @@ export class RegisterComponent implements OnInit {
     this.registrationForm = this.formbuilder.group({
       // 'broker_type': ['', Validators. ],
       // 'company_name': ['', Validators.required],
-      // 'orn_number': ['', Validators.required],
+      'orn_number': ['', Validators.required],
       'company_license_number': ['', Validators.required],
       'agencyname': ['', Validators.required],
       'email': ['', Validators.required],
       'mobile_number': ['', Validators.required],
-      'name': ['', Validators.required]
-      // 'consultantName': ['', Validators.required]
+      'name': ['', Validators.required],
+      'consultantName': ['', Validators.required]
     });
   }
   // Method to submit form data
@@ -54,15 +56,15 @@ export class RegisterComponent implements OnInit {
         data => {
         console.log('data', data);
         if(data.status == 'success'){
-          alert(data.message);
+          this.errorService.success(data.message);
           this.router.navigate(['/login']);
           return;
         }else{
-          alert(data.message);
+          this.errorService.errorMessage(data.message);
         }
         },
         error => {
-          alert(error.error.message);
+          this.errorService.error(error);
           console.log('error', error);
         }
       );

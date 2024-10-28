@@ -1,10 +1,11 @@
 import { Component, OnInit, ViewChild, ElementRef} from '@angular/core';
-// import html2canvas from 'html2canvas';
-// import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
+//import 'jspdf-autotable';
 import { ApiService } from '../api.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import * as html2pdf from 'html2pdf.js';
-
+import { ErrorService } from '../error.service';
 
 @Component({
   selector: 'app-sales-offer-pdf',
@@ -15,9 +16,12 @@ export class SalesOfferPdfComponent implements OnInit {
 
   constructor(
     private apiService: ApiService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private errorService: ErrorService
   ) { 
+    this.currentDate = this.getCurrentDate();
   }
+  currentDate: string;
   salesData = [];
   unitData:any; 
   downpayment:any;
@@ -38,7 +42,17 @@ export class SalesOfferPdfComponent implements OnInit {
     // get project payment plan
     this.getPaymentPlan();
   }
+  getCurrentDate(): string {
+    const date = new Date();
+    const day = this.addLeadingZero(date.getDate());
+    const month = this.addLeadingZero(date.getMonth() + 1); // Months are zero-based
+    const year = date.getFullYear();
 
+    return `${day}-${month}-${year}`; // Format as dd-mm-yyyy
+  }
+  private addLeadingZero(value: number): string {
+    return value < 10 ? `0${value}` : value.toString();
+  }
 
   getPaymentPlan(){
     // API call to get project data
@@ -55,7 +69,7 @@ export class SalesOfferPdfComponent implements OnInit {
         console.log("unitData",this.unitData);
       },
       error => {
-        alert(error.error.error_message);
+        this.errorService.error(error);
         console.log('error', error);
       }
     );
@@ -63,7 +77,7 @@ export class SalesOfferPdfComponent implements OnInit {
   
   @ViewChild('contentToConvert', { static: false }) contentToConvert!: ElementRef;
 
-  // async downloadPDF() {
+  // async downloadPDF(projectname, unitnumber) {
   //   const pdf = new jsPDF('p', 'mm', 'a4'); // Initialize PDF (A4 size)
   //   const content = this.contentToConvert.nativeElement;
 
@@ -83,16 +97,19 @@ export class SalesOfferPdfComponent implements OnInit {
 
   //     positionY += imgHeight; // Adjust position for next page
   //   }
-
-  //   pdf.save('pantheon-offer.pdf');
+    // pdf.autoTable({
+    //   startY: 10, // Starting Y position
+    //   margin: { top: 10 },
+    // });
+  //   pdf.save(projectname + unitnumber + this.currentDate +'.pdf');
   // }
 
-  downloadPDF() {
+  downloadPDF(projectname, unitnumber) {
     const element: HTMLElement = this.contentToConvert.nativeElement;
     // Define the options for the PDF
     const options = {
       margin: 0,
-      filename: 'generated-document.pdf',
+      filename: projectname + unitnumber + this.currentDate +'.pdf',
       image: { type: 'jpeg', quality: 0.98 },
       html2canvas: { scale: 2 },  // Higher scale for better quality
       jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' },
@@ -106,7 +123,7 @@ export class SalesOfferPdfComponent implements OnInit {
   }
 
   sharePdf(){
-    alert('coming soon');
+    this.errorService.errorMessage('coming soon');
   }
   
   

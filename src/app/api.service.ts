@@ -111,6 +111,21 @@ export class ApiService {
       })
     );
   }
+
+  contactRMForm(data) {
+    return this.http.post<any>(this.fullApiUrl + 'broker/post/contact-rm', data)
+      // tslint:disable-next-line:no-shadowed-variable
+      .pipe(map(data => {
+        return data;
+      }));
+  }
+  scheduleAppointmentForm(data) {
+    return this.http.post<any>(this.fullApiUrl + 'broker/post/schedule-appointment', data)
+      // tslint:disable-next-line:no-shadowed-variable
+      .pipe(map(data => {
+        return data;
+      }));
+  }
   
 
 

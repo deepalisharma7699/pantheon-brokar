@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup,ReactiveFormsModule, NgForm, Validators } from '@angular/forms';
 import * as Chartist from 'chartist';
 import { ApiService } from '../api.service';
 import { LocalStorageService } from '../local-storage.service';
+import { ErrorService } from '../error.service';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -9,22 +12,21 @@ import { LocalStorageService } from '../local-storage.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
-  showPopup: boolean = false;
-  selectedPurpose: string = '';
-
-  // Function to handle the request callback
-  requestCallback() {
-    console.log('Callback requested for purpose:', this.selectedPurpose);
-    alert(`Callback requested for purpose: ${this.selectedPurpose}`);
-    this.closePopup();  // Close popup after requesting callback
-  }
-
+  contactrmForm: FormGroup;
+  appointmentForm: FormGroup;
+   
+  showPopupRM: boolean = false;
+  showAppointment: boolean = false;
+  contactrmFormSubmitted = false;
+  appointmentFormSubmitted = false;
+  
   // Function to close the popup
   closePopup() {
-    this.showPopup = false;
+    this.showPopupRM = false;
   }
-  
+  closeAppointmentPopup() {
+    this.showAppointment = false;
+  }
 
   userdata: any;
 
@@ -80,13 +82,25 @@ export class DashboardComponent implements OnInit {
   }
   constructor(
     private apiService: ApiService,
-    private localStorageService: LocalStorageService
+    private localStorageService: LocalStorageService,
+    private formbuilder: FormBuilder,
+    private errorService: ErrorService,
   ) {
     this.userdata = this.localStorageService.getUserData();
     console.log('userdata', this.userdata);
    }
 
   ngOnInit() {
+    //console.log("showPopupRM", this.showPopupRM);
+    this.contactrmForm = this.formbuilder.group({     
+      'purpose': ['', [Validators.required]]
+    });
+
+    this.appointmentForm = this.formbuilder.group({     
+      'date': ['', [Validators.required]],
+      'time': ['', Validators.required],
+      'purpose': ['', Validators.required]
+    });
 
     this.chartColor = "#FFFFFF";
     this.canvas = document.getElementById("bigDashboardChart");
@@ -439,5 +453,55 @@ export class DashboardComponent implements OnInit {
       }
 
     this.lineChartGradientsNumbersType = 'bar';
+  }
+
+  onSubmitContactRM(event: Event) {
+    this.contactrmFormSubmitted = true;
+    if(this.contactrmForm.status == 'VALID'){
+      console.log('this.contactrmForm.value', this.contactrmForm.value);
+      
+      const data = this.contactrmForm.value;
+      this.apiService.contactRMForm(data).subscribe(
+        // tslint:disable-next-line:no-shadowed-variable
+        data => {
+        console.log('data', data);
+        if(data.status == 200){
+          this.errorService.success(data.message);
+          this.closePopup();
+        }else{
+          this.errorService.errorMessage(data.message);
+        }
+        },
+        error => {
+          this.errorService.error(error);
+          console.log('error', error);
+        }
+      );
+    }
+  }
+
+  onSubmitScheduleAppointment(event: Event) {
+    this.appointmentFormSubmitted = true;
+    if(this.appointmentForm.status == 'VALID'){
+      console.log('this.appointmentForm.value', this.appointmentForm.value);
+      
+      const data = this.appointmentForm.value;
+      this.apiService.scheduleAppointmentForm(data).subscribe(
+        // tslint:disable-next-line:no-shadowed-variable
+        data => {
+        console.log('data', data);
+        if(data.status == 200){
+          this.errorService.success(data.message);
+          this.closeAppointmentPopup();
+        }else{
+          this.errorService.errorMessage(data.message);
+        }
+        },
+        error => {
+          this.errorService.error(error);
+          console.log('error', error);
+        }
+      );
+    }
   }
 }

@@ -3,3 +3,11 @@
 .list-wrapper .remove {
     color: #FF5E6D !important;
 }
+
+.toast {
+    z-index: 99999 !important; /* Ensure it appears above other elements */
+  }
+
+  .error{
+    color:red;
+  }

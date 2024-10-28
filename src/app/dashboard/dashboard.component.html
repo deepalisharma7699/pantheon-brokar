@@ -41,7 +41,7 @@
             <div class="card-body">
               <div>
                 <h2>03</h2>
-                <h4>Total Sales <br>(Units)</h4>
+                <h4>Total Sold <br>(Units)</h4>
               </div>
               <span></span>
               <div>
@@ -63,7 +63,7 @@
               <div class="card card-chart home-card-3">
                 <div class="card-body">
                   <div>
-                    <a href="">Create Sales Offers</a>
+                    <a [routerLink]="['/sales-offer']">Create Sales Offers</a>
                   </div>
                 </div>
               </div>
@@ -72,7 +72,7 @@
               <div class="card card-chart home-card-3">
                 <div class="card-body">
                   <div>
-                    <a href="">Complete Your Profile</a>
+                    <a [routerLink]="['/broker-kyc']">Complete Your Profile</a>
                   </div>
                 </div>
               </div>
@@ -83,30 +83,30 @@
           <div class="card card-chart home-card-3">
             <div class="card-body">
               <div>
-                <a href="javascript:void(0)" (click)="showPopup = true">Contact RM</a>
+                <a href="javascript:void(0)" (click)="showPopupRM = true">Contact RM</a>
               </div>
               <div>
-                <a href="javascript:void(0)">Schedule Appointment</a>
+                <a href="javascript:void(0)" (click)="showAppointment = true">Schedule Appointment</a>
               </div>
               <div>
                 <a href="javascript:void(0)">Special Offers / Discounts</a>
               </div>
               <div>
-                <a href="/faqs">FAQs</a>
+                <a href="javascript:void(0)" [routerLink]="['/faqs']" >FAQs</a>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="popup-container" *ngIf="showPopup">
+    <!-- <div class="popup-container" *ngIf="showPopup">
       <div class="popup-content">
         <p>
           This is a two-liner paragraph. <br>
           Please select your purpose from the dropdown below.
         </p>
 
-        <!-- Dropdown for Purpose -->
+       
         <label for="purpose">Purpose:</label>
         <select id="purpose" [(ngModel)]="selectedPurpose">
           <option value="inquiry">Inquiry</option>
@@ -114,13 +114,13 @@
           <option value="feedback">Feedback</option>
         </select>
 
-        <!-- Button to Request Callback -->
+       
         <button (click)="requestCallback()">Request a callback</button>
 
-        <!-- Button to Close Popup -->
+      
         <button (click)="closePopup()">Close</button>
       </div>
-    </div>
+    </div> -->
     <!-- <div class="col-lg-4 col-md-6">
       <div class="card card-chart">
         <div class="card-header">
@@ -368,4 +368,74 @@
     </div>
    </div> -->
 
+</div>
+<div class="popup-container" *ngIf="showPopupRM">
+  <div class="popup-content">
+    <h3 class="mb-0">Contact RM</h3>
+    <p class="mb-4">Lorem ipsum dolor sit  consectetur.</p>
+    <form [formGroup]="contactrmForm" (ngSubmit)="onSubmitContactRM($event)">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="form-group">
+                    <select class="form-control minimal" formControlName="purpose">   
+                      <option value="">Select Purpose</option>
+                      <option value="support">Support</option>
+                      <option value="feedback">Feedback</option>
+                    </select>
+                    <div *ngIf="contactrmFormSubmitted && contactrmForm.controls.purpose?.errors?.required" class="error">
+                      Purpose is required.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn-01 fill exemplarPro-family">Submit</button>
+    </form>
+
+    <!-- Button to Close Popup -->
+    <a href="javascript:void(0)" class="btn-01 fill exemplarPro-family close-btn" (click)="closePopup()">X</a>
+  </div>
+</div>
+<div class="popup-container" *ngIf="showAppointment">
+  <div class="popup-content">
+    <h3 class="mb-0">Schedule an Appointment</h3>
+    <p class="mb-4">Lorem ipsum dolor sit  consectetur.</p>
+    <form [formGroup]="appointmentForm" (ngSubmit)="onSubmitScheduleAppointment($event)">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label>Select Date *</label>
+                    <input type="date" class="form-control" placeholder="Enter Date" formControlName="date"/>
+                    <div *ngIf="appointmentFormSubmitted && appointmentForm.controls.date?.errors?.required" class="error">
+                      Date is required.
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label>Select Time *</label>
+                    <input type="time" class="form-control" placeholder="Enter Time" formControlName="time"/>
+                    <div *ngIf="appointmentFormSubmitted && appointmentForm.controls.time?.errors?.required" class="error">
+                      Time is required.
+                 </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="form-group">
+                    <select class="form-control minimal" formControlName="purpose">                    
+                      <option value="">Select Purpose</option>
+                      <option value="support">Support</option>
+                      <option value="feedback">Feedback</option>
+                    </select>
+                    <div *ngIf="appointmentFormSubmitted && appointmentForm.controls.purpose?.errors?.required" class="error">
+                      Purpose is required.
+                 </div>>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn-01 fill exemplarPro-family">Submit</button>
+    </form>
+
+    <!-- Button to Close Popup -->
+    <a href="javascript:void(0)" class="btn-01 fill exemplarPro-family close-btn" (click)="closeAppointmentPopup()">X</a>
+  </div>
 </div>

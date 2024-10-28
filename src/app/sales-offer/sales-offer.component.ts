@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { LocalStorageService } from '../local-storage.service';
 import {Router, ActivatedRoute} from "@angular/router";
+import { ErrorService } from '../error.service';
 
 @Component({
   selector: 'app-sales-offer',
@@ -24,7 +25,8 @@ export class SalesOfferComponent implements OnInit {
   constructor(
     private apiService: ApiService,
     private localStorageService: LocalStorageService,
-    private router: Router
+    private router: Router,
+    private errorService: ErrorService
   ) { }
 
   ngOnInit(): void {
@@ -40,7 +42,7 @@ export class SalesOfferComponent implements OnInit {
         this.projectData = data.data;
       },
       error => {
-        alert(error.error.error_message);
+        this.errorService.error(error);
         console.log('error', error);
       }
     );
@@ -61,7 +63,7 @@ export class SalesOfferComponent implements OnInit {
         this.unitData = this.filteredUnitData = this.projectUnitData.unitData;
       },
       error => {
-        alert(error.error.error_message);
+        this.errorService.error(error);
         console.log('error', error);
       }
     );
@@ -70,10 +72,11 @@ export class SalesOfferComponent implements OnInit {
   generateSalesOffer(unitid){
 
     // this.router sales-offer-pdf
-    const url = this.router.serializeUrl(this.router.createUrlTree(['/sales-offer-pdf']));
+    const url = 'https://portal.pantheondevelopment.ae/saleoffer'; // this.router.serializeUrl(this.router.createUrlTree(['/sales-offer-pdf']));
     console.log('url',url);
     // Open the route in a new tab
-    window.open('/#'+url+'?u='+unitid, '_blank');
+    // window.open('/#'+url+'?u='+unitid, '_blank');
+    window.open(url+'?u='+unitid, '_blank');
   }
 
   filterConfig(val){

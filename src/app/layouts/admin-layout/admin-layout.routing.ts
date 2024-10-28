@@ -19,6 +19,7 @@ import { FaqsComponent } from '../../faqs/faqs.component';
 //import { RegisterComponent } from '../../register/register.component';
 
 export const AdminLayoutRoutes: Routes = [
+    { path: '',      component: DashboardComponent },
     { path: 'dashboard',      component: DashboardComponent },
     { path: 'user-profile',   component: UserProfileComponent },
     { path: 'broker-kyc',     component: BrokerKycComponent },

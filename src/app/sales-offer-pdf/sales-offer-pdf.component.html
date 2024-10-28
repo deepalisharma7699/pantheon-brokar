@@ -479,7 +479,7 @@
         <h1 class="card-title exemplarPro-family" style="text-transform: uppercase; color: white;font-size: 30px;">sales offer</h1>
         <div>
             <a class="btn-01 fill exemplarPro-family" style="padding: 6px 10px; display: inline-block; margin-right: 10px; cursor: pointer;" (click)="sharePdf()">Share</a>
-            <a class="btn-01 fill exemplarPro-family" style="padding: 6px 10px; display: inline-block; cursor: pointer;" (click)="downloadPDF()">Download</a>
+            <a class="btn-01 fill exemplarPro-family" style="padding: 6px 10px; display: inline-block; cursor: pointer;" (click)="downloadPDF(unitData.project_name, unitData.unit_number)">Download</a>
         </div>
     </div>
     <div #content>
@@ -495,6 +495,7 @@
         <div>
             <img src="../../assets/img/salesoffer/big-logo.png" alt="">
             <p>SALES OFFER</p>
+            <span>{{ currentDate | date:'fullDate' }}</span>
         </div>
     </div>
 
